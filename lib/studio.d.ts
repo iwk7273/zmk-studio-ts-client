@@ -745,6 +745,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -820,6 +828,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -1038,6 +1054,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -1952,6 +1976,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -2018,6 +2050,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -2171,7 +2211,36 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } & { [K_63 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_64 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                    encoderSlots?: ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] & ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & { [K_64 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_65 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["encoderSlots"], keyof {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_66 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -2180,10 +2249,10 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./meteorite").SaveChangesErrorCode | undefined;
-                } & { [K_65 in Exclude<keyof I["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_67 in Exclude<keyof I["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_66 in Exclude<keyof I["requestResponse"]["meteorite"], keyof Response9>]: never; }) | undefined;
-        } & { [K_67 in Exclude<keyof I["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
+            } & { [K_68 in Exclude<keyof I["requestResponse"]["meteorite"], keyof Response9>]: never; }) | undefined;
+        } & { [K_69 in Exclude<keyof I["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
         notification?: ({
             core?: {
                 lockStateChanged?: import("./core").LockState | undefined;
@@ -2249,6 +2318,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -2257,12 +2334,12 @@ export declare const Response: {
                 lockStateChanged?: import("./core").LockState | undefined;
             } & {
                 lockStateChanged?: import("./core").LockState | undefined;
-            } & { [K_68 in Exclude<keyof I["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
+            } & { [K_70 in Exclude<keyof I["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
             keymap?: ({
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_69 in Exclude<keyof I["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+            } & { [K_71 in Exclude<keyof I["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
             meteorite?: ({
                 configStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -2321,6 +2398,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
@@ -2381,6 +2466,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -2441,13 +2534,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_70 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_71 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                        } & { [K_72 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_73 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_72 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_73 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
+                    } & { [K_74 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_75 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -2486,7 +2579,7 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_74 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_76 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -2509,7 +2602,7 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_75 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_77 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -2532,13 +2625,42 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_76 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_78 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_77 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                    encoderSlots?: ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] & ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & { [K_79 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_80 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["encoderSlots"], keyof {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_81 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_78 in Exclude<keyof I["notification"]["meteorite"], keyof Notification12>]: never; }) | undefined;
-        } & { [K_79 in Exclude<keyof I["notification"], keyof Notification>]: never; }) | undefined;
-    } & { [K_80 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+            } & { [K_82 in Exclude<keyof I["notification"]["meteorite"], keyof Notification12>]: never; }) | undefined;
+        } & { [K_83 in Exclude<keyof I["notification"], keyof Notification>]: never; }) | undefined;
+    } & { [K_84 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         requestResponse?: {
             requestId?: number | undefined;
@@ -2753,6 +2875,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -2828,6 +2958,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -3046,6 +3184,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -3063,7 +3209,7 @@ export declare const Response: {
             } & {
                 noResponse?: boolean | undefined;
                 simpleError?: import("./meta").ErrorConditions | undefined;
-            } & { [K_81 in Exclude<keyof I_1["requestResponse"]["meta"], keyof Response5>]: never; }) | undefined;
+            } & { [K_85 in Exclude<keyof I_1["requestResponse"]["meta"], keyof Response5>]: never; }) | undefined;
             core?: ({
                 getDeviceInfo?: {
                     name?: string | undefined;
@@ -3080,11 +3226,11 @@ export declare const Response: {
                 } & {
                     name?: string | undefined;
                     serialNumber?: Uint8Array | undefined;
-                    capabilities?: (string[] & string[] & { [K_82 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
-                } & { [K_83 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
+                    capabilities?: (string[] & string[] & { [K_86 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
+                } & { [K_87 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
                 getLockState?: import("./core").LockState | undefined;
                 resetSettings?: boolean | undefined;
-            } & { [K_84 in Exclude<keyof I_1["requestResponse"]["core"], keyof Response6>]: never; }) | undefined;
+            } & { [K_88 in Exclude<keyof I_1["requestResponse"]["core"], keyof Response6>]: never; }) | undefined;
             behaviors?: ({
                 listAllBehaviors?: {
                     behaviors?: number[] | undefined;
@@ -3127,8 +3273,8 @@ export declare const Response: {
                 listAllBehaviors?: ({
                     behaviors?: number[] | undefined;
                 } & {
-                    behaviors?: (number[] & number[] & { [K_85 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-                } & { [K_86 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+                    behaviors?: (number[] & number[] & { [K_89 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+                } & { [K_90 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
                 getBehaviorDetails?: ({
                     id?: number | undefined;
                     displayName?: string | undefined;
@@ -3252,7 +3398,7 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         } & {
                             name?: string | undefined;
-                            nil?: ({} & {} & { [K_87 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                            nil?: ({} & {} & { [K_91 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                             constant?: number | undefined;
                             range?: ({
                                 min?: number | undefined;
@@ -3260,16 +3406,16 @@ export declare const Response: {
                             } & {
                                 min?: number | undefined;
                                 max?: number | undefined;
-                            } & { [K_88 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                            } & { [K_92 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                             hidUsage?: ({
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
                             } & {
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
-                            } & { [K_89 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                            layerId?: ({} & {} & { [K_90 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                        } & { [K_91 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_92 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                            } & { [K_93 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                            layerId?: ({} & {} & { [K_94 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                        } & { [K_95 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_96 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                             name?: string | undefined;
                             nil?: {} | undefined;
                             constant?: number | undefined;
@@ -3311,7 +3457,7 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         } & {
                             name?: string | undefined;
-                            nil?: ({} & {} & { [K_93 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                            nil?: ({} & {} & { [K_97 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                             constant?: number | undefined;
                             range?: ({
                                 min?: number | undefined;
@@ -3319,16 +3465,16 @@ export declare const Response: {
                             } & {
                                 min?: number | undefined;
                                 max?: number | undefined;
-                            } & { [K_94 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                            } & { [K_98 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                             hidUsage?: ({
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
                             } & {
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
-                            } & { [K_95 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                            layerId?: ({} & {} & { [K_96 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                        } & { [K_97 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_98 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                            } & { [K_99 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                            layerId?: ({} & {} & { [K_100 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                        } & { [K_101 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_102 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                             name?: string | undefined;
                             nil?: {} | undefined;
                             constant?: number | undefined;
@@ -3342,7 +3488,7 @@ export declare const Response: {
                             } | undefined;
                             layerId?: {} | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_99 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_100 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
+                    } & { [K_103 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_104 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
                         param1?: {
                             name?: string | undefined;
                             nil?: {} | undefined;
@@ -3372,8 +3518,8 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         }[] | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_101 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
-            } & { [K_102 in Exclude<keyof I_1["requestResponse"]["behaviors"], keyof Response7>]: never; }) | undefined;
+                } & { [K_105 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
+            } & { [K_106 in Exclude<keyof I_1["requestResponse"]["behaviors"], keyof Response7>]: never; }) | undefined;
             keymap?: ({
                 getKeymap?: {
                     layers?: {
@@ -3519,12 +3665,12 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_103 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_104 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
+                        } & { [K_107 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_108 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_105 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_106 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"], keyof {
+                    } & { [K_109 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_110 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -3535,7 +3681,7 @@ export declare const Response: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_107 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_111 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 setLayerBinding?: import("./keymap").SetLayerBindingResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -3544,7 +3690,7 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./keymap").SaveChangesErrorCode | undefined;
-                } & { [K_108 in Exclude<keyof I_1["requestResponse"]["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_112 in Exclude<keyof I_1["requestResponse"]["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
                 getPhysicalLayouts?: ({
                     activeLayoutIndex?: number | undefined;
@@ -3610,7 +3756,7 @@ export declare const Response: {
                             r?: number | undefined;
                             rx?: number | undefined;
                             ry?: number | undefined;
-                        } & { [K_109 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_110 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                        } & { [K_113 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_114 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                             width?: number | undefined;
                             height?: number | undefined;
                             x?: number | undefined;
@@ -3619,7 +3765,7 @@ export declare const Response: {
                             rx?: number | undefined;
                             ry?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_111 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_112 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
+                    } & { [K_115 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_116 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
                         name?: string | undefined;
                         keys?: {
                             width?: number | undefined;
@@ -3631,7 +3777,7 @@ export declare const Response: {
                             ry?: number | undefined;
                         }[] | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_113 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
+                } & { [K_117 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
                 setActivePhysicalLayout?: ({
                     ok?: {
                         layers?: {
@@ -3692,12 +3838,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_114 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_115 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                            } & { [K_118 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_119 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_116 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_117 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                        } & { [K_120 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_121 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                             id?: number | undefined;
                             name?: string | undefined;
                             bindings?: {
@@ -3708,9 +3854,9 @@ export declare const Response: {
                         }[]>]: never; }) | undefined;
                         availableLayers?: number | undefined;
                         maxLayerNameLength?: number | undefined;
-                    } & { [K_118 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                    } & { [K_122 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                     err?: import("./keymap").SetActivePhysicalLayoutErrorCode | undefined;
-                } & { [K_119 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+                } & { [K_123 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
                 moveLayer?: ({
                     ok?: {
                         layers?: {
@@ -3771,12 +3917,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_120 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_121 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                            } & { [K_124 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_125 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_122 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_123 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"], keyof {
+                        } & { [K_126 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_127 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"], keyof {
                             id?: number | undefined;
                             name?: string | undefined;
                             bindings?: {
@@ -3787,9 +3933,9 @@ export declare const Response: {
                         }[]>]: never; }) | undefined;
                         availableLayers?: number | undefined;
                         maxLayerNameLength?: number | undefined;
-                    } & { [K_124 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                    } & { [K_128 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                     err?: import("./keymap").MoveLayerErrorCode | undefined;
-                } & { [K_125 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
+                } & { [K_129 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
                 addLayer?: ({
                     ok?: {
                         index?: number | undefined;
@@ -3841,22 +3987,22 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_126 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_127 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                            } & { [K_130 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_131 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_128 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
-                    } & { [K_129 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
+                        } & { [K_132 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                    } & { [K_133 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
                     err?: import("./keymap").AddLayerErrorCode | undefined;
-                } & { [K_130 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
+                } & { [K_134 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
                 removeLayer?: ({
                     ok?: {} | undefined;
                     err?: import("./keymap").RemoveLayerErrorCode | undefined;
                 } & {
-                    ok?: ({} & {} & { [K_131 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
+                    ok?: ({} & {} & { [K_135 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
                     err?: import("./keymap").RemoveLayerErrorCode | undefined;
-                } & { [K_132 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
+                } & { [K_136 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
                 restoreLayer?: ({
                     ok?: {
                         id?: number | undefined;
@@ -3892,16 +4038,16 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_133 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_134 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
+                        } & { [K_137 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_138 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_135 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                    } & { [K_139 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
                     err?: import("./keymap").RestoreLayerErrorCode | undefined;
-                } & { [K_136 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
+                } & { [K_140 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
                 setLayerProps?: import("./keymap").SetLayerPropsResponse | undefined;
-            } & { [K_137 in Exclude<keyof I_1["requestResponse"]["keymap"], keyof Response8>]: never; }) | undefined;
+            } & { [K_141 in Exclude<keyof I_1["requestResponse"]["keymap"], keyof Response8>]: never; }) | undefined;
             meteorite?: ({
                 getConfigState?: {
                     schemaVersion?: number | undefined;
@@ -3960,6 +4106,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -4026,6 +4180,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -4086,13 +4248,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_138 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_139 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
+                        } & { [K_142 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_143 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_140 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_141 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"], keyof {
+                    } & { [K_144 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_145 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -4131,7 +4293,7 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_142 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_146 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -4154,7 +4316,7 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_143 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_147 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -4177,9 +4339,38 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_144 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_148 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_145 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                    encoderSlots?: ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] & ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & { [K_149 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_150 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["encoderSlots"], keyof {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_151 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -4188,10 +4379,10 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./meteorite").SaveChangesErrorCode | undefined;
-                } & { [K_146 in Exclude<keyof I_1["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_152 in Exclude<keyof I_1["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_147 in Exclude<keyof I_1["requestResponse"]["meteorite"], keyof Response9>]: never; }) | undefined;
-        } & { [K_148 in Exclude<keyof I_1["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
+            } & { [K_153 in Exclude<keyof I_1["requestResponse"]["meteorite"], keyof Response9>]: never; }) | undefined;
+        } & { [K_154 in Exclude<keyof I_1["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
         notification?: ({
             core?: {
                 lockStateChanged?: import("./core").LockState | undefined;
@@ -4257,6 +4448,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -4265,12 +4464,12 @@ export declare const Response: {
                 lockStateChanged?: import("./core").LockState | undefined;
             } & {
                 lockStateChanged?: import("./core").LockState | undefined;
-            } & { [K_149 in Exclude<keyof I_1["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
+            } & { [K_155 in Exclude<keyof I_1["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
             keymap?: ({
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_150 in Exclude<keyof I_1["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+            } & { [K_156 in Exclude<keyof I_1["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
             meteorite?: ({
                 configStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -4329,6 +4528,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
@@ -4389,6 +4596,14 @@ export declare const Response: {
                         osMode?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    encoderSlots?: {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -4449,13 +4664,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_151 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_152 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                        } & { [K_157 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_158 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_153 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_154 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
+                    } & { [K_159 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_160 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -4494,7 +4709,7 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_155 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_161 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -4517,7 +4732,7 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_156 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_162 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -4540,13 +4755,42 @@ export declare const Response: {
                         scrollLayer1?: number | undefined;
                         scrollLayer2?: number | undefined;
                         osMode?: number | undefined;
-                    } & { [K_157 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                    } & { [K_163 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_158 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                    encoderSlots?: ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[] & ({
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    } & { [K_164 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_165 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["encoderSlots"], keyof {
+                        position?: number | undefined;
+                        side?: import("./meteorite").EncoderSide | undefined;
+                        direction?: import("./meteorite").EncoderDirection | undefined;
+                        label?: string | undefined;
+                        sensorIndex?: number | undefined;
+                        slotOffset?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_166 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_159 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification12>]: never; }) | undefined;
-        } & { [K_160 in Exclude<keyof I_1["notification"], keyof Notification>]: never; }) | undefined;
-    } & { [K_161 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+            } & { [K_167 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification12>]: never; }) | undefined;
+        } & { [K_168 in Exclude<keyof I_1["notification"], keyof Notification>]: never; }) | undefined;
+    } & { [K_169 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const RequestResponse: {
     encode(message: RequestResponse, writer?: _m0.Writer): _m0.Writer;
@@ -4766,6 +5010,14 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -5680,6 +5932,14 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -5746,6 +6006,14 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -5899,7 +6167,36 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } & { [K_63 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_64 in Exclude<keyof I["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                encoderSlots?: ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] & ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & { [K_64 in Exclude<keyof I["meteorite"]["getConfigState"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_65 in Exclude<keyof I["meteorite"]["getConfigState"]["encoderSlots"], keyof {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_66 in Exclude<keyof I["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -5908,10 +6205,10 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./meteorite").SaveChangesErrorCode | undefined;
-            } & { [K_65 in Exclude<keyof I["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_67 in Exclude<keyof I["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_66 in Exclude<keyof I["meteorite"], keyof Response9>]: never; }) | undefined;
-    } & { [K_67 in Exclude<keyof I, keyof RequestResponse>]: never; }>(base?: I | undefined): RequestResponse;
+        } & { [K_68 in Exclude<keyof I["meteorite"], keyof Response9>]: never; }) | undefined;
+    } & { [K_69 in Exclude<keyof I, keyof RequestResponse>]: never; }>(base?: I | undefined): RequestResponse;
     fromPartial<I_1 extends {
         requestId?: number | undefined;
         meta?: {
@@ -6125,6 +6422,14 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -6142,7 +6447,7 @@ export declare const RequestResponse: {
         } & {
             noResponse?: boolean | undefined;
             simpleError?: import("./meta").ErrorConditions | undefined;
-        } & { [K_68 in Exclude<keyof I_1["meta"], keyof Response5>]: never; }) | undefined;
+        } & { [K_70 in Exclude<keyof I_1["meta"], keyof Response5>]: never; }) | undefined;
         core?: ({
             getDeviceInfo?: {
                 name?: string | undefined;
@@ -6159,11 +6464,11 @@ export declare const RequestResponse: {
             } & {
                 name?: string | undefined;
                 serialNumber?: Uint8Array | undefined;
-                capabilities?: (string[] & string[] & { [K_69 in Exclude<keyof I_1["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
-            } & { [K_70 in Exclude<keyof I_1["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
+                capabilities?: (string[] & string[] & { [K_71 in Exclude<keyof I_1["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
+            } & { [K_72 in Exclude<keyof I_1["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
             getLockState?: import("./core").LockState | undefined;
             resetSettings?: boolean | undefined;
-        } & { [K_71 in Exclude<keyof I_1["core"], keyof Response6>]: never; }) | undefined;
+        } & { [K_73 in Exclude<keyof I_1["core"], keyof Response6>]: never; }) | undefined;
         behaviors?: ({
             listAllBehaviors?: {
                 behaviors?: number[] | undefined;
@@ -6206,8 +6511,8 @@ export declare const RequestResponse: {
             listAllBehaviors?: ({
                 behaviors?: number[] | undefined;
             } & {
-                behaviors?: (number[] & number[] & { [K_72 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-            } & { [K_73 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+                behaviors?: (number[] & number[] & { [K_74 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+            } & { [K_75 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
             getBehaviorDetails?: ({
                 id?: number | undefined;
                 displayName?: string | undefined;
@@ -6331,7 +6636,7 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     } & {
                         name?: string | undefined;
-                        nil?: ({} & {} & { [K_74 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                        nil?: ({} & {} & { [K_76 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                         constant?: number | undefined;
                         range?: ({
                             min?: number | undefined;
@@ -6339,16 +6644,16 @@ export declare const RequestResponse: {
                         } & {
                             min?: number | undefined;
                             max?: number | undefined;
-                        } & { [K_75 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        } & { [K_77 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                         hidUsage?: ({
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
                         } & {
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
-                        } & { [K_76 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                        layerId?: ({} & {} & { [K_77 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                    } & { [K_78 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_79 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                        } & { [K_78 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_79 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_80 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_81 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                         name?: string | undefined;
                         nil?: {} | undefined;
                         constant?: number | undefined;
@@ -6390,7 +6695,7 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     } & {
                         name?: string | undefined;
-                        nil?: ({} & {} & { [K_80 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                        nil?: ({} & {} & { [K_82 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                         constant?: number | undefined;
                         range?: ({
                             min?: number | undefined;
@@ -6398,16 +6703,16 @@ export declare const RequestResponse: {
                         } & {
                             min?: number | undefined;
                             max?: number | undefined;
-                        } & { [K_81 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        } & { [K_83 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                         hidUsage?: ({
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
                         } & {
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
-                        } & { [K_82 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                        layerId?: ({} & {} & { [K_83 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                    } & { [K_84 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_85 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                        } & { [K_84 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_85 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_86 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_87 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                         name?: string | undefined;
                         nil?: {} | undefined;
                         constant?: number | undefined;
@@ -6421,7 +6726,7 @@ export declare const RequestResponse: {
                         } | undefined;
                         layerId?: {} | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_86 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_87 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
+                } & { [K_88 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_89 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
                     param1?: {
                         name?: string | undefined;
                         nil?: {} | undefined;
@@ -6451,8 +6756,8 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     }[] | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_88 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
-        } & { [K_89 in Exclude<keyof I_1["behaviors"], keyof Response7>]: never; }) | undefined;
+            } & { [K_90 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
+        } & { [K_91 in Exclude<keyof I_1["behaviors"], keyof Response7>]: never; }) | undefined;
         keymap?: ({
             getKeymap?: {
                 layers?: {
@@ -6598,12 +6903,12 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_90 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_91 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
+                    } & { [K_92 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_93 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_92 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_93 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"], keyof {
+                } & { [K_94 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_95 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"], keyof {
                     id?: number | undefined;
                     name?: string | undefined;
                     bindings?: {
@@ -6614,7 +6919,7 @@ export declare const RequestResponse: {
                 }[]>]: never; }) | undefined;
                 availableLayers?: number | undefined;
                 maxLayerNameLength?: number | undefined;
-            } & { [K_94 in Exclude<keyof I_1["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+            } & { [K_96 in Exclude<keyof I_1["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
             setLayerBinding?: import("./keymap").SetLayerBindingResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -6623,7 +6928,7 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./keymap").SaveChangesErrorCode | undefined;
-            } & { [K_95 in Exclude<keyof I_1["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_97 in Exclude<keyof I_1["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
             getPhysicalLayouts?: ({
                 activeLayoutIndex?: number | undefined;
@@ -6689,7 +6994,7 @@ export declare const RequestResponse: {
                         r?: number | undefined;
                         rx?: number | undefined;
                         ry?: number | undefined;
-                    } & { [K_96 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_97 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                    } & { [K_98 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_99 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                         width?: number | undefined;
                         height?: number | undefined;
                         x?: number | undefined;
@@ -6698,7 +7003,7 @@ export declare const RequestResponse: {
                         rx?: number | undefined;
                         ry?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_98 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_99 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
+                } & { [K_100 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_101 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
                     name?: string | undefined;
                     keys?: {
                         width?: number | undefined;
@@ -6710,7 +7015,7 @@ export declare const RequestResponse: {
                         ry?: number | undefined;
                     }[] | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_100 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
+            } & { [K_102 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
             setActivePhysicalLayout?: ({
                 ok?: {
                     layers?: {
@@ -6771,12 +7076,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_101 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_102 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                        } & { [K_103 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_104 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_103 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_104 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                    } & { [K_105 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_106 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -6787,9 +7092,9 @@ export declare const RequestResponse: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_105 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_107 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 err?: import("./keymap").SetActivePhysicalLayoutErrorCode | undefined;
-            } & { [K_106 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+            } & { [K_108 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
             moveLayer?: ({
                 ok?: {
                     layers?: {
@@ -6850,12 +7155,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_107 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_108 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                        } & { [K_109 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_110 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_109 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_110 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"], keyof {
+                    } & { [K_111 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_112 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -6866,9 +7171,9 @@ export declare const RequestResponse: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_111 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_113 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 err?: import("./keymap").MoveLayerErrorCode | undefined;
-            } & { [K_112 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
+            } & { [K_114 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
             addLayer?: ({
                 ok?: {
                     index?: number | undefined;
@@ -6920,22 +7225,22 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_113 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_114 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                        } & { [K_115 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_116 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_115 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
-                } & { [K_116 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
+                    } & { [K_117 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                } & { [K_118 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
                 err?: import("./keymap").AddLayerErrorCode | undefined;
-            } & { [K_117 in Exclude<keyof I_1["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
+            } & { [K_119 in Exclude<keyof I_1["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
             removeLayer?: ({
                 ok?: {} | undefined;
                 err?: import("./keymap").RemoveLayerErrorCode | undefined;
             } & {
-                ok?: ({} & {} & { [K_118 in Exclude<keyof I_1["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
+                ok?: ({} & {} & { [K_120 in Exclude<keyof I_1["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
                 err?: import("./keymap").RemoveLayerErrorCode | undefined;
-            } & { [K_119 in Exclude<keyof I_1["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
+            } & { [K_121 in Exclude<keyof I_1["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
             restoreLayer?: ({
                 ok?: {
                     id?: number | undefined;
@@ -6971,16 +7276,16 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_120 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_121 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
+                    } & { [K_122 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_123 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_122 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                } & { [K_124 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
                 err?: import("./keymap").RestoreLayerErrorCode | undefined;
-            } & { [K_123 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
+            } & { [K_125 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
             setLayerProps?: import("./keymap").SetLayerPropsResponse | undefined;
-        } & { [K_124 in Exclude<keyof I_1["keymap"], keyof Response8>]: never; }) | undefined;
+        } & { [K_126 in Exclude<keyof I_1["keymap"], keyof Response8>]: never; }) | undefined;
         meteorite?: ({
             getConfigState?: {
                 schemaVersion?: number | undefined;
@@ -7039,6 +7344,14 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -7105,6 +7418,14 @@ export declare const RequestResponse: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -7165,13 +7486,13 @@ export declare const RequestResponse: {
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
-                    } & { [K_125 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_126 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
+                    } & { [K_127 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_128 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
                         value?: number | undefined;
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_127 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_128 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"], keyof {
+                } & { [K_129 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_130 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"], keyof {
                     id?: string | undefined;
                     label?: string | undefined;
                     kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -7210,7 +7531,7 @@ export declare const RequestResponse: {
                     scrollLayer1?: number | undefined;
                     scrollLayer2?: number | undefined;
                     osMode?: number | undefined;
-                } & { [K_129 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                } & { [K_131 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -7233,7 +7554,7 @@ export declare const RequestResponse: {
                     scrollLayer1?: number | undefined;
                     scrollLayer2?: number | undefined;
                     osMode?: number | undefined;
-                } & { [K_130 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                } & { [K_132 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -7256,9 +7577,38 @@ export declare const RequestResponse: {
                     scrollLayer1?: number | undefined;
                     scrollLayer2?: number | undefined;
                     osMode?: number | undefined;
-                } & { [K_131 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                } & { [K_133 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_132 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                encoderSlots?: ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] & ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & { [K_134 in Exclude<keyof I_1["meteorite"]["getConfigState"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_135 in Exclude<keyof I_1["meteorite"]["getConfigState"]["encoderSlots"], keyof {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_136 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -7267,10 +7617,10 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./meteorite").SaveChangesErrorCode | undefined;
-            } & { [K_133 in Exclude<keyof I_1["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_137 in Exclude<keyof I_1["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_134 in Exclude<keyof I_1["meteorite"], keyof Response9>]: never; }) | undefined;
-    } & { [K_135 in Exclude<keyof I_1, keyof RequestResponse>]: never; }>(object: I_1): RequestResponse;
+        } & { [K_138 in Exclude<keyof I_1["meteorite"], keyof Response9>]: never; }) | undefined;
+    } & { [K_139 in Exclude<keyof I_1, keyof RequestResponse>]: never; }>(object: I_1): RequestResponse;
 };
 export declare const Notification: {
     encode(message: Notification, writer?: _m0.Writer): _m0.Writer;
@@ -7342,6 +7692,14 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } | undefined;
@@ -7414,6 +7772,14 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
@@ -7474,6 +7840,14 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -7627,10 +8001,39 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } & { [K_8 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_9 in Exclude<keyof I["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                encoderSlots?: ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] & ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & { [K_9 in Exclude<keyof I["meteorite"]["configStateChanged"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_10 in Exclude<keyof I["meteorite"]["configStateChanged"]["encoderSlots"], keyof {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_11 in Exclude<keyof I["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_10 in Exclude<keyof I["meteorite"], keyof Notification12>]: never; }) | undefined;
-    } & { [K_11 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
+        } & { [K_12 in Exclude<keyof I["meteorite"], keyof Notification12>]: never; }) | undefined;
+    } & { [K_13 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
     fromPartial<I_1 extends {
         core?: {
             lockStateChanged?: import("./core").LockState | undefined;
@@ -7696,6 +8099,14 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } | undefined;
@@ -7704,12 +8115,12 @@ export declare const Notification: {
             lockStateChanged?: import("./core").LockState | undefined;
         } & {
             lockStateChanged?: import("./core").LockState | undefined;
-        } & { [K_12 in Exclude<keyof I_1["core"], "lockStateChanged">]: never; }) | undefined;
+        } & { [K_14 in Exclude<keyof I_1["core"], "lockStateChanged">]: never; }) | undefined;
         keymap?: ({
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_13 in Exclude<keyof I_1["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+        } & { [K_15 in Exclude<keyof I_1["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
         meteorite?: ({
             configStateChanged?: {
                 schemaVersion?: number | undefined;
@@ -7768,6 +8179,14 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
@@ -7828,6 +8247,14 @@ export declare const Notification: {
                     osMode?: number | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                encoderSlots?: {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -7888,13 +8315,13 @@ export declare const Notification: {
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
-                    } & { [K_14 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_15 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                    } & { [K_16 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_17 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                         value?: number | undefined;
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_16 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_17 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"], keyof {
+                } & { [K_18 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_19 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"], keyof {
                     id?: string | undefined;
                     label?: string | undefined;
                     kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -7933,7 +8360,7 @@ export declare const Notification: {
                     scrollLayer1?: number | undefined;
                     scrollLayer2?: number | undefined;
                     osMode?: number | undefined;
-                } & { [K_18 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                } & { [K_20 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -7956,7 +8383,7 @@ export declare const Notification: {
                     scrollLayer1?: number | undefined;
                     scrollLayer2?: number | undefined;
                     osMode?: number | undefined;
-                } & { [K_19 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                } & { [K_21 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -7979,12 +8406,41 @@ export declare const Notification: {
                     scrollLayer1?: number | undefined;
                     scrollLayer2?: number | undefined;
                     osMode?: number | undefined;
-                } & { [K_20 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                } & { [K_22 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_21 in Exclude<keyof I_1["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                encoderSlots?: ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[] & ({
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                } & { [K_23 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["encoderSlots"][number], keyof import("./meteorite").EncoderSlot>]: never; })[] & { [K_24 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["encoderSlots"], keyof {
+                    position?: number | undefined;
+                    side?: import("./meteorite").EncoderSide | undefined;
+                    direction?: import("./meteorite").EncoderDirection | undefined;
+                    label?: string | undefined;
+                    sensorIndex?: number | undefined;
+                    slotOffset?: number | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_25 in Exclude<keyof I_1["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_22 in Exclude<keyof I_1["meteorite"], keyof Notification12>]: never; }) | undefined;
-    } & { [K_23 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
+        } & { [K_26 in Exclude<keyof I_1["meteorite"], keyof Notification12>]: never; }) | undefined;
+    } & { [K_27 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

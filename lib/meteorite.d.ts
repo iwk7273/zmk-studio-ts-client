@@ -26,6 +26,20 @@ export declare enum ConfigFieldKind {
 }
 export declare function configFieldKindFromJSON(object: any): ConfigFieldKind;
 export declare function configFieldKindToJSON(object: ConfigFieldKind): string;
+export declare enum EncoderSide {
+    ENCODER_SIDE_LEFT = 0,
+    ENCODER_SIDE_RIGHT = 1,
+    UNRECOGNIZED = -1
+}
+export declare function encoderSideFromJSON(object: any): EncoderSide;
+export declare function encoderSideToJSON(object: EncoderSide): string;
+export declare enum EncoderDirection {
+    ENCODER_DIRECTION_CW = 0,
+    ENCODER_DIRECTION_CCW = 1,
+    UNRECOGNIZED = -1
+}
+export declare function encoderDirectionFromJSON(object: any): EncoderDirection;
+export declare function encoderDirectionToJSON(object: EncoderDirection): string;
 export interface Request {
     getConfigState?: boolean | undefined;
     setConfig?: SetConfigRequest | undefined;
@@ -59,6 +73,7 @@ export interface ConfigState {
     saved: ConfigValues | undefined;
     defaults: ConfigValues | undefined;
     dirty: boolean;
+    encoderSlots: EncoderSlot[];
 }
 export interface ConfigValues {
     cpiIdx: number;
@@ -89,6 +104,14 @@ export interface ConfigFieldOption {
     label: string;
     displayValue: number;
     displayLabel: string;
+}
+export interface EncoderSlot {
+    position: number;
+    side: EncoderSide;
+    direction: EncoderDirection;
+    label: string;
+    sensorIndex: number;
+    slotOffset: number;
 }
 export declare const Request: {
     encode(message: Request, writer?: _m0.Writer): _m0.Writer;
@@ -285,6 +308,14 @@ export declare const Response: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -351,6 +382,14 @@ export declare const Response: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -504,7 +543,36 @@ export declare const Response: {
                 osMode?: number | undefined;
             } & { [K_6 in Exclude<keyof I["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
-        } & { [K_7 in Exclude<keyof I["getConfigState"], keyof ConfigState>]: never; }) | undefined;
+            encoderSlots?: ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] & ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & { [K_7 in Exclude<keyof I["getConfigState"]["encoderSlots"][number], keyof EncoderSlot>]: never; })[] & { [K_8 in Exclude<keyof I["getConfigState"]["encoderSlots"], keyof {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_9 in Exclude<keyof I["getConfigState"], keyof ConfigState>]: never; }) | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: ({
@@ -513,9 +581,9 @@ export declare const Response: {
         } & {
             ok?: boolean | undefined;
             err?: SaveChangesErrorCode | undefined;
-        } & { [K_8 in Exclude<keyof I["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
+        } & { [K_10 in Exclude<keyof I["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
         discardChanges?: boolean | undefined;
-    } & { [K_9 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+    } & { [K_11 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         getConfigState?: {
             schemaVersion?: number | undefined;
@@ -574,6 +642,14 @@ export declare const Response: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -640,6 +716,14 @@ export declare const Response: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -700,13 +784,13 @@ export declare const Response: {
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
-                } & { [K_10 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_11 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"], keyof {
+                } & { [K_12 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_13 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"], keyof {
                     value?: number | undefined;
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_12 in Exclude<keyof I_1["getConfigState"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_13 in Exclude<keyof I_1["getConfigState"]["fields"], keyof {
+            } & { [K_14 in Exclude<keyof I_1["getConfigState"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_15 in Exclude<keyof I_1["getConfigState"]["fields"], keyof {
                 id?: string | undefined;
                 label?: string | undefined;
                 kind?: ConfigFieldKind | undefined;
@@ -745,7 +829,7 @@ export declare const Response: {
                 scrollLayer1?: number | undefined;
                 scrollLayer2?: number | undefined;
                 osMode?: number | undefined;
-            } & { [K_14 in Exclude<keyof I_1["getConfigState"]["current"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_16 in Exclude<keyof I_1["getConfigState"]["current"], keyof ConfigValues>]: never; }) | undefined;
             saved?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -768,7 +852,7 @@ export declare const Response: {
                 scrollLayer1?: number | undefined;
                 scrollLayer2?: number | undefined;
                 osMode?: number | undefined;
-            } & { [K_15 in Exclude<keyof I_1["getConfigState"]["saved"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_17 in Exclude<keyof I_1["getConfigState"]["saved"], keyof ConfigValues>]: never; }) | undefined;
             defaults?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -791,9 +875,38 @@ export declare const Response: {
                 scrollLayer1?: number | undefined;
                 scrollLayer2?: number | undefined;
                 osMode?: number | undefined;
-            } & { [K_16 in Exclude<keyof I_1["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_18 in Exclude<keyof I_1["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
-        } & { [K_17 in Exclude<keyof I_1["getConfigState"], keyof ConfigState>]: never; }) | undefined;
+            encoderSlots?: ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] & ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & { [K_19 in Exclude<keyof I_1["getConfigState"]["encoderSlots"][number], keyof EncoderSlot>]: never; })[] & { [K_20 in Exclude<keyof I_1["getConfigState"]["encoderSlots"], keyof {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_21 in Exclude<keyof I_1["getConfigState"], keyof ConfigState>]: never; }) | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: ({
@@ -802,9 +915,9 @@ export declare const Response: {
         } & {
             ok?: boolean | undefined;
             err?: SaveChangesErrorCode | undefined;
-        } & { [K_18 in Exclude<keyof I_1["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
+        } & { [K_22 in Exclude<keyof I_1["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
         discardChanges?: boolean | undefined;
-    } & { [K_19 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+    } & { [K_23 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const Notification: {
     encode(message: Notification, writer?: _m0.Writer): _m0.Writer;
@@ -869,6 +982,14 @@ export declare const Notification: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
     } & {
@@ -929,6 +1050,14 @@ export declare const Notification: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -1082,9 +1211,38 @@ export declare const Notification: {
                 osMode?: number | undefined;
             } & { [K_6 in Exclude<keyof I["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
-        } & { [K_7 in Exclude<keyof I["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
+            encoderSlots?: ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] & ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & { [K_7 in Exclude<keyof I["configStateChanged"]["encoderSlots"][number], keyof EncoderSlot>]: never; })[] & { [K_8 in Exclude<keyof I["configStateChanged"]["encoderSlots"], keyof {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_9 in Exclude<keyof I["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
-    } & { [K_8 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
+    } & { [K_10 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
     fromPartial<I_1 extends {
         configStateChanged?: {
             schemaVersion?: number | undefined;
@@ -1143,6 +1301,14 @@ export declare const Notification: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
     } & {
@@ -1203,6 +1369,14 @@ export declare const Notification: {
                 osMode?: number | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            encoderSlots?: {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -1263,13 +1437,13 @@ export declare const Notification: {
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
-                } & { [K_9 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_10 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"], keyof {
+                } & { [K_11 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_12 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"], keyof {
                     value?: number | undefined;
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_11 in Exclude<keyof I_1["configStateChanged"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_12 in Exclude<keyof I_1["configStateChanged"]["fields"], keyof {
+            } & { [K_13 in Exclude<keyof I_1["configStateChanged"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_14 in Exclude<keyof I_1["configStateChanged"]["fields"], keyof {
                 id?: string | undefined;
                 label?: string | undefined;
                 kind?: ConfigFieldKind | undefined;
@@ -1308,7 +1482,7 @@ export declare const Notification: {
                 scrollLayer1?: number | undefined;
                 scrollLayer2?: number | undefined;
                 osMode?: number | undefined;
-            } & { [K_13 in Exclude<keyof I_1["configStateChanged"]["current"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_15 in Exclude<keyof I_1["configStateChanged"]["current"], keyof ConfigValues>]: never; }) | undefined;
             saved?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -1331,7 +1505,7 @@ export declare const Notification: {
                 scrollLayer1?: number | undefined;
                 scrollLayer2?: number | undefined;
                 osMode?: number | undefined;
-            } & { [K_14 in Exclude<keyof I_1["configStateChanged"]["saved"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_16 in Exclude<keyof I_1["configStateChanged"]["saved"], keyof ConfigValues>]: never; }) | undefined;
             defaults?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -1354,11 +1528,40 @@ export declare const Notification: {
                 scrollLayer1?: number | undefined;
                 scrollLayer2?: number | undefined;
                 osMode?: number | undefined;
-            } & { [K_15 in Exclude<keyof I_1["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_17 in Exclude<keyof I_1["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
-        } & { [K_16 in Exclude<keyof I_1["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
+            encoderSlots?: ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[] & ({
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            } & { [K_18 in Exclude<keyof I_1["configStateChanged"]["encoderSlots"][number], keyof EncoderSlot>]: never; })[] & { [K_19 in Exclude<keyof I_1["configStateChanged"]["encoderSlots"], keyof {
+                position?: number | undefined;
+                side?: EncoderSide | undefined;
+                direction?: EncoderDirection | undefined;
+                label?: string | undefined;
+                sensorIndex?: number | undefined;
+                slotOffset?: number | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_20 in Exclude<keyof I_1["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
-    } & { [K_17 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
+    } & { [K_21 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
 };
 export declare const SetConfigRequest: {
     encode(message: SetConfigRequest, writer?: _m0.Writer): _m0.Writer;
@@ -1524,6 +1727,14 @@ export declare const ConfigState: {
             osMode?: number | undefined;
         } | undefined;
         dirty?: boolean | undefined;
+        encoderSlots?: {
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        }[] | undefined;
     } & {
         schemaVersion?: number | undefined;
         firmwareFeatureVersion?: string | undefined;
@@ -1677,7 +1888,36 @@ export declare const ConfigState: {
             osMode?: number | undefined;
         } & { [K_6 in Exclude<keyof I["defaults"], keyof ConfigValues>]: never; }) | undefined;
         dirty?: boolean | undefined;
-    } & { [K_7 in Exclude<keyof I, keyof ConfigState>]: never; }>(base?: I | undefined): ConfigState;
+        encoderSlots?: ({
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        }[] & ({
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        } & {
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        } & { [K_7 in Exclude<keyof I["encoderSlots"][number], keyof EncoderSlot>]: never; })[] & { [K_8 in Exclude<keyof I["encoderSlots"], keyof {
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_9 in Exclude<keyof I, keyof ConfigState>]: never; }>(base?: I | undefined): ConfigState;
     fromPartial<I_1 extends {
         schemaVersion?: number | undefined;
         firmwareFeatureVersion?: string | undefined;
@@ -1735,6 +1975,14 @@ export declare const ConfigState: {
             osMode?: number | undefined;
         } | undefined;
         dirty?: boolean | undefined;
+        encoderSlots?: {
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        }[] | undefined;
     } & {
         schemaVersion?: number | undefined;
         firmwareFeatureVersion?: string | undefined;
@@ -1795,13 +2043,13 @@ export declare const ConfigState: {
                 label?: string | undefined;
                 displayValue?: number | undefined;
                 displayLabel?: string | undefined;
-            } & { [K_8 in Exclude<keyof I_1["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_9 in Exclude<keyof I_1["fields"][number]["options"], keyof {
+            } & { [K_10 in Exclude<keyof I_1["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_11 in Exclude<keyof I_1["fields"][number]["options"], keyof {
                 value?: number | undefined;
                 label?: string | undefined;
                 displayValue?: number | undefined;
                 displayLabel?: string | undefined;
             }[]>]: never; }) | undefined;
-        } & { [K_10 in Exclude<keyof I_1["fields"][number], keyof ConfigField>]: never; })[] & { [K_11 in Exclude<keyof I_1["fields"], keyof {
+        } & { [K_12 in Exclude<keyof I_1["fields"][number], keyof ConfigField>]: never; })[] & { [K_13 in Exclude<keyof I_1["fields"], keyof {
             id?: string | undefined;
             label?: string | undefined;
             kind?: ConfigFieldKind | undefined;
@@ -1840,7 +2088,7 @@ export declare const ConfigState: {
             scrollLayer1?: number | undefined;
             scrollLayer2?: number | undefined;
             osMode?: number | undefined;
-        } & { [K_12 in Exclude<keyof I_1["current"], keyof ConfigValues>]: never; }) | undefined;
+        } & { [K_14 in Exclude<keyof I_1["current"], keyof ConfigValues>]: never; }) | undefined;
         saved?: ({
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -1863,7 +2111,7 @@ export declare const ConfigState: {
             scrollLayer1?: number | undefined;
             scrollLayer2?: number | undefined;
             osMode?: number | undefined;
-        } & { [K_13 in Exclude<keyof I_1["saved"], keyof ConfigValues>]: never; }) | undefined;
+        } & { [K_15 in Exclude<keyof I_1["saved"], keyof ConfigValues>]: never; }) | undefined;
         defaults?: ({
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -1886,9 +2134,38 @@ export declare const ConfigState: {
             scrollLayer1?: number | undefined;
             scrollLayer2?: number | undefined;
             osMode?: number | undefined;
-        } & { [K_14 in Exclude<keyof I_1["defaults"], keyof ConfigValues>]: never; }) | undefined;
+        } & { [K_16 in Exclude<keyof I_1["defaults"], keyof ConfigValues>]: never; }) | undefined;
         dirty?: boolean | undefined;
-    } & { [K_15 in Exclude<keyof I_1, keyof ConfigState>]: never; }>(object: I_1): ConfigState;
+        encoderSlots?: ({
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        }[] & ({
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        } & {
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        } & { [K_17 in Exclude<keyof I_1["encoderSlots"][number], keyof EncoderSlot>]: never; })[] & { [K_18 in Exclude<keyof I_1["encoderSlots"], keyof {
+            position?: number | undefined;
+            side?: EncoderSide | undefined;
+            direction?: EncoderDirection | undefined;
+            label?: string | undefined;
+            sensorIndex?: number | undefined;
+            slotOffset?: number | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_19 in Exclude<keyof I_1, keyof ConfigState>]: never; }>(object: I_1): ConfigState;
 };
 export declare const ConfigValues: {
     encode(message: ConfigValues, writer?: _m0.Writer): _m0.Writer;
@@ -2071,6 +2348,42 @@ export declare const ConfigFieldOption: {
         displayValue?: number | undefined;
         displayLabel?: string | undefined;
     } & { [K_1 in Exclude<keyof I_1, keyof ConfigFieldOption>]: never; }>(object: I_1): ConfigFieldOption;
+};
+export declare const EncoderSlot: {
+    encode(message: EncoderSlot, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): EncoderSlot;
+    fromJSON(object: any): EncoderSlot;
+    toJSON(message: EncoderSlot): unknown;
+    create<I extends {
+        position?: number | undefined;
+        side?: EncoderSide | undefined;
+        direction?: EncoderDirection | undefined;
+        label?: string | undefined;
+        sensorIndex?: number | undefined;
+        slotOffset?: number | undefined;
+    } & {
+        position?: number | undefined;
+        side?: EncoderSide | undefined;
+        direction?: EncoderDirection | undefined;
+        label?: string | undefined;
+        sensorIndex?: number | undefined;
+        slotOffset?: number | undefined;
+    } & { [K in Exclude<keyof I, keyof EncoderSlot>]: never; }>(base?: I | undefined): EncoderSlot;
+    fromPartial<I_1 extends {
+        position?: number | undefined;
+        side?: EncoderSide | undefined;
+        direction?: EncoderDirection | undefined;
+        label?: string | undefined;
+        sensorIndex?: number | undefined;
+        slotOffset?: number | undefined;
+    } & {
+        position?: number | undefined;
+        side?: EncoderSide | undefined;
+        direction?: EncoderDirection | undefined;
+        label?: string | undefined;
+        sensorIndex?: number | undefined;
+        slotOffset?: number | undefined;
+    } & { [K_1 in Exclude<keyof I_1, keyof EncoderSlot>]: never; }>(object: I_1): EncoderSlot;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

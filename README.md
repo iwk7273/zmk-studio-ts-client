@@ -11,6 +11,8 @@ with the `meteorite` subsystem.
 The generated `core.GetDeviceInfoResponse` also includes a `capabilities` list. The Meteorite editor
 uses `meteorite.config` from that list as the safe gate before calling the fork-only Meteorite RPC
 subsystem, so older firmware remains connectable.
+The generated Meteorite types include `ConfigState.encoderSlots`, which lets the editor use
+firmware-provided rotary encoder key positions instead of local layout heuristics when supported.
 
 The upstream package assumes a system `protoc` is available when installing from git. This fork adds
 the npm `protoc` dev dependency so `npm run generate` and git dependency postinstall can run in the
