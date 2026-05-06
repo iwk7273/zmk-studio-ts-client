@@ -1,3 +1,4 @@
 [submodule "zmk-studio-messages"]
 	path = zmk-studio-messages
-	url = https://github.com/zmkfirmware/zmk-studio-messages.git
+	url = https://github.com/iwk7273/zmk-studio-messages.git
+	branch = feat/meteorite-custom-config-rpc
