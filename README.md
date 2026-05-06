@@ -15,6 +15,9 @@ subsystem, so older firmware remains connectable.
 The upstream package assumes a system `protoc` is available when installing from git. This fork adds
 the npm `protoc` dev dependency so `npm run generate` and git dependency postinstall can run in the
 Meteorite editor workspace without a separate system install.
+Generated `lib/` files are committed on this branch because npm prepares git dependencies without a
+`.git` directory in some environments; postinstall only regenerates from the submodule in a normal
+git checkout.
 
 ## API
 
