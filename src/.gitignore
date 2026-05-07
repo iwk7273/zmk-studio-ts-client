@@ -1,4 +1,5 @@
 behaviors.ts
+combos.ts
 core.ts
 keymap.ts
 meteorite.ts
