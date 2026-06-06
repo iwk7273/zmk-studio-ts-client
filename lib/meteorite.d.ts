@@ -34,11 +34,25 @@ export declare enum BallProfile {
 }
 export declare function ballProfileFromJSON(object: any): BallProfile;
 export declare function ballProfileToJSON(object: BallProfile): string;
-/** Shared accumulation threshold for all action profiles. */
+/**
+ * Shared accumulation threshold for all action profiles. Higher = less
+ * sensitive (needs a larger flick before one action fires).
+ *
+ * NOTE: the enum integer values are NOT in sensitivity order. LIGHT/NORMAL/
+ * HEAVY keep their original values 0/1/2 (so previously saved configs are not
+ * reinterpreted), and the two extremes added later are appended as 3/4. The
+ * sensitivity-ordered display sequence is therefore:
+ *   VERY_LIGHT, LIGHT, NORMAL, HEAVY, VERY_HEAVY  (= 3, 0, 1, 2, 4)
+ * Consumers that present a slider must use that display order, not the raw int.
+ */
 export declare enum BallSensitivity {
     BALL_SENSITIVITY_LIGHT = 0,
     BALL_SENSITIVITY_NORMAL = 1,
     BALL_SENSITIVITY_HEAVY = 2,
+    /** BALL_SENSITIVITY_VERY_LIGHT - most sensitive (lighter than LIGHT) */
+    BALL_SENSITIVITY_VERY_LIGHT = 3,
+    /** BALL_SENSITIVITY_VERY_HEAVY - least sensitive (heavier than HEAVY) */
+    BALL_SENSITIVITY_VERY_HEAVY = 4,
     UNRECOGNIZED = -1
 }
 export declare function ballSensitivityFromJSON(object: any): BallSensitivity;
