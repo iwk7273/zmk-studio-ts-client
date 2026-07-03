@@ -106,6 +106,11 @@ export interface ConfigState {
     saved: ConfigValues | undefined;
     defaults: ConfigValues | undefined;
     dirty: boolean;
+    /**
+     * Build version of the flashed firmware artifact (zmk-config-meteorite40
+     * release version). Empty when the firmware predates this field.
+     */
+    firmwareBuildVersion: string;
 }
 export interface ConfigValues {
     cpiIdx: number;
@@ -493,6 +498,7 @@ export declare const Response: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -586,6 +592,7 @@ export declare const Response: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -853,6 +860,7 @@ export declare const Response: {
                 } & { [K_17 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
             } & { [K_18 in Exclude<keyof I["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & { [K_19 in Exclude<keyof I["getConfigState"], keyof ConfigState>]: never; }) | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -950,6 +958,7 @@ export declare const Response: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -1043,6 +1052,7 @@ export declare const Response: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -1310,6 +1320,7 @@ export declare const Response: {
                 } & { [K_39 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
             } & { [K_40 in Exclude<keyof I_1["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & { [K_41 in Exclude<keyof I_1["getConfigState"], keyof ConfigState>]: never; }) | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -1413,6 +1424,7 @@ export declare const Notification: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
     } & {
@@ -1500,6 +1512,7 @@ export declare const Notification: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -1767,6 +1780,7 @@ export declare const Notification: {
                 } & { [K_17 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
             } & { [K_18 in Exclude<keyof I["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & { [K_19 in Exclude<keyof I["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
     } & { [K_20 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
@@ -1855,6 +1869,7 @@ export declare const Notification: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
     } & {
@@ -1942,6 +1957,7 @@ export declare const Notification: {
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & {
             schemaVersion?: number | undefined;
             firmwareFeatureVersion?: string | undefined;
@@ -2209,6 +2225,7 @@ export declare const Notification: {
                 } & { [K_38 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
             } & { [K_39 in Exclude<keyof I_1["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
+            firmwareBuildVersion?: string | undefined;
         } & { [K_40 in Exclude<keyof I_1["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
     } & { [K_41 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
@@ -2498,6 +2515,7 @@ export declare const ConfigState: {
             } | undefined;
         } | undefined;
         dirty?: boolean | undefined;
+        firmwareBuildVersion?: string | undefined;
     } & {
         schemaVersion?: number | undefined;
         firmwareFeatureVersion?: string | undefined;
@@ -2765,6 +2783,7 @@ export declare const ConfigState: {
             } & { [K_17 in Exclude<keyof I["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
         } & { [K_18 in Exclude<keyof I["defaults"], keyof ConfigValues>]: never; }) | undefined;
         dirty?: boolean | undefined;
+        firmwareBuildVersion?: string | undefined;
     } & { [K_19 in Exclude<keyof I, keyof ConfigState>]: never; }>(base?: I | undefined): ConfigState;
     fromPartial<I_1 extends {
         schemaVersion?: number | undefined;
@@ -2850,6 +2869,7 @@ export declare const ConfigState: {
             } | undefined;
         } | undefined;
         dirty?: boolean | undefined;
+        firmwareBuildVersion?: string | undefined;
     } & {
         schemaVersion?: number | undefined;
         firmwareFeatureVersion?: string | undefined;
@@ -3117,6 +3137,7 @@ export declare const ConfigState: {
             } & { [K_37 in Exclude<keyof I_1["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
         } & { [K_38 in Exclude<keyof I_1["defaults"], keyof ConfigValues>]: never; }) | undefined;
         dirty?: boolean | undefined;
+        firmwareBuildVersion?: string | undefined;
     } & { [K_39 in Exclude<keyof I_1, keyof ConfigState>]: never; }>(object: I_1): ConfigState;
 };
 export declare const ConfigValues: {

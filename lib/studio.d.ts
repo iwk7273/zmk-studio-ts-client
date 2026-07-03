@@ -1384,6 +1384,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -1540,6 +1541,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -1898,6 +1900,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -3655,6 +3658,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -3748,6 +3752,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -4015,6 +4020,7 @@ export declare const Response: {
                         } & { [K_104 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     } & { [K_105 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & { [K_106 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -4365,6 +4371,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -4490,6 +4497,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
@@ -4577,6 +4585,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -4844,6 +4853,7 @@ export declare const Response: {
                         } & { [K_143 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     } & { [K_144 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & { [K_145 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & { [K_146 in Exclude<keyof I["notification"]["meteorite"], keyof Notification14>]: never; }) | undefined;
@@ -5302,6 +5312,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -5458,6 +5469,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -5816,6 +5828,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -7573,6 +7586,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -7666,6 +7680,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -7933,6 +7948,7 @@ export declare const Response: {
                         } & { [K_260 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     } & { [K_261 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & { [K_262 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
@@ -8283,6 +8299,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -8408,6 +8425,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
@@ -8495,6 +8513,7 @@ export declare const Response: {
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     firmwareFeatureVersion?: string | undefined;
@@ -8762,6 +8781,7 @@ export declare const Response: {
                         } & { [K_299 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     } & { [K_300 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    firmwareBuildVersion?: string | undefined;
                 } & { [K_301 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & { [K_302 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification14>]: never; }) | undefined;
@@ -9225,6 +9245,7 @@ export declare const RequestResponse: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -10982,6 +11003,7 @@ export declare const RequestResponse: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -11075,6 +11097,7 @@ export declare const RequestResponse: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -11342,6 +11365,7 @@ export declare const RequestResponse: {
                     } & { [K_104 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                 } & { [K_105 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & { [K_106 in Exclude<keyof I["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -11927,6 +11951,7 @@ export declare const RequestResponse: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -13684,6 +13709,7 @@ export declare const RequestResponse: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -13777,6 +13803,7 @@ export declare const RequestResponse: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -14044,6 +14071,7 @@ export declare const RequestResponse: {
                     } & { [K_228 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                 } & { [K_229 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & { [K_230 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
@@ -14400,6 +14428,7 @@ export declare const Notification: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } | undefined;
@@ -14525,6 +14554,7 @@ export declare const Notification: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
@@ -14612,6 +14642,7 @@ export declare const Notification: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -14879,6 +14910,7 @@ export declare const Notification: {
                     } & { [K_19 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                 } & { [K_20 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & { [K_21 in Exclude<keyof I["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & { [K_22 in Exclude<keyof I["meteorite"], keyof Notification14>]: never; }) | undefined;
@@ -15100,6 +15132,7 @@ export declare const Notification: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } | undefined;
@@ -15225,6 +15258,7 @@ export declare const Notification: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
@@ -15312,6 +15346,7 @@ export declare const Notification: {
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 firmwareFeatureVersion?: string | undefined;
@@ -15579,6 +15614,7 @@ export declare const Notification: {
                     } & { [K_50 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                 } & { [K_51 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                firmwareBuildVersion?: string | undefined;
             } & { [K_52 in Exclude<keyof I_1["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & { [K_53 in Exclude<keyof I_1["meteorite"], keyof Notification14>]: never; }) | undefined;
