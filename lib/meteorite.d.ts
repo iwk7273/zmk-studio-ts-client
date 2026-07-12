@@ -134,6 +134,23 @@ export interface ConfigValues {
      * still set the scalar values without clobbering ball_config.
      */
     ballConfig: BallConfig | undefined;
+    /**
+     * Optional. Absence means "preserve existing timing state", so an older
+     * client can still update the original custom-config fields without
+     * resetting the user-selected tapping and power timings.
+     */
+    timingConfig: TimingConfig | undefined;
+}
+/**
+ * Keyboard behavior and power-management timings. All values are stored in
+ * user-facing units: tapping terms in milliseconds and power timeouts in
+ * seconds. A timeout value of 0 disables that automatic transition.
+ */
+export interface TimingConfig {
+    modTapTappingTermMs: number;
+    layerTapTappingTermMs: number;
+    idleTimeoutS: number;
+    idleSleepTimeoutS: number;
 }
 export interface BallConfig {
     /** Indexed by keymap layer index. Fixed max_count 16 (see meteorite.options). */
@@ -192,6 +209,12 @@ export declare const Request: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
         } | undefined;
         checkUnsavedChanges?: boolean | undefined;
@@ -220,6 +243,12 @@ export declare const Request: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
         } & {
             config?: ({
@@ -241,6 +270,12 @@ export declare const Request: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } & {
                 cpiIdx?: number | undefined;
@@ -282,12 +317,23 @@ export declare const Request: {
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
                 } & { [K_3 in Exclude<keyof I["setConfig"]["config"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_4 in Exclude<keyof I["setConfig"]["config"], keyof ConfigValues>]: never; }) | undefined;
-        } & { [K_5 in Exclude<keyof I["setConfig"], "config">]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_4 in Exclude<keyof I["setConfig"]["config"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_5 in Exclude<keyof I["setConfig"]["config"], keyof ConfigValues>]: never; }) | undefined;
+        } & { [K_6 in Exclude<keyof I["setConfig"], "config">]: never; }) | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: boolean | undefined;
         discardChanges?: boolean | undefined;
-    } & { [K_6 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
+    } & { [K_7 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
     fromPartial<I_1 extends {
         getConfigState?: boolean | undefined;
         setConfig?: {
@@ -310,6 +356,12 @@ export declare const Request: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
         } | undefined;
@@ -339,6 +391,12 @@ export declare const Request: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
         } & {
             config?: ({
@@ -361,6 +419,12 @@ export declare const Request: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } & {
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -381,7 +445,7 @@ export declare const Request: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_7 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_8 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -395,18 +459,29 @@ export declare const Request: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_8 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_9 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_9 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_10 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_10 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_11 in Exclude<keyof I_1["setConfig"]["config"], keyof ConfigValues>]: never; }) | undefined;
-        } & { [K_12 in Exclude<keyof I_1["setConfig"], "config">]: never; }) | undefined;
+                } & { [K_11 in Exclude<keyof I_1["setConfig"]["config"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_12 in Exclude<keyof I_1["setConfig"]["config"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_13 in Exclude<keyof I_1["setConfig"]["config"], keyof ConfigValues>]: never; }) | undefined;
+        } & { [K_14 in Exclude<keyof I_1["setConfig"], "config">]: never; }) | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: boolean | undefined;
         discardChanges?: boolean | undefined;
-    } & { [K_13 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
+    } & { [K_15 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
 };
 export declare const Response: {
     encode(message: Response, writer?: _m0.Writer): _m0.Writer;
@@ -454,6 +529,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -475,6 +556,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -495,6 +582,12 @@ export declare const Response: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -548,6 +641,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -569,6 +668,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -589,6 +694,12 @@ export declare const Response: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -696,6 +807,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } & {
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -736,7 +853,18 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
                 } & { [K_7 in Exclude<keyof I["getConfigState"]["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_8 in Exclude<keyof I["getConfigState"]["current"], keyof ConfigValues>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_8 in Exclude<keyof I["getConfigState"]["current"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_9 in Exclude<keyof I["getConfigState"]["current"], keyof ConfigValues>]: never; }) | undefined;
             saved?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -757,66 +885,11 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
-            } & {
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: ({
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
-                } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_9 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] & ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & { [K_10 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_11 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[]>]: never; }) | undefined;
-                } & { [K_12 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_13 in Exclude<keyof I["getConfigState"]["saved"], keyof ConfigValues>]: never; }) | undefined;
-            defaults?: ({
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: {
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } & {
                 cpiIdx?: number | undefined;
@@ -838,7 +911,7 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_14 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_10 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -852,16 +925,105 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_15 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_16 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_11 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_12 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_17 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_18 in Exclude<keyof I["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
+                } & { [K_13 in Exclude<keyof I["getConfigState"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_14 in Exclude<keyof I["getConfigState"]["saved"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_15 in Exclude<keyof I["getConfigState"]["saved"], keyof ConfigValues>]: never; }) | undefined;
+            defaults?: ({
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: {
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
+            } & {
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: ({
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } & {
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_16 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] & ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_17 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_18 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_19 in Exclude<keyof I["getConfigState"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_20 in Exclude<keyof I["getConfigState"]["defaults"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_21 in Exclude<keyof I["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
             firmwareBuildVersion?: string | undefined;
-        } & { [K_19 in Exclude<keyof I["getConfigState"], keyof ConfigState>]: never; }) | undefined;
+        } & { [K_22 in Exclude<keyof I["getConfigState"], keyof ConfigState>]: never; }) | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: ({
@@ -870,9 +1032,9 @@ export declare const Response: {
         } & {
             ok?: boolean | undefined;
             err?: SaveChangesErrorCode | undefined;
-        } & { [K_20 in Exclude<keyof I["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
+        } & { [K_23 in Exclude<keyof I["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
         discardChanges?: boolean | undefined;
-    } & { [K_21 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+    } & { [K_24 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         getConfigState?: {
             schemaVersion?: number | undefined;
@@ -914,6 +1076,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -935,6 +1103,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -955,6 +1129,12 @@ export declare const Response: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -1008,6 +1188,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -1029,6 +1215,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -1049,6 +1241,12 @@ export declare const Response: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -1113,13 +1311,13 @@ export declare const Response: {
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
-                } & { [K_22 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_23 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"], keyof {
+                } & { [K_25 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_26 in Exclude<keyof I_1["getConfigState"]["fields"][number]["options"], keyof {
                     value?: number | undefined;
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_24 in Exclude<keyof I_1["getConfigState"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_25 in Exclude<keyof I_1["getConfigState"]["fields"], keyof {
+            } & { [K_27 in Exclude<keyof I_1["getConfigState"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_28 in Exclude<keyof I_1["getConfigState"]["fields"], keyof {
                 id?: string | undefined;
                 label?: string | undefined;
                 kind?: ConfigFieldKind | undefined;
@@ -1156,6 +1354,12 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } & {
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -1176,7 +1380,7 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_26 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_29 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -1190,13 +1394,24 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_27 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_28 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_30 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_31 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_29 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_30 in Exclude<keyof I_1["getConfigState"]["current"], keyof ConfigValues>]: never; }) | undefined;
+                } & { [K_32 in Exclude<keyof I_1["getConfigState"]["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_33 in Exclude<keyof I_1["getConfigState"]["current"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_34 in Exclude<keyof I_1["getConfigState"]["current"], keyof ConfigValues>]: never; }) | undefined;
             saved?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -1217,66 +1432,11 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
-            } & {
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: ({
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
-                } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_31 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] & ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & { [K_32 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_33 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[]>]: never; }) | undefined;
-                } & { [K_34 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_35 in Exclude<keyof I_1["getConfigState"]["saved"], keyof ConfigValues>]: never; }) | undefined;
-            defaults?: ({
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: {
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } & {
                 cpiIdx?: number | undefined;
@@ -1298,7 +1458,7 @@ export declare const Response: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_36 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_35 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -1312,16 +1472,105 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_37 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_38 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_36 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_37 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_39 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_40 in Exclude<keyof I_1["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
+                } & { [K_38 in Exclude<keyof I_1["getConfigState"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_39 in Exclude<keyof I_1["getConfigState"]["saved"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_40 in Exclude<keyof I_1["getConfigState"]["saved"], keyof ConfigValues>]: never; }) | undefined;
+            defaults?: ({
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: {
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
+            } & {
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: ({
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } & {
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_41 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] & ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_42 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_43 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_44 in Exclude<keyof I_1["getConfigState"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_45 in Exclude<keyof I_1["getConfigState"]["defaults"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_46 in Exclude<keyof I_1["getConfigState"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
             firmwareBuildVersion?: string | undefined;
-        } & { [K_41 in Exclude<keyof I_1["getConfigState"], keyof ConfigState>]: never; }) | undefined;
+        } & { [K_47 in Exclude<keyof I_1["getConfigState"], keyof ConfigState>]: never; }) | undefined;
         setConfig?: SetConfigResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: ({
@@ -1330,9 +1579,9 @@ export declare const Response: {
         } & {
             ok?: boolean | undefined;
             err?: SaveChangesErrorCode | undefined;
-        } & { [K_42 in Exclude<keyof I_1["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
+        } & { [K_48 in Exclude<keyof I_1["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
         discardChanges?: boolean | undefined;
-    } & { [K_43 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+    } & { [K_49 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const Notification: {
     encode(message: Notification, writer?: _m0.Writer): _m0.Writer;
@@ -1380,6 +1629,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -1401,6 +1656,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -1421,6 +1682,12 @@ export declare const Notification: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -1468,6 +1735,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -1489,6 +1762,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -1509,6 +1788,12 @@ export declare const Notification: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -1616,6 +1901,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } & {
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -1656,7 +1947,18 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
                 } & { [K_7 in Exclude<keyof I["configStateChanged"]["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_8 in Exclude<keyof I["configStateChanged"]["current"], keyof ConfigValues>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_8 in Exclude<keyof I["configStateChanged"]["current"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_9 in Exclude<keyof I["configStateChanged"]["current"], keyof ConfigValues>]: never; }) | undefined;
             saved?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -1677,66 +1979,11 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
-            } & {
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: ({
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
-                } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_9 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] & ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & { [K_10 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_11 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[]>]: never; }) | undefined;
-                } & { [K_12 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_13 in Exclude<keyof I["configStateChanged"]["saved"], keyof ConfigValues>]: never; }) | undefined;
-            defaults?: ({
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: {
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } & {
                 cpiIdx?: number | undefined;
@@ -1758,7 +2005,7 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_14 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_10 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -1772,18 +2019,107 @@ export declare const Notification: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_15 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_16 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_11 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_12 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_17 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_18 in Exclude<keyof I["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
+                } & { [K_13 in Exclude<keyof I["configStateChanged"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_14 in Exclude<keyof I["configStateChanged"]["saved"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_15 in Exclude<keyof I["configStateChanged"]["saved"], keyof ConfigValues>]: never; }) | undefined;
+            defaults?: ({
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: {
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
+            } & {
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: ({
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } & {
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_16 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] & ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_17 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_18 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_19 in Exclude<keyof I["configStateChanged"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_20 in Exclude<keyof I["configStateChanged"]["defaults"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_21 in Exclude<keyof I["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
             firmwareBuildVersion?: string | undefined;
-        } & { [K_19 in Exclude<keyof I["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
+        } & { [K_22 in Exclude<keyof I["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
-    } & { [K_20 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
+    } & { [K_23 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
     fromPartial<I_1 extends {
         configStateChanged?: {
             schemaVersion?: number | undefined;
@@ -1825,6 +2161,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -1846,6 +2188,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -1866,6 +2214,12 @@ export declare const Notification: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -1913,6 +2267,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             saved?: {
                 cpiIdx?: number | undefined;
@@ -1934,6 +2294,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } | undefined;
             defaults?: {
                 cpiIdx?: number | undefined;
@@ -1954,6 +2320,12 @@ export declare const Notification: {
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } | undefined;
             dirty?: boolean | undefined;
@@ -2018,13 +2390,13 @@ export declare const Notification: {
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
-                } & { [K_21 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_22 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"], keyof {
+                } & { [K_24 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_25 in Exclude<keyof I_1["configStateChanged"]["fields"][number]["options"], keyof {
                     value?: number | undefined;
                     label?: string | undefined;
                     displayValue?: number | undefined;
                     displayLabel?: string | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_23 in Exclude<keyof I_1["configStateChanged"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_24 in Exclude<keyof I_1["configStateChanged"]["fields"], keyof {
+            } & { [K_26 in Exclude<keyof I_1["configStateChanged"]["fields"][number], keyof ConfigField>]: never; })[] & { [K_27 in Exclude<keyof I_1["configStateChanged"]["fields"], keyof {
                 id?: string | undefined;
                 label?: string | undefined;
                 kind?: ConfigFieldKind | undefined;
@@ -2061,6 +2433,12 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
             } & {
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -2081,7 +2459,7 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_25 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_28 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -2095,13 +2473,24 @@ export declare const Notification: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_26 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_27 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_29 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_30 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_28 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_29 in Exclude<keyof I_1["configStateChanged"]["current"], keyof ConfigValues>]: never; }) | undefined;
+                } & { [K_31 in Exclude<keyof I_1["configStateChanged"]["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_32 in Exclude<keyof I_1["configStateChanged"]["current"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_33 in Exclude<keyof I_1["configStateChanged"]["current"], keyof ConfigValues>]: never; }) | undefined;
             saved?: ({
                 cpiIdx?: number | undefined;
                 scrollDiv?: number | undefined;
@@ -2122,66 +2511,11 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } | undefined;
-            } & {
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: ({
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
-                } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_30 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] & ({
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    } & { [K_31 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_32 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[]>]: never; }) | undefined;
-                } & { [K_33 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_34 in Exclude<keyof I_1["configStateChanged"]["saved"], keyof ConfigValues>]: never; }) | undefined;
-            defaults?: ({
-                cpiIdx?: number | undefined;
-                scrollDiv?: number | undefined;
-                rotationIdx?: number | undefined;
-                scrollHRev?: number | undefined;
-                scrollVRev?: number | undefined;
-                scalingMode?: number | undefined;
-                scrollScalingMode?: number | undefined;
-                scrollLayer1?: number | undefined;
-                scrollLayer2?: number | undefined;
-                osMode?: number | undefined;
-                ballConfig?: {
-                    layerProfiles?: BallProfile[] | undefined;
-                    sensitivity?: BallSensitivity | undefined;
-                    user1Bindings?: {
-                        behaviorId?: number | undefined;
-                        param1?: number | undefined;
-                        param2?: number | undefined;
-                    }[] | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
                 } | undefined;
             } & {
                 cpiIdx?: number | undefined;
@@ -2203,7 +2537,7 @@ export declare const Notification: {
                         param2?: number | undefined;
                     }[] | undefined;
                 } & {
-                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_35 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_34 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                     sensitivity?: BallSensitivity | undefined;
                     user1Bindings?: ({
                         behaviorId?: number | undefined;
@@ -2217,18 +2551,107 @@ export declare const Notification: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_36 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_37 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                    } & { [K_35 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_36 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_38 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-            } & { [K_39 in Exclude<keyof I_1["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
+                } & { [K_37 in Exclude<keyof I_1["configStateChanged"]["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_38 in Exclude<keyof I_1["configStateChanged"]["saved"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_39 in Exclude<keyof I_1["configStateChanged"]["saved"], keyof ConfigValues>]: never; }) | undefined;
+            defaults?: ({
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: {
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } | undefined;
+                timingConfig?: {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } | undefined;
+            } & {
+                cpiIdx?: number | undefined;
+                scrollDiv?: number | undefined;
+                rotationIdx?: number | undefined;
+                scrollHRev?: number | undefined;
+                scrollVRev?: number | undefined;
+                scalingMode?: number | undefined;
+                scrollScalingMode?: number | undefined;
+                scrollLayer1?: number | undefined;
+                scrollLayer2?: number | undefined;
+                osMode?: number | undefined;
+                ballConfig?: ({
+                    layerProfiles?: BallProfile[] | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] | undefined;
+                } & {
+                    layerProfiles?: (BallProfile[] & BallProfile[] & { [K_40 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                    sensitivity?: BallSensitivity | undefined;
+                    user1Bindings?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[] & ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_41 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_42 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_43 in Exclude<keyof I_1["configStateChanged"]["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+                timingConfig?: ({
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & {
+                    modTapTappingTermMs?: number | undefined;
+                    layerTapTappingTermMs?: number | undefined;
+                    idleTimeoutS?: number | undefined;
+                    idleSleepTimeoutS?: number | undefined;
+                } & { [K_44 in Exclude<keyof I_1["configStateChanged"]["defaults"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+            } & { [K_45 in Exclude<keyof I_1["configStateChanged"]["defaults"], keyof ConfigValues>]: never; }) | undefined;
             dirty?: boolean | undefined;
             firmwareBuildVersion?: string | undefined;
-        } & { [K_40 in Exclude<keyof I_1["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
+        } & { [K_46 in Exclude<keyof I_1["configStateChanged"], keyof ConfigState>]: never; }) | undefined;
         unsavedChangesStatusChanged?: boolean | undefined;
-    } & { [K_41 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
+    } & { [K_47 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
 };
 export declare const SetConfigRequest: {
     encode(message: SetConfigRequest, writer?: _m0.Writer): _m0.Writer;
@@ -2256,6 +2679,12 @@ export declare const SetConfigRequest: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } | undefined;
     } & {
         config?: ({
@@ -2277,6 +2706,12 @@ export declare const SetConfigRequest: {
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[] | undefined;
+            } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
             } | undefined;
         } & {
             cpiIdx?: number | undefined;
@@ -2318,8 +2753,19 @@ export declare const SetConfigRequest: {
                     param2?: number | undefined;
                 }[]>]: never; }) | undefined;
             } & { [K_3 in Exclude<keyof I["config"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_4 in Exclude<keyof I["config"], keyof ConfigValues>]: never; }) | undefined;
-    } & { [K_5 in Exclude<keyof I, "config">]: never; }>(base?: I | undefined): SetConfigRequest;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_4 in Exclude<keyof I["config"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_5 in Exclude<keyof I["config"], keyof ConfigValues>]: never; }) | undefined;
+    } & { [K_6 in Exclude<keyof I, "config">]: never; }>(base?: I | undefined): SetConfigRequest;
     fromPartial<I_1 extends {
         config?: {
             cpiIdx?: number | undefined;
@@ -2340,6 +2786,12 @@ export declare const SetConfigRequest: {
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[] | undefined;
+            } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
             } | undefined;
         } | undefined;
     } & {
@@ -2363,6 +2815,12 @@ export declare const SetConfigRequest: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } & {
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -2383,7 +2841,7 @@ export declare const SetConfigRequest: {
                     param2?: number | undefined;
                 }[] | undefined;
             } & {
-                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_6 in Exclude<keyof I_1["config"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_7 in Exclude<keyof I_1["config"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                 sensitivity?: BallSensitivity | undefined;
                 user1Bindings?: ({
                     behaviorId?: number | undefined;
@@ -2397,14 +2855,25 @@ export declare const SetConfigRequest: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_7 in Exclude<keyof I_1["config"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_8 in Exclude<keyof I_1["config"]["ballConfig"]["user1Bindings"], keyof {
+                } & { [K_8 in Exclude<keyof I_1["config"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_9 in Exclude<keyof I_1["config"]["ballConfig"]["user1Bindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_9 in Exclude<keyof I_1["config"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_10 in Exclude<keyof I_1["config"], keyof ConfigValues>]: never; }) | undefined;
-    } & { [K_11 in Exclude<keyof I_1, "config">]: never; }>(object: I_1): SetConfigRequest;
+            } & { [K_10 in Exclude<keyof I_1["config"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_11 in Exclude<keyof I_1["config"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_12 in Exclude<keyof I_1["config"], keyof ConfigValues>]: never; }) | undefined;
+    } & { [K_13 in Exclude<keyof I_1, "config">]: never; }>(object: I_1): SetConfigRequest;
 };
 export declare const SaveChangesResponse: {
     encode(message: SaveChangesResponse, writer?: _m0.Writer): _m0.Writer;
@@ -2471,6 +2940,12 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } | undefined;
         saved?: {
             cpiIdx?: number | undefined;
@@ -2492,6 +2967,12 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } | undefined;
         defaults?: {
             cpiIdx?: number | undefined;
@@ -2512,6 +2993,12 @@ export declare const ConfigState: {
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[] | undefined;
+            } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
             } | undefined;
         } | undefined;
         dirty?: boolean | undefined;
@@ -2619,6 +3106,12 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } & {
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -2659,7 +3152,18 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[]>]: never; }) | undefined;
             } & { [K_7 in Exclude<keyof I["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_8 in Exclude<keyof I["current"], keyof ConfigValues>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_8 in Exclude<keyof I["current"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_9 in Exclude<keyof I["current"], keyof ConfigValues>]: never; }) | undefined;
         saved?: ({
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -2680,66 +3184,11 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
-        } & {
-            cpiIdx?: number | undefined;
-            scrollDiv?: number | undefined;
-            rotationIdx?: number | undefined;
-            scrollHRev?: number | undefined;
-            scrollVRev?: number | undefined;
-            scalingMode?: number | undefined;
-            scrollScalingMode?: number | undefined;
-            scrollLayer1?: number | undefined;
-            scrollLayer2?: number | undefined;
-            osMode?: number | undefined;
-            ballConfig?: ({
-                layerProfiles?: BallProfile[] | undefined;
-                sensitivity?: BallSensitivity | undefined;
-                user1Bindings?: {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[] | undefined;
-            } & {
-                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_9 in Exclude<keyof I["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
-                sensitivity?: BallSensitivity | undefined;
-                user1Bindings?: ({
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[] & ({
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                } & {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                } & { [K_10 in Exclude<keyof I["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_11 in Exclude<keyof I["saved"]["ballConfig"]["user1Bindings"], keyof {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[]>]: never; }) | undefined;
-            } & { [K_12 in Exclude<keyof I["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_13 in Exclude<keyof I["saved"], keyof ConfigValues>]: never; }) | undefined;
-        defaults?: ({
-            cpiIdx?: number | undefined;
-            scrollDiv?: number | undefined;
-            rotationIdx?: number | undefined;
-            scrollHRev?: number | undefined;
-            scrollVRev?: number | undefined;
-            scalingMode?: number | undefined;
-            scrollScalingMode?: number | undefined;
-            scrollLayer1?: number | undefined;
-            scrollLayer2?: number | undefined;
-            osMode?: number | undefined;
-            ballConfig?: {
-                layerProfiles?: BallProfile[] | undefined;
-                sensitivity?: BallSensitivity | undefined;
-                user1Bindings?: {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[] | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
             } | undefined;
         } & {
             cpiIdx?: number | undefined;
@@ -2761,7 +3210,7 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } & {
-                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_14 in Exclude<keyof I["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_10 in Exclude<keyof I["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                 sensitivity?: BallSensitivity | undefined;
                 user1Bindings?: ({
                     behaviorId?: number | undefined;
@@ -2775,16 +3224,105 @@ export declare const ConfigState: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_15 in Exclude<keyof I["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_16 in Exclude<keyof I["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                } & { [K_11 in Exclude<keyof I["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_12 in Exclude<keyof I["saved"]["ballConfig"]["user1Bindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_17 in Exclude<keyof I["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_18 in Exclude<keyof I["defaults"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_13 in Exclude<keyof I["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_14 in Exclude<keyof I["saved"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_15 in Exclude<keyof I["saved"], keyof ConfigValues>]: never; }) | undefined;
+        defaults?: ({
+            cpiIdx?: number | undefined;
+            scrollDiv?: number | undefined;
+            rotationIdx?: number | undefined;
+            scrollHRev?: number | undefined;
+            scrollVRev?: number | undefined;
+            scalingMode?: number | undefined;
+            scrollScalingMode?: number | undefined;
+            scrollLayer1?: number | undefined;
+            scrollLayer2?: number | undefined;
+            osMode?: number | undefined;
+            ballConfig?: {
+                layerProfiles?: BallProfile[] | undefined;
+                sensitivity?: BallSensitivity | undefined;
+                user1Bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+            } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
+        } & {
+            cpiIdx?: number | undefined;
+            scrollDiv?: number | undefined;
+            rotationIdx?: number | undefined;
+            scrollHRev?: number | undefined;
+            scrollVRev?: number | undefined;
+            scalingMode?: number | undefined;
+            scrollScalingMode?: number | undefined;
+            scrollLayer1?: number | undefined;
+            scrollLayer2?: number | undefined;
+            osMode?: number | undefined;
+            ballConfig?: ({
+                layerProfiles?: BallProfile[] | undefined;
+                sensitivity?: BallSensitivity | undefined;
+                user1Bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+            } & {
+                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_16 in Exclude<keyof I["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                sensitivity?: BallSensitivity | undefined;
+                user1Bindings?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] & ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_17 in Exclude<keyof I["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_18 in Exclude<keyof I["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_19 in Exclude<keyof I["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_20 in Exclude<keyof I["defaults"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_21 in Exclude<keyof I["defaults"], keyof ConfigValues>]: never; }) | undefined;
         dirty?: boolean | undefined;
         firmwareBuildVersion?: string | undefined;
-    } & { [K_19 in Exclude<keyof I, keyof ConfigState>]: never; }>(base?: I | undefined): ConfigState;
+    } & { [K_22 in Exclude<keyof I, keyof ConfigState>]: never; }>(base?: I | undefined): ConfigState;
     fromPartial<I_1 extends {
         schemaVersion?: number | undefined;
         firmwareFeatureVersion?: string | undefined;
@@ -2825,6 +3363,12 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } | undefined;
         saved?: {
             cpiIdx?: number | undefined;
@@ -2846,6 +3390,12 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } | undefined;
         defaults?: {
             cpiIdx?: number | undefined;
@@ -2866,6 +3416,12 @@ export declare const ConfigState: {
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[] | undefined;
+            } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
             } | undefined;
         } | undefined;
         dirty?: boolean | undefined;
@@ -2930,13 +3486,13 @@ export declare const ConfigState: {
                 label?: string | undefined;
                 displayValue?: number | undefined;
                 displayLabel?: string | undefined;
-            } & { [K_20 in Exclude<keyof I_1["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_21 in Exclude<keyof I_1["fields"][number]["options"], keyof {
+            } & { [K_23 in Exclude<keyof I_1["fields"][number]["options"][number], keyof ConfigFieldOption>]: never; })[] & { [K_24 in Exclude<keyof I_1["fields"][number]["options"], keyof {
                 value?: number | undefined;
                 label?: string | undefined;
                 displayValue?: number | undefined;
                 displayLabel?: string | undefined;
             }[]>]: never; }) | undefined;
-        } & { [K_22 in Exclude<keyof I_1["fields"][number], keyof ConfigField>]: never; })[] & { [K_23 in Exclude<keyof I_1["fields"], keyof {
+        } & { [K_25 in Exclude<keyof I_1["fields"][number], keyof ConfigField>]: never; })[] & { [K_26 in Exclude<keyof I_1["fields"], keyof {
             id?: string | undefined;
             label?: string | undefined;
             kind?: ConfigFieldKind | undefined;
@@ -2973,6 +3529,12 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
         } & {
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -2993,7 +3555,7 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } & {
-                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_24 in Exclude<keyof I_1["current"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_27 in Exclude<keyof I_1["current"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                 sensitivity?: BallSensitivity | undefined;
                 user1Bindings?: ({
                     behaviorId?: number | undefined;
@@ -3007,13 +3569,24 @@ export declare const ConfigState: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_25 in Exclude<keyof I_1["current"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_26 in Exclude<keyof I_1["current"]["ballConfig"]["user1Bindings"], keyof {
+                } & { [K_28 in Exclude<keyof I_1["current"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_29 in Exclude<keyof I_1["current"]["ballConfig"]["user1Bindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_27 in Exclude<keyof I_1["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_28 in Exclude<keyof I_1["current"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_30 in Exclude<keyof I_1["current"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_31 in Exclude<keyof I_1["current"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_32 in Exclude<keyof I_1["current"], keyof ConfigValues>]: never; }) | undefined;
         saved?: ({
             cpiIdx?: number | undefined;
             scrollDiv?: number | undefined;
@@ -3034,66 +3607,11 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } | undefined;
-        } & {
-            cpiIdx?: number | undefined;
-            scrollDiv?: number | undefined;
-            rotationIdx?: number | undefined;
-            scrollHRev?: number | undefined;
-            scrollVRev?: number | undefined;
-            scalingMode?: number | undefined;
-            scrollScalingMode?: number | undefined;
-            scrollLayer1?: number | undefined;
-            scrollLayer2?: number | undefined;
-            osMode?: number | undefined;
-            ballConfig?: ({
-                layerProfiles?: BallProfile[] | undefined;
-                sensitivity?: BallSensitivity | undefined;
-                user1Bindings?: {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[] | undefined;
-            } & {
-                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_29 in Exclude<keyof I_1["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
-                sensitivity?: BallSensitivity | undefined;
-                user1Bindings?: ({
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[] & ({
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                } & {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                } & { [K_30 in Exclude<keyof I_1["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_31 in Exclude<keyof I_1["saved"]["ballConfig"]["user1Bindings"], keyof {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[]>]: never; }) | undefined;
-            } & { [K_32 in Exclude<keyof I_1["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_33 in Exclude<keyof I_1["saved"], keyof ConfigValues>]: never; }) | undefined;
-        defaults?: ({
-            cpiIdx?: number | undefined;
-            scrollDiv?: number | undefined;
-            rotationIdx?: number | undefined;
-            scrollHRev?: number | undefined;
-            scrollVRev?: number | undefined;
-            scalingMode?: number | undefined;
-            scrollScalingMode?: number | undefined;
-            scrollLayer1?: number | undefined;
-            scrollLayer2?: number | undefined;
-            osMode?: number | undefined;
-            ballConfig?: {
-                layerProfiles?: BallProfile[] | undefined;
-                sensitivity?: BallSensitivity | undefined;
-                user1Bindings?: {
-                    behaviorId?: number | undefined;
-                    param1?: number | undefined;
-                    param2?: number | undefined;
-                }[] | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
             } | undefined;
         } & {
             cpiIdx?: number | undefined;
@@ -3115,7 +3633,7 @@ export declare const ConfigState: {
                     param2?: number | undefined;
                 }[] | undefined;
             } & {
-                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_34 in Exclude<keyof I_1["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_33 in Exclude<keyof I_1["saved"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
                 sensitivity?: BallSensitivity | undefined;
                 user1Bindings?: ({
                     behaviorId?: number | undefined;
@@ -3129,16 +3647,105 @@ export declare const ConfigState: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_35 in Exclude<keyof I_1["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_36 in Exclude<keyof I_1["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                } & { [K_34 in Exclude<keyof I_1["saved"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_35 in Exclude<keyof I_1["saved"]["ballConfig"]["user1Bindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_37 in Exclude<keyof I_1["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-        } & { [K_38 in Exclude<keyof I_1["defaults"], keyof ConfigValues>]: never; }) | undefined;
+            } & { [K_36 in Exclude<keyof I_1["saved"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_37 in Exclude<keyof I_1["saved"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_38 in Exclude<keyof I_1["saved"], keyof ConfigValues>]: never; }) | undefined;
+        defaults?: ({
+            cpiIdx?: number | undefined;
+            scrollDiv?: number | undefined;
+            rotationIdx?: number | undefined;
+            scrollHRev?: number | undefined;
+            scrollVRev?: number | undefined;
+            scalingMode?: number | undefined;
+            scrollScalingMode?: number | undefined;
+            scrollLayer1?: number | undefined;
+            scrollLayer2?: number | undefined;
+            osMode?: number | undefined;
+            ballConfig?: {
+                layerProfiles?: BallProfile[] | undefined;
+                sensitivity?: BallSensitivity | undefined;
+                user1Bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+            } | undefined;
+            timingConfig?: {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } | undefined;
+        } & {
+            cpiIdx?: number | undefined;
+            scrollDiv?: number | undefined;
+            rotationIdx?: number | undefined;
+            scrollHRev?: number | undefined;
+            scrollVRev?: number | undefined;
+            scalingMode?: number | undefined;
+            scrollScalingMode?: number | undefined;
+            scrollLayer1?: number | undefined;
+            scrollLayer2?: number | undefined;
+            osMode?: number | undefined;
+            ballConfig?: ({
+                layerProfiles?: BallProfile[] | undefined;
+                sensitivity?: BallSensitivity | undefined;
+                user1Bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+            } & {
+                layerProfiles?: (BallProfile[] & BallProfile[] & { [K_39 in Exclude<keyof I_1["defaults"]["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+                sensitivity?: BallSensitivity | undefined;
+                user1Bindings?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] & ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_40 in Exclude<keyof I_1["defaults"]["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_41 in Exclude<keyof I_1["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_42 in Exclude<keyof I_1["defaults"]["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+            timingConfig?: ({
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & {
+                modTapTappingTermMs?: number | undefined;
+                layerTapTappingTermMs?: number | undefined;
+                idleTimeoutS?: number | undefined;
+                idleSleepTimeoutS?: number | undefined;
+            } & { [K_43 in Exclude<keyof I_1["defaults"]["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+        } & { [K_44 in Exclude<keyof I_1["defaults"], keyof ConfigValues>]: never; }) | undefined;
         dirty?: boolean | undefined;
         firmwareBuildVersion?: string | undefined;
-    } & { [K_39 in Exclude<keyof I_1, keyof ConfigState>]: never; }>(object: I_1): ConfigState;
+    } & { [K_45 in Exclude<keyof I_1, keyof ConfigState>]: never; }>(object: I_1): ConfigState;
 };
 export declare const ConfigValues: {
     encode(message: ConfigValues, writer?: _m0.Writer): _m0.Writer;
@@ -3164,6 +3771,12 @@ export declare const ConfigValues: {
                 param1?: number | undefined;
                 param2?: number | undefined;
             }[] | undefined;
+        } | undefined;
+        timingConfig?: {
+            modTapTappingTermMs?: number | undefined;
+            layerTapTappingTermMs?: number | undefined;
+            idleTimeoutS?: number | undefined;
+            idleSleepTimeoutS?: number | undefined;
         } | undefined;
     } & {
         cpiIdx?: number | undefined;
@@ -3205,7 +3818,18 @@ export declare const ConfigValues: {
                 param2?: number | undefined;
             }[]>]: never; }) | undefined;
         } & { [K_3 in Exclude<keyof I["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-    } & { [K_4 in Exclude<keyof I, keyof ConfigValues>]: never; }>(base?: I | undefined): ConfigValues;
+        timingConfig?: ({
+            modTapTappingTermMs?: number | undefined;
+            layerTapTappingTermMs?: number | undefined;
+            idleTimeoutS?: number | undefined;
+            idleSleepTimeoutS?: number | undefined;
+        } & {
+            modTapTappingTermMs?: number | undefined;
+            layerTapTappingTermMs?: number | undefined;
+            idleTimeoutS?: number | undefined;
+            idleSleepTimeoutS?: number | undefined;
+        } & { [K_4 in Exclude<keyof I["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+    } & { [K_5 in Exclude<keyof I, keyof ConfigValues>]: never; }>(base?: I | undefined): ConfigValues;
     fromPartial<I_1 extends {
         cpiIdx?: number | undefined;
         scrollDiv?: number | undefined;
@@ -3225,6 +3849,12 @@ export declare const ConfigValues: {
                 param1?: number | undefined;
                 param2?: number | undefined;
             }[] | undefined;
+        } | undefined;
+        timingConfig?: {
+            modTapTappingTermMs?: number | undefined;
+            layerTapTappingTermMs?: number | undefined;
+            idleTimeoutS?: number | undefined;
+            idleSleepTimeoutS?: number | undefined;
         } | undefined;
     } & {
         cpiIdx?: number | undefined;
@@ -3246,7 +3876,7 @@ export declare const ConfigValues: {
                 param2?: number | undefined;
             }[] | undefined;
         } & {
-            layerProfiles?: (BallProfile[] & BallProfile[] & { [K_5 in Exclude<keyof I_1["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
+            layerProfiles?: (BallProfile[] & BallProfile[] & { [K_6 in Exclude<keyof I_1["ballConfig"]["layerProfiles"], keyof BallProfile[]>]: never; }) | undefined;
             sensitivity?: BallSensitivity | undefined;
             user1Bindings?: ({
                 behaviorId?: number | undefined;
@@ -3260,13 +3890,52 @@ export declare const ConfigValues: {
                 behaviorId?: number | undefined;
                 param1?: number | undefined;
                 param2?: number | undefined;
-            } & { [K_6 in Exclude<keyof I_1["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_7 in Exclude<keyof I_1["ballConfig"]["user1Bindings"], keyof {
+            } & { [K_7 in Exclude<keyof I_1["ballConfig"]["user1Bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_8 in Exclude<keyof I_1["ballConfig"]["user1Bindings"], keyof {
                 behaviorId?: number | undefined;
                 param1?: number | undefined;
                 param2?: number | undefined;
             }[]>]: never; }) | undefined;
-        } & { [K_8 in Exclude<keyof I_1["ballConfig"], keyof BallConfig>]: never; }) | undefined;
-    } & { [K_9 in Exclude<keyof I_1, keyof ConfigValues>]: never; }>(object: I_1): ConfigValues;
+        } & { [K_9 in Exclude<keyof I_1["ballConfig"], keyof BallConfig>]: never; }) | undefined;
+        timingConfig?: ({
+            modTapTappingTermMs?: number | undefined;
+            layerTapTappingTermMs?: number | undefined;
+            idleTimeoutS?: number | undefined;
+            idleSleepTimeoutS?: number | undefined;
+        } & {
+            modTapTappingTermMs?: number | undefined;
+            layerTapTappingTermMs?: number | undefined;
+            idleTimeoutS?: number | undefined;
+            idleSleepTimeoutS?: number | undefined;
+        } & { [K_10 in Exclude<keyof I_1["timingConfig"], keyof TimingConfig>]: never; }) | undefined;
+    } & { [K_11 in Exclude<keyof I_1, keyof ConfigValues>]: never; }>(object: I_1): ConfigValues;
+};
+export declare const TimingConfig: {
+    encode(message: TimingConfig, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): TimingConfig;
+    fromJSON(object: any): TimingConfig;
+    toJSON(message: TimingConfig): unknown;
+    create<I extends {
+        modTapTappingTermMs?: number | undefined;
+        layerTapTappingTermMs?: number | undefined;
+        idleTimeoutS?: number | undefined;
+        idleSleepTimeoutS?: number | undefined;
+    } & {
+        modTapTappingTermMs?: number | undefined;
+        layerTapTappingTermMs?: number | undefined;
+        idleTimeoutS?: number | undefined;
+        idleSleepTimeoutS?: number | undefined;
+    } & { [K in Exclude<keyof I, keyof TimingConfig>]: never; }>(base?: I | undefined): TimingConfig;
+    fromPartial<I_1 extends {
+        modTapTappingTermMs?: number | undefined;
+        layerTapTappingTermMs?: number | undefined;
+        idleTimeoutS?: number | undefined;
+        idleSleepTimeoutS?: number | undefined;
+    } & {
+        modTapTappingTermMs?: number | undefined;
+        layerTapTappingTermMs?: number | undefined;
+        idleTimeoutS?: number | undefined;
+        idleSleepTimeoutS?: number | undefined;
+    } & { [K_1 in Exclude<keyof I_1, keyof TimingConfig>]: never; }>(object: I_1): TimingConfig;
 };
 export declare const BallConfig: {
     encode(message: BallConfig, writer?: _m0.Writer): _m0.Writer;
