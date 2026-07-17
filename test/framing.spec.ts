@@ -98,8 +98,57 @@ describe('framing', () => {
 
       expect(done).toBeFalsy();
 
-      expect(value).toEqual(Uint8Array.from([1, 171, 172, 2, 3, 171, 4, 173, 5]));
+      expect(value).toEqual(
+        Uint8Array.from([1, 171, 172, 2, 3, 171, 4, 173, 5])
+      );
 
+      reader.releaseLock();
+    });
+
+    it('resynchronizes on a new SOF after an incomplete frame', async () => {
+      const input = Uint8Array.from([171, 1, 2, 171, 4, 5, 173]);
+      const readable: ReadableStream = ReadableStream.from([input]);
+      const converted = readable.pipeThrough(
+        new TransformStream(get_decoder())
+      );
+
+      const reader = converted.getReader();
+      const { done, value } = await reader.read();
+
+      expect(done).toBeFalsy();
+      expect(value).toEqual(Uint8Array.from([4, 5]));
+      reader.releaseLock();
+    });
+
+    it('resynchronizes when the replacement SOF arrives in a later chunk', async () => {
+      const readable: ReadableStream = ReadableStream.from([
+        Uint8Array.from([171, 1, 2]),
+        Uint8Array.from([171, 4, 5, 173]),
+      ]);
+      const converted = readable.pipeThrough(
+        new TransformStream(get_decoder())
+      );
+
+      const reader = converted.getReader();
+      const { done, value } = await reader.read();
+
+      expect(done).toBeFalsy();
+      expect(value).toEqual(Uint8Array.from([4, 5]));
+      reader.releaseLock();
+    });
+
+    it('ignores bytes before the next SOF', async () => {
+      const input = Uint8Array.from([1, 2, 3, 171, 4, 173]);
+      const readable: ReadableStream = ReadableStream.from([input]);
+      const converted = readable.pipeThrough(
+        new TransformStream(get_decoder())
+      );
+
+      const reader = converted.getReader();
+      const { done, value } = await reader.read();
+
+      expect(done).toBeFalsy();
+      expect(value).toEqual(Uint8Array.from([4]));
       reader.releaseLock();
     });
   });

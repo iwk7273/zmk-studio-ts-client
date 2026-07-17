@@ -53,13 +53,20 @@ export function get_decoder(): Transformer<Uint8Array, Uint8Array> {
             state = DecodeState.AWAITING_DATA;
             break;
           default:
-            return controller.error('Expected SoF to start decoding');
+            // Ignore bytes outside a frame. This lets a newly attached reader
+            // synchronize with a stream that started before it subscribed.
+            break;
         }
         break;
       case DecodeState.AWAITING_DATA:
         switch (b) {
           case FRAMING_SOF:
-            return controller.error('Unexpected SoF mid-frame');
+            // An unescaped SOF cannot be payload. Discard the incomplete frame
+            // and treat this byte as the beginning of the next one instead of
+            // permanently erroring the stream.
+            data = [];
+            state = DecodeState.AWAITING_DATA;
+            break;
           case FRAMING_ESC:
             state = DecodeState.ESCAPED;
             break;
