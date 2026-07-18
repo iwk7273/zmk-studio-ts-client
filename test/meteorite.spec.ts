@@ -1,6 +1,9 @@
 import {
+  ConfigValues,
   HoldTapConfig,
   HoldTapFlavor,
+  PointerConfig,
+  PointerProfile,
   TimingConfig,
 } from '../src/meteorite';
 
@@ -55,6 +58,47 @@ describe('meteorite timing protobuf compatibility', () => {
 
     expect(decoded.flavor).toBe(4);
     expect(Array.from(HoldTapConfig.encode(decoded).finish())).toEqual([
+      0x08,
+      0x04,
+    ]);
+  });
+});
+
+describe('meteorite pointer profile protobuf compatibility', () => {
+  it('round-trips optional pointer profile presence', () => {
+    const message = ConfigValues.create({
+      cpiIdx: 2,
+      scalingMode: 1,
+      pointerConfig: {
+        profile: PointerProfile.POINTER_PROFILE_RESPONSIVE,
+      },
+    });
+
+    const decoded = ConfigValues.decode(ConfigValues.encode(message).finish());
+
+    expect(decoded).toEqual(message);
+    expect(decoded.pointerConfig).toEqual({
+      profile: PointerProfile.POINTER_PROFILE_RESPONSIVE,
+    });
+  });
+
+  it('keeps pointer profile absent when decoding an older config message', () => {
+    const oldMessage = ConfigValues.create({
+      cpiIdx: 1,
+      scalingMode: 1,
+    });
+
+    const decoded = ConfigValues.decode(ConfigValues.encode(oldMessage).finish());
+
+    expect(decoded.pointerConfig).toBeUndefined();
+    expect(decoded).toMatchObject({ cpiIdx: 1, scalingMode: 1 });
+  });
+
+  it('preserves an unknown pointer profile enum in the binary codec', () => {
+    const decoded = PointerConfig.decode(Uint8Array.from([0x08, 0x04]));
+
+    expect(decoded.profile).toBe(4);
+    expect(Array.from(PointerConfig.encode(decoded).finish())).toEqual([
       0x08,
       0x04,
     ]);
