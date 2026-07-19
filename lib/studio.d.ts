@@ -149,6 +149,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
             } | undefined;
@@ -399,6 +405,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
             } | undefined;
@@ -446,6 +458,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
             } & {
@@ -487,6 +505,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -569,15 +593,32 @@ export declare const Request: {
                     } & { [K_21 in Exclude<keyof I["meteorite"]["setConfig"]["config"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_22 in Exclude<keyof I["meteorite"]["setConfig"]["config"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_23 in Exclude<keyof I["meteorite"]["setConfig"]["config"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
-            } & { [K_24 in Exclude<keyof I["meteorite"]["setConfig"], "config">]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_22 in Exclude<keyof I["meteorite"]["setConfig"]["config"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_23 in Exclude<keyof I["meteorite"]["setConfig"]["config"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_24 in Exclude<keyof I["meteorite"]["setConfig"]["config"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+            } & { [K_25 in Exclude<keyof I["meteorite"]["setConfig"], "config">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_25 in Exclude<keyof I["meteorite"], keyof Request4>]: never; }) | undefined;
+        } & { [K_26 in Exclude<keyof I["meteorite"], keyof Request4>]: never; }) | undefined;
         combos?: ({
             getComboState?: boolean | undefined;
             setCombo?: {
@@ -652,20 +693,20 @@ export declare const Request: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_26 in Exclude<keyof I["combos"]["setCombo"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_27 in Exclude<keyof I["combos"]["setCombo"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_28 in Exclude<keyof I["combos"]["setCombo"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_27 in Exclude<keyof I["combos"]["setCombo"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_28 in Exclude<keyof I["combos"]["setCombo"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_29 in Exclude<keyof I["combos"]["setCombo"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_29 in Exclude<keyof I["combos"]["setCombo"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
-            } & { [K_30 in Exclude<keyof I["combos"]["setCombo"], "combo">]: never; }) | undefined;
+                } & { [K_30 in Exclude<keyof I["combos"]["setCombo"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+            } & { [K_31 in Exclude<keyof I["combos"]["setCombo"], "combo">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_31 in Exclude<keyof I["combos"], keyof Request5>]: never; }) | undefined;
-    } & { [K_32 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
+        } & { [K_32 in Exclude<keyof I["combos"], keyof Request5>]: never; }) | undefined;
+    } & { [K_33 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
     fromPartial<I_1 extends {
         requestId?: number | undefined;
         core?: {
@@ -773,6 +814,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
             } | undefined;
@@ -817,7 +864,7 @@ export declare const Request: {
             getLockState?: boolean | undefined;
             lock?: boolean | undefined;
             resetSettings?: boolean | undefined;
-        } & { [K_33 in Exclude<keyof I_1["core"], keyof Request1>]: never; }) | undefined;
+        } & { [K_34 in Exclude<keyof I_1["core"], keyof Request1>]: never; }) | undefined;
         behaviors?: ({
             listAllBehaviors?: boolean | undefined;
             getBehaviorDetails?: {
@@ -829,8 +876,8 @@ export declare const Request: {
                 behaviorId?: number | undefined;
             } & {
                 behaviorId?: number | undefined;
-            } & { [K_34 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], "behaviorId">]: never; }) | undefined;
-        } & { [K_35 in Exclude<keyof I_1["behaviors"], keyof Request2>]: never; }) | undefined;
+            } & { [K_35 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], "behaviorId">]: never; }) | undefined;
+        } & { [K_36 in Exclude<keyof I_1["behaviors"], keyof Request2>]: never; }) | undefined;
         keymap?: ({
             getKeymap?: boolean | undefined;
             setLayerBinding?: {
@@ -903,8 +950,8 @@ export declare const Request: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_36 in Exclude<keyof I_1["keymap"]["setLayerBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-            } & { [K_37 in Exclude<keyof I_1["keymap"]["setLayerBinding"], keyof import("./keymap").SetLayerBindingRequest>]: never; }) | undefined;
+                } & { [K_37 in Exclude<keyof I_1["keymap"]["setLayerBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+            } & { [K_38 in Exclude<keyof I_1["keymap"]["setLayerBinding"], keyof import("./keymap").SetLayerBindingRequest>]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
@@ -916,27 +963,27 @@ export declare const Request: {
             } & {
                 startIndex?: number | undefined;
                 destIndex?: number | undefined;
-            } & { [K_38 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerRequest>]: never; }) | undefined;
-            addLayer?: ({} & {} & { [K_39 in Exclude<keyof I_1["keymap"]["addLayer"], never>]: never; }) | undefined;
+            } & { [K_39 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerRequest>]: never; }) | undefined;
+            addLayer?: ({} & {} & { [K_40 in Exclude<keyof I_1["keymap"]["addLayer"], never>]: never; }) | undefined;
             removeLayer?: ({
                 layerIndex?: number | undefined;
             } & {
                 layerIndex?: number | undefined;
-            } & { [K_40 in Exclude<keyof I_1["keymap"]["removeLayer"], "layerIndex">]: never; }) | undefined;
+            } & { [K_41 in Exclude<keyof I_1["keymap"]["removeLayer"], "layerIndex">]: never; }) | undefined;
             restoreLayer?: ({
                 layerId?: number | undefined;
                 atIndex?: number | undefined;
             } & {
                 layerId?: number | undefined;
                 atIndex?: number | undefined;
-            } & { [K_41 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerRequest>]: never; }) | undefined;
+            } & { [K_42 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerRequest>]: never; }) | undefined;
             setLayerProps?: ({
                 layerId?: number | undefined;
                 name?: string | undefined;
             } & {
                 layerId?: number | undefined;
                 name?: string | undefined;
-            } & { [K_42 in Exclude<keyof I_1["keymap"]["setLayerProps"], keyof import("./keymap").SetLayerPropsRequest>]: never; }) | undefined;
+            } & { [K_43 in Exclude<keyof I_1["keymap"]["setLayerProps"], keyof import("./keymap").SetLayerPropsRequest>]: never; }) | undefined;
             setLayerSensorBinding?: ({
                 layerId?: number | undefined;
                 sensorIndex?: number | undefined;
@@ -956,8 +1003,8 @@ export declare const Request: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_43 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-            } & { [K_44 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"], keyof import("./keymap").SetLayerSensorBindingRequest>]: never; }) | undefined;
+                } & { [K_44 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+            } & { [K_45 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"], keyof import("./keymap").SetLayerSensorBindingRequest>]: never; }) | undefined;
             setLayerSensorBindingParam?: ({
                 layerId?: number | undefined;
                 sensorIndex?: number | undefined;
@@ -979,9 +1026,9 @@ export declare const Request: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_45 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-            } & { [K_46 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"], keyof import("./keymap").SetLayerSensorBindingParamRequest>]: never; }) | undefined;
-        } & { [K_47 in Exclude<keyof I_1["keymap"], keyof Request3>]: never; }) | undefined;
+                } & { [K_46 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+            } & { [K_47 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"], keyof import("./keymap").SetLayerSensorBindingParamRequest>]: never; }) | undefined;
+        } & { [K_48 in Exclude<keyof I_1["keymap"], keyof Request3>]: never; }) | undefined;
         meteorite?: ({
             getConfigState?: boolean | undefined;
             setConfig?: {
@@ -1023,6 +1070,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
             } | undefined;
@@ -1070,6 +1123,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
             } & {
@@ -1111,6 +1170,12 @@ export declare const Request: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -1132,7 +1197,7 @@ export declare const Request: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_48 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_49 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -1146,12 +1211,12 @@ export declare const Request: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_49 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_50 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_50 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_51 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_51 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_52 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -1180,7 +1245,7 @@ export declare const Request: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_52 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_53 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -1189,19 +1254,36 @@ export declare const Request: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_53 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_54 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_54 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_55 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_55 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_56 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
-            } & { [K_57 in Exclude<keyof I_1["meteorite"]["setConfig"], "config">]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_56 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_57 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_58 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+            } & { [K_59 in Exclude<keyof I_1["meteorite"]["setConfig"], "config">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_58 in Exclude<keyof I_1["meteorite"], keyof Request4>]: never; }) | undefined;
+        } & { [K_60 in Exclude<keyof I_1["meteorite"], keyof Request4>]: never; }) | undefined;
         combos?: ({
             getComboState?: boolean | undefined;
             setCombo?: {
@@ -1276,20 +1358,20 @@ export declare const Request: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_59 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_60 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_61 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_61 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_62 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_63 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_62 in Exclude<keyof I_1["combos"]["setCombo"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
-            } & { [K_63 in Exclude<keyof I_1["combos"]["setCombo"], "combo">]: never; }) | undefined;
+                } & { [K_64 in Exclude<keyof I_1["combos"]["setCombo"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+            } & { [K_65 in Exclude<keyof I_1["combos"]["setCombo"], "combo">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_64 in Exclude<keyof I_1["combos"], keyof Request5>]: never; }) | undefined;
-    } & { [K_65 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
+        } & { [K_66 in Exclude<keyof I_1["combos"], keyof Request5>]: never; }) | undefined;
+    } & { [K_67 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
 };
 export declare const Response: {
     encode(message: Response, writer?: _m0.Writer): _m0.Writer;
@@ -1598,6 +1680,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -1638,6 +1726,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -1678,6 +1772,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -1812,6 +1912,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -1852,6 +1958,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -1892,6 +2004,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -2228,6 +2346,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -2268,6 +2392,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -2308,6 +2438,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -4043,6 +4179,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -4083,6 +4225,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -4123,6 +4271,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -4194,6 +4348,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -4234,6 +4394,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -4274,6 +4440,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -4399,6 +4571,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -4481,10 +4659,27 @@ export declare const Response: {
                         } & { [K_97 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_98 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_99 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_98 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_99 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_100 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -4523,6 +4718,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -4544,7 +4745,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_100 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_101 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -4558,12 +4759,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_101 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_102 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_102 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_103 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_103 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_104 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -4592,7 +4793,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_104 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_105 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -4601,14 +4802,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_105 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_106 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_106 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_107 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_107 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_108 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_108 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_109 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_110 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -4647,6 +4865,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -4668,7 +4892,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_109 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_111 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -4682,12 +4906,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_110 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_111 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_112 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_113 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_112 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_114 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -4716,7 +4940,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_113 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_115 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -4725,17 +4949,34 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_114 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_115 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_116 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_117 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_116 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_117 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_118 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_119 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_120 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_118 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_121 in Exclude<keyof I["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -4744,9 +4985,9 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./meteorite").SaveChangesErrorCode | undefined;
-                } & { [K_119 in Exclude<keyof I["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_122 in Exclude<keyof I["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_120 in Exclude<keyof I["requestResponse"]["meteorite"], keyof Response10>]: never; }) | undefined;
+            } & { [K_123 in Exclude<keyof I["requestResponse"]["meteorite"], keyof Response10>]: never; }) | undefined;
             combos?: ({
                 getComboState?: {
                     schemaVersion?: number | undefined;
@@ -4872,14 +5113,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_121 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_122 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_123 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_124 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_125 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_126 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_124 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_125 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"], keyof {
+                    } & { [K_127 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_128 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -4897,7 +5138,7 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_126 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_129 in Exclude<keyof I["requestResponse"]["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 setCombo?: ({
                     ok?: {
                         combo?: {
@@ -4970,18 +5211,18 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_127 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            keyPositions?: (number[] & number[] & { [K_128 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                            layers?: (number[] & number[] & { [K_129 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                            } & { [K_130 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            keyPositions?: (number[] & number[] & { [K_131 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                            layers?: (number[] & number[] & { [K_132 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                             timeoutMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
                             slowRelease?: boolean | undefined;
                             dirty?: boolean | undefined;
-                        } & { [K_130 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+                        } & { [K_133 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_131 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
+                    } & { [K_134 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
                     err?: import("./combos").SetComboErrorCode | undefined;
-                } & { [K_132 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
+                } & { [K_135 in Exclude<keyof I["requestResponse"]["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
                     ok?: boolean | undefined;
@@ -4989,10 +5230,10 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./combos").SaveChangesErrorCode | undefined;
-                } & { [K_133 in Exclude<keyof I["requestResponse"]["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_136 in Exclude<keyof I["requestResponse"]["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_134 in Exclude<keyof I["requestResponse"]["combos"], keyof Response11>]: never; }) | undefined;
-        } & { [K_135 in Exclude<keyof I["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
+            } & { [K_137 in Exclude<keyof I["requestResponse"]["combos"], keyof Response11>]: never; }) | undefined;
+        } & { [K_138 in Exclude<keyof I["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
         notification?: ({
             core?: {
                 lockStateChanged?: import("./core").LockState | undefined;
@@ -5059,6 +5300,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -5099,6 +5346,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -5139,6 +5392,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -5177,12 +5436,12 @@ export declare const Response: {
                 lockStateChanged?: import("./core").LockState | undefined;
             } & {
                 lockStateChanged?: import("./core").LockState | undefined;
-            } & { [K_136 in Exclude<keyof I["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
+            } & { [K_139 in Exclude<keyof I["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
             keymap?: ({
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_137 in Exclude<keyof I["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+            } & { [K_140 in Exclude<keyof I["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
             meteorite?: ({
                 configStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -5242,6 +5501,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -5282,6 +5547,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -5322,6 +5593,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -5387,6 +5664,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -5427,6 +5710,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -5467,6 +5756,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -5531,13 +5826,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_138 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_139 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                        } & { [K_141 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_142 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_140 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_141 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
+                    } & { [K_143 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_144 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -5592,6 +5887,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -5613,7 +5914,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_142 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_145 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -5627,12 +5928,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_143 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_144 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_146 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_147 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_145 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_148 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -5661,7 +5962,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_146 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_149 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -5670,14 +5971,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_147 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_148 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_150 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_151 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_149 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_150 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_152 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_153 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_154 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -5716,6 +6034,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -5737,7 +6061,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_151 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_155 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -5751,12 +6075,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_152 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_153 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_156 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_157 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_154 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_158 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -5785,7 +6109,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_155 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_159 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -5794,14 +6118,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_156 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_157 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_160 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_161 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_158 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_159 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_162 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_163 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_164 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -5840,6 +6181,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -5861,7 +6208,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_160 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_165 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -5875,12 +6222,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_161 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_162 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_166 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_167 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_163 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_168 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -5909,7 +6256,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_164 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_169 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -5918,19 +6265,36 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_165 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_166 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_170 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_171 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_167 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_168 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_172 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_173 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_174 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_169 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_175 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_170 in Exclude<keyof I["notification"]["meteorite"], keyof Notification14>]: never; }) | undefined;
+            } & { [K_176 in Exclude<keyof I["notification"]["meteorite"], keyof Notification14>]: never; }) | undefined;
             combos?: ({
                 comboStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -6028,14 +6392,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_171 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_172 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_173 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_177 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_178 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_179 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_174 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_175 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
+                    } & { [K_180 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_181 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -6053,11 +6417,11 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_176 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_182 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_177 in Exclude<keyof I["notification"]["combos"], keyof Notification15>]: never; }) | undefined;
-        } & { [K_178 in Exclude<keyof I["notification"], keyof Notification>]: never; }) | undefined;
-    } & { [K_179 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+            } & { [K_183 in Exclude<keyof I["notification"]["combos"], keyof Notification15>]: never; }) | undefined;
+        } & { [K_184 in Exclude<keyof I["notification"], keyof Notification>]: never; }) | undefined;
+    } & { [K_185 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         requestResponse?: {
             requestId?: number | undefined;
@@ -6360,6 +6724,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -6400,6 +6770,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -6440,6 +6816,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -6574,6 +6956,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -6614,6 +7002,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -6654,6 +7048,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -6990,6 +7390,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -7030,6 +7436,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -7070,6 +7482,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -7145,7 +7563,7 @@ export declare const Response: {
             } & {
                 noResponse?: boolean | undefined;
                 simpleError?: import("./meta").ErrorConditions | undefined;
-            } & { [K_180 in Exclude<keyof I_1["requestResponse"]["meta"], keyof Response6>]: never; }) | undefined;
+            } & { [K_186 in Exclude<keyof I_1["requestResponse"]["meta"], keyof Response6>]: never; }) | undefined;
             core?: ({
                 getDeviceInfo?: {
                     name?: string | undefined;
@@ -7162,11 +7580,11 @@ export declare const Response: {
                 } & {
                     name?: string | undefined;
                     serialNumber?: Uint8Array | undefined;
-                    capabilities?: (string[] & string[] & { [K_181 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
-                } & { [K_182 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
+                    capabilities?: (string[] & string[] & { [K_187 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
+                } & { [K_188 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
                 getLockState?: import("./core").LockState | undefined;
                 resetSettings?: boolean | undefined;
-            } & { [K_183 in Exclude<keyof I_1["requestResponse"]["core"], keyof Response7>]: never; }) | undefined;
+            } & { [K_189 in Exclude<keyof I_1["requestResponse"]["core"], keyof Response7>]: never; }) | undefined;
             behaviors?: ({
                 listAllBehaviors?: {
                     behaviors?: number[] | undefined;
@@ -7209,8 +7627,8 @@ export declare const Response: {
                 listAllBehaviors?: ({
                     behaviors?: number[] | undefined;
                 } & {
-                    behaviors?: (number[] & number[] & { [K_184 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-                } & { [K_185 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+                    behaviors?: (number[] & number[] & { [K_190 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+                } & { [K_191 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
                 getBehaviorDetails?: ({
                     id?: number | undefined;
                     displayName?: string | undefined;
@@ -7334,7 +7752,7 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         } & {
                             name?: string | undefined;
-                            nil?: ({} & {} & { [K_186 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                            nil?: ({} & {} & { [K_192 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                             constant?: number | undefined;
                             range?: ({
                                 min?: number | undefined;
@@ -7342,16 +7760,16 @@ export declare const Response: {
                             } & {
                                 min?: number | undefined;
                                 max?: number | undefined;
-                            } & { [K_187 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                            } & { [K_193 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                             hidUsage?: ({
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
                             } & {
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
-                            } & { [K_188 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                            layerId?: ({} & {} & { [K_189 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                        } & { [K_190 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_191 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                            } & { [K_194 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                            layerId?: ({} & {} & { [K_195 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                        } & { [K_196 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_197 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                             name?: string | undefined;
                             nil?: {} | undefined;
                             constant?: number | undefined;
@@ -7393,7 +7811,7 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         } & {
                             name?: string | undefined;
-                            nil?: ({} & {} & { [K_192 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                            nil?: ({} & {} & { [K_198 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                             constant?: number | undefined;
                             range?: ({
                                 min?: number | undefined;
@@ -7401,16 +7819,16 @@ export declare const Response: {
                             } & {
                                 min?: number | undefined;
                                 max?: number | undefined;
-                            } & { [K_193 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                            } & { [K_199 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                             hidUsage?: ({
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
                             } & {
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
-                            } & { [K_194 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                            layerId?: ({} & {} & { [K_195 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                        } & { [K_196 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_197 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                            } & { [K_200 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                            layerId?: ({} & {} & { [K_201 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                        } & { [K_202 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_203 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                             name?: string | undefined;
                             nil?: {} | undefined;
                             constant?: number | undefined;
@@ -7424,7 +7842,7 @@ export declare const Response: {
                             } | undefined;
                             layerId?: {} | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_198 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_199 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
+                    } & { [K_204 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_205 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
                         param1?: {
                             name?: string | undefined;
                             nil?: {} | undefined;
@@ -7454,8 +7872,8 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         }[] | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_200 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
-            } & { [K_201 in Exclude<keyof I_1["requestResponse"]["behaviors"], keyof Response8>]: never; }) | undefined;
+                } & { [K_206 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
+            } & { [K_207 in Exclude<keyof I_1["requestResponse"]["behaviors"], keyof Response8>]: never; }) | undefined;
             keymap?: ({
                 getKeymap?: {
                     layers?: {
@@ -7739,7 +8157,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_202 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_203 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
+                        } & { [K_208 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_209 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -7756,7 +8174,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_204 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_205 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
+                        } & { [K_210 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_211 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -7792,7 +8210,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_206 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_212 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -7801,8 +8219,8 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_207 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_208 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_209 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
+                            } & { [K_213 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_214 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_215 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -7814,7 +8232,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_210 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_211 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"], keyof {
+                    } & { [K_216 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_217 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -7842,7 +8260,7 @@ export declare const Response: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_212 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_218 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 setLayerBinding?: import("./keymap").SetLayerBindingResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -7851,7 +8269,7 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./keymap").SaveChangesErrorCode | undefined;
-                } & { [K_213 in Exclude<keyof I_1["requestResponse"]["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_219 in Exclude<keyof I_1["requestResponse"]["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
                 getPhysicalLayouts?: ({
                     activeLayoutIndex?: number | undefined;
@@ -7917,7 +8335,7 @@ export declare const Response: {
                             r?: number | undefined;
                             rx?: number | undefined;
                             ry?: number | undefined;
-                        } & { [K_214 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_215 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                        } & { [K_220 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_221 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                             width?: number | undefined;
                             height?: number | undefined;
                             x?: number | undefined;
@@ -7926,7 +8344,7 @@ export declare const Response: {
                             rx?: number | undefined;
                             ry?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_216 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_217 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
+                    } & { [K_222 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_223 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
                         name?: string | undefined;
                         keys?: {
                             width?: number | undefined;
@@ -7938,7 +8356,7 @@ export declare const Response: {
                             ry?: number | undefined;
                         }[] | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_218 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
+                } & { [K_224 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
                 setActivePhysicalLayout?: ({
                     ok?: {
                         layers?: {
@@ -8067,7 +8485,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_219 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_220 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                            } & { [K_225 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_226 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -8084,7 +8502,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_221 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_222 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                            } & { [K_227 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_228 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -8120,7 +8538,7 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_223 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_229 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 param2Binding?: ({
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -8129,8 +8547,8 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_224 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            } & { [K_225 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_226 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                                } & { [K_230 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_231 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_232 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                                 param1Binding?: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -8142,7 +8560,7 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_227 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_228 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                        } & { [K_233 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_234 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                             id?: number | undefined;
                             name?: string | undefined;
                             bindings?: {
@@ -8170,9 +8588,9 @@ export declare const Response: {
                         }[]>]: never; }) | undefined;
                         availableLayers?: number | undefined;
                         maxLayerNameLength?: number | undefined;
-                    } & { [K_229 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                    } & { [K_235 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                     err?: import("./keymap").SetActivePhysicalLayoutErrorCode | undefined;
-                } & { [K_230 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+                } & { [K_236 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
                 moveLayer?: ({
                     ok?: {
                         layers?: {
@@ -8301,7 +8719,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_231 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_232 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                            } & { [K_237 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_238 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -8318,7 +8736,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_233 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_234 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                            } & { [K_239 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_240 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -8354,7 +8772,7 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_235 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_241 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 param2Binding?: ({
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -8363,8 +8781,8 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_236 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            } & { [K_237 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_238 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                                } & { [K_242 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_243 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_244 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                                 param1Binding?: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -8376,7 +8794,7 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_239 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_240 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"], keyof {
+                        } & { [K_245 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_246 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"], keyof {
                             id?: number | undefined;
                             name?: string | undefined;
                             bindings?: {
@@ -8404,9 +8822,9 @@ export declare const Response: {
                         }[]>]: never; }) | undefined;
                         availableLayers?: number | undefined;
                         maxLayerNameLength?: number | undefined;
-                    } & { [K_241 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                    } & { [K_247 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                     err?: import("./keymap").MoveLayerErrorCode | undefined;
-                } & { [K_242 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
+                } & { [K_248 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
                 addLayer?: ({
                     ok?: {
                         index?: number | undefined;
@@ -8509,7 +8927,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_243 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_244 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                            } & { [K_249 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_250 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -8526,7 +8944,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_245 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_246 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
+                            } & { [K_251 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_252 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -8562,7 +8980,7 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_247 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_253 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 param2Binding?: ({
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -8571,8 +8989,8 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_248 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            } & { [K_249 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_250 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
+                                } & { [K_254 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_255 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_256 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
                                 param1Binding?: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -8584,17 +9002,17 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_251 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
-                    } & { [K_252 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
+                        } & { [K_257 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                    } & { [K_258 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
                     err?: import("./keymap").AddLayerErrorCode | undefined;
-                } & { [K_253 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
+                } & { [K_259 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
                 removeLayer?: ({
                     ok?: {} | undefined;
                     err?: import("./keymap").RemoveLayerErrorCode | undefined;
                 } & {
-                    ok?: ({} & {} & { [K_254 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
+                    ok?: ({} & {} & { [K_260 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
                     err?: import("./keymap").RemoveLayerErrorCode | undefined;
-                } & { [K_255 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
+                } & { [K_261 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
                 restoreLayer?: ({
                     ok?: {
                         id?: number | undefined;
@@ -8664,7 +9082,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_256 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_257 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
+                        } & { [K_262 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_263 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -8681,7 +9099,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_258 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_259 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
+                        } & { [K_264 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_265 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -8717,7 +9135,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_260 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_266 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -8726,8 +9144,8 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_261 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_262 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_263 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
+                            } & { [K_267 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_268 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_269 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -8739,13 +9157,13 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_264 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                    } & { [K_270 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
                     err?: import("./keymap").RestoreLayerErrorCode | undefined;
-                } & { [K_265 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
+                } & { [K_271 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
                 setLayerProps?: import("./keymap").SetLayerPropsResponse | undefined;
                 setLayerSensorBinding?: import("./keymap").SetLayerSensorBindingResponse | undefined;
                 setLayerSensorBindingParam?: import("./keymap").SetLayerSensorBindingResponse | undefined;
-            } & { [K_266 in Exclude<keyof I_1["requestResponse"]["keymap"], keyof Response9>]: never; }) | undefined;
+            } & { [K_272 in Exclude<keyof I_1["requestResponse"]["keymap"], keyof Response9>]: never; }) | undefined;
             meteorite?: ({
                 getConfigState?: {
                     schemaVersion?: number | undefined;
@@ -8805,6 +9223,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -8845,6 +9269,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -8885,6 +9315,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -8956,6 +9392,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -8996,6 +9438,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -9036,6 +9484,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -9100,13 +9554,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_267 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_268 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
+                        } & { [K_273 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_274 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_269 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_270 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"], keyof {
+                    } & { [K_275 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_276 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -9161,6 +9615,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -9182,7 +9642,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_271 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_277 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -9196,12 +9656,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_272 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_273 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_278 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_279 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_274 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_280 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -9230,7 +9690,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_275 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_281 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -9239,14 +9699,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_276 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_277 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_282 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_283 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_278 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_279 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_284 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_285 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_286 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -9285,6 +9762,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -9306,7 +9789,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_280 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_287 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -9320,12 +9803,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_281 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_282 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_288 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_289 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_283 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_290 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -9354,7 +9837,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_284 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_291 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -9363,14 +9846,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_285 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_286 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_292 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_293 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_287 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_288 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_294 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_295 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_296 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -9409,6 +9909,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -9430,7 +9936,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_289 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_297 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -9444,12 +9950,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_290 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_291 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_298 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_299 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_292 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_300 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -9478,7 +9984,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_293 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_301 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -9487,17 +9993,34 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_294 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_295 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_302 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_303 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_296 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_297 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_304 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_305 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_306 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_298 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_307 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -9506,9 +10029,9 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./meteorite").SaveChangesErrorCode | undefined;
-                } & { [K_299 in Exclude<keyof I_1["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_308 in Exclude<keyof I_1["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_300 in Exclude<keyof I_1["requestResponse"]["meteorite"], keyof Response10>]: never; }) | undefined;
+            } & { [K_309 in Exclude<keyof I_1["requestResponse"]["meteorite"], keyof Response10>]: never; }) | undefined;
             combos?: ({
                 getComboState?: {
                     schemaVersion?: number | undefined;
@@ -9634,14 +10157,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_301 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_302 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_303 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_310 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_311 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_312 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_304 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_305 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"], keyof {
+                    } & { [K_313 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_314 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -9659,7 +10182,7 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_306 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_315 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 setCombo?: ({
                     ok?: {
                         combo?: {
@@ -9732,18 +10255,18 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_307 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            keyPositions?: (number[] & number[] & { [K_308 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                            layers?: (number[] & number[] & { [K_309 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                            } & { [K_316 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            keyPositions?: (number[] & number[] & { [K_317 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                            layers?: (number[] & number[] & { [K_318 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                             timeoutMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
                             slowRelease?: boolean | undefined;
                             dirty?: boolean | undefined;
-                        } & { [K_310 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+                        } & { [K_319 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_311 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
+                    } & { [K_320 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
                     err?: import("./combos").SetComboErrorCode | undefined;
-                } & { [K_312 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
+                } & { [K_321 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
                     ok?: boolean | undefined;
@@ -9751,10 +10274,10 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./combos").SaveChangesErrorCode | undefined;
-                } & { [K_313 in Exclude<keyof I_1["requestResponse"]["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_322 in Exclude<keyof I_1["requestResponse"]["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_314 in Exclude<keyof I_1["requestResponse"]["combos"], keyof Response11>]: never; }) | undefined;
-        } & { [K_315 in Exclude<keyof I_1["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
+            } & { [K_323 in Exclude<keyof I_1["requestResponse"]["combos"], keyof Response11>]: never; }) | undefined;
+        } & { [K_324 in Exclude<keyof I_1["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
         notification?: ({
             core?: {
                 lockStateChanged?: import("./core").LockState | undefined;
@@ -9821,6 +10344,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -9861,6 +10390,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -9901,6 +10436,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -9939,12 +10480,12 @@ export declare const Response: {
                 lockStateChanged?: import("./core").LockState | undefined;
             } & {
                 lockStateChanged?: import("./core").LockState | undefined;
-            } & { [K_316 in Exclude<keyof I_1["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
+            } & { [K_325 in Exclude<keyof I_1["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
             keymap?: ({
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_317 in Exclude<keyof I_1["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+            } & { [K_326 in Exclude<keyof I_1["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
             meteorite?: ({
                 configStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -10004,6 +10545,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -10044,6 +10591,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -10084,6 +10637,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -10149,6 +10708,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     saved?: {
@@ -10189,6 +10754,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     defaults?: {
@@ -10229,6 +10800,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
@@ -10293,13 +10870,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_318 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_319 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                        } & { [K_327 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_328 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_320 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_321 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
+                    } & { [K_329 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_330 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -10354,6 +10931,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -10375,7 +10958,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_322 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_331 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -10389,12 +10972,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_323 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_324 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_332 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_333 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_325 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_334 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -10423,7 +11006,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_326 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_335 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -10432,14 +11015,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_327 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_328 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_336 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_337 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_329 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_330 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_338 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_339 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_340 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -10478,6 +11078,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -10499,7 +11105,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_331 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_341 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -10513,12 +11119,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_332 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_333 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_342 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_343 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_334 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_344 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -10547,7 +11153,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_335 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_345 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -10556,14 +11162,31 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_336 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_337 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_346 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_347 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_338 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_339 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_348 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_349 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_350 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -10602,6 +11225,12 @@ export declare const Response: {
                         } | undefined;
                         pointerConfig?: {
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } | undefined;
                     } & {
                         cpiIdx?: number | undefined;
@@ -10623,7 +11252,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_340 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_351 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -10637,12 +11266,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_341 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_342 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_352 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_353 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_343 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_354 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -10671,7 +11300,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_344 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_355 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -10680,19 +11309,36 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_345 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_346 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_356 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_357 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
+                            customCurve?: {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } | undefined;
                         } & {
                             profile?: import("./meteorite").PointerProfile | undefined;
-                        } & { [K_347 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                    } & { [K_348 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            customCurve?: ({
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & {
+                                startGainPercent?: number | undefined;
+                                precisionGainPercent?: number | undefined;
+                                fastGainPercent?: number | undefined;
+                                flickGainPercent?: number | undefined;
+                            } & { [K_358 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_359 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_360 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_349 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_361 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_350 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification14>]: never; }) | undefined;
+            } & { [K_362 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification14>]: never; }) | undefined;
             combos?: ({
                 comboStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -10790,14 +11436,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_351 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_352 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_353 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_363 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_364 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_365 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_354 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_355 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
+                    } & { [K_366 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_367 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -10815,11 +11461,11 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_356 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_368 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_357 in Exclude<keyof I_1["notification"]["combos"], keyof Notification15>]: never; }) | undefined;
-        } & { [K_358 in Exclude<keyof I_1["notification"], keyof Notification>]: never; }) | undefined;
-    } & { [K_359 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+            } & { [K_369 in Exclude<keyof I_1["notification"]["combos"], keyof Notification15>]: never; }) | undefined;
+        } & { [K_370 in Exclude<keyof I_1["notification"], keyof Notification>]: never; }) | undefined;
+    } & { [K_371 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const RequestResponse: {
     encode(message: RequestResponse, writer?: _m0.Writer): _m0.Writer;
@@ -11127,6 +11773,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -11167,6 +11819,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -11207,6 +11865,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -12942,6 +13606,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -12982,6 +13652,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -13022,6 +13698,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -13093,6 +13775,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -13133,6 +13821,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -13173,6 +13867,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -13298,6 +13998,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -13380,10 +14086,27 @@ export declare const RequestResponse: {
                     } & { [K_97 in Exclude<keyof I["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_98 in Exclude<keyof I["meteorite"]["getConfigState"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_99 in Exclude<keyof I["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_98 in Exclude<keyof I["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_99 in Exclude<keyof I["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_100 in Exclude<keyof I["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -13422,6 +14145,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -13443,7 +14172,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_100 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_101 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -13457,12 +14186,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_101 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_102 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_102 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_103 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_103 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_104 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -13491,7 +14220,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_104 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_105 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -13500,14 +14229,31 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_105 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_106 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_106 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_107 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_107 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_108 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_108 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_109 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_110 in Exclude<keyof I["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -13546,6 +14292,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -13567,7 +14319,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_109 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_111 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -13581,12 +14333,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_110 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_111 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_112 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_113 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_112 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_114 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -13615,7 +14367,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_113 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_115 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -13624,17 +14376,34 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_114 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_115 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_116 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_117 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_116 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_117 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_118 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_119 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_120 in Exclude<keyof I["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
                 firmwareBuildVersion?: string | undefined;
-            } & { [K_118 in Exclude<keyof I["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+            } & { [K_121 in Exclude<keyof I["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -13643,9 +14412,9 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./meteorite").SaveChangesErrorCode | undefined;
-            } & { [K_119 in Exclude<keyof I["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_122 in Exclude<keyof I["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_120 in Exclude<keyof I["meteorite"], keyof Response10>]: never; }) | undefined;
+        } & { [K_123 in Exclude<keyof I["meteorite"], keyof Response10>]: never; }) | undefined;
         combos?: ({
             getComboState?: {
                 schemaVersion?: number | undefined;
@@ -13771,14 +14540,14 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_121 in Exclude<keyof I["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_122 in Exclude<keyof I["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_123 in Exclude<keyof I["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_124 in Exclude<keyof I["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_125 in Exclude<keyof I["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_126 in Exclude<keyof I["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_124 in Exclude<keyof I["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_125 in Exclude<keyof I["combos"]["getComboState"]["combos"], keyof {
+                } & { [K_127 in Exclude<keyof I["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_128 in Exclude<keyof I["combos"]["getComboState"]["combos"], keyof {
                     comboId?: string | undefined;
                     slotIndex?: number | undefined;
                     source?: import("./combos").ComboSource | undefined;
@@ -13796,7 +14565,7 @@ export declare const RequestResponse: {
                     dirty?: boolean | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_126 in Exclude<keyof I["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
+            } & { [K_129 in Exclude<keyof I["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
             setCombo?: ({
                 ok?: {
                     combo?: {
@@ -13869,18 +14638,18 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_127 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_128 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_129 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_130 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_131 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_132 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_130 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+                    } & { [K_133 in Exclude<keyof I["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_131 in Exclude<keyof I["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
+                } & { [K_134 in Exclude<keyof I["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
                 err?: import("./combos").SetComboErrorCode | undefined;
-            } & { [K_132 in Exclude<keyof I["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
+            } & { [K_135 in Exclude<keyof I["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
                 ok?: boolean | undefined;
@@ -13888,10 +14657,10 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./combos").SaveChangesErrorCode | undefined;
-            } & { [K_133 in Exclude<keyof I["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_136 in Exclude<keyof I["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_134 in Exclude<keyof I["combos"], keyof Response11>]: never; }) | undefined;
-    } & { [K_135 in Exclude<keyof I, keyof RequestResponse>]: never; }>(base?: I | undefined): RequestResponse;
+        } & { [K_137 in Exclude<keyof I["combos"], keyof Response11>]: never; }) | undefined;
+    } & { [K_138 in Exclude<keyof I, keyof RequestResponse>]: never; }>(base?: I | undefined): RequestResponse;
     fromPartial<I_1 extends {
         requestId?: number | undefined;
         meta?: {
@@ -14193,6 +14962,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -14233,6 +15008,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -14273,6 +15054,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -14348,7 +15135,7 @@ export declare const RequestResponse: {
         } & {
             noResponse?: boolean | undefined;
             simpleError?: import("./meta").ErrorConditions | undefined;
-        } & { [K_136 in Exclude<keyof I_1["meta"], keyof Response6>]: never; }) | undefined;
+        } & { [K_139 in Exclude<keyof I_1["meta"], keyof Response6>]: never; }) | undefined;
         core?: ({
             getDeviceInfo?: {
                 name?: string | undefined;
@@ -14365,11 +15152,11 @@ export declare const RequestResponse: {
             } & {
                 name?: string | undefined;
                 serialNumber?: Uint8Array | undefined;
-                capabilities?: (string[] & string[] & { [K_137 in Exclude<keyof I_1["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
-            } & { [K_138 in Exclude<keyof I_1["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
+                capabilities?: (string[] & string[] & { [K_140 in Exclude<keyof I_1["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
+            } & { [K_141 in Exclude<keyof I_1["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
             getLockState?: import("./core").LockState | undefined;
             resetSettings?: boolean | undefined;
-        } & { [K_139 in Exclude<keyof I_1["core"], keyof Response7>]: never; }) | undefined;
+        } & { [K_142 in Exclude<keyof I_1["core"], keyof Response7>]: never; }) | undefined;
         behaviors?: ({
             listAllBehaviors?: {
                 behaviors?: number[] | undefined;
@@ -14412,8 +15199,8 @@ export declare const RequestResponse: {
             listAllBehaviors?: ({
                 behaviors?: number[] | undefined;
             } & {
-                behaviors?: (number[] & number[] & { [K_140 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-            } & { [K_141 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+                behaviors?: (number[] & number[] & { [K_143 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+            } & { [K_144 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
             getBehaviorDetails?: ({
                 id?: number | undefined;
                 displayName?: string | undefined;
@@ -14537,7 +15324,7 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     } & {
                         name?: string | undefined;
-                        nil?: ({} & {} & { [K_142 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                        nil?: ({} & {} & { [K_145 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                         constant?: number | undefined;
                         range?: ({
                             min?: number | undefined;
@@ -14545,16 +15332,16 @@ export declare const RequestResponse: {
                         } & {
                             min?: number | undefined;
                             max?: number | undefined;
-                        } & { [K_143 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        } & { [K_146 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                         hidUsage?: ({
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
                         } & {
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
-                        } & { [K_144 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                        layerId?: ({} & {} & { [K_145 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                    } & { [K_146 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_147 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                        } & { [K_147 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_148 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_149 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_150 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                         name?: string | undefined;
                         nil?: {} | undefined;
                         constant?: number | undefined;
@@ -14596,7 +15383,7 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     } & {
                         name?: string | undefined;
-                        nil?: ({} & {} & { [K_148 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                        nil?: ({} & {} & { [K_151 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                         constant?: number | undefined;
                         range?: ({
                             min?: number | undefined;
@@ -14604,16 +15391,16 @@ export declare const RequestResponse: {
                         } & {
                             min?: number | undefined;
                             max?: number | undefined;
-                        } & { [K_149 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        } & { [K_152 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                         hidUsage?: ({
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
                         } & {
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
-                        } & { [K_150 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                        layerId?: ({} & {} & { [K_151 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                    } & { [K_152 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_153 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                        } & { [K_153 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_154 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_155 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_156 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                         name?: string | undefined;
                         nil?: {} | undefined;
                         constant?: number | undefined;
@@ -14627,7 +15414,7 @@ export declare const RequestResponse: {
                         } | undefined;
                         layerId?: {} | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_154 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_155 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
+                } & { [K_157 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_158 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
                     param1?: {
                         name?: string | undefined;
                         nil?: {} | undefined;
@@ -14657,8 +15444,8 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     }[] | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_156 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
-        } & { [K_157 in Exclude<keyof I_1["behaviors"], keyof Response8>]: never; }) | undefined;
+            } & { [K_159 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
+        } & { [K_160 in Exclude<keyof I_1["behaviors"], keyof Response8>]: never; }) | undefined;
         keymap?: ({
             getKeymap?: {
                 layers?: {
@@ -14942,7 +15729,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_158 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_159 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
+                    } & { [K_161 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_162 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -14959,7 +15746,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_160 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_161 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
+                    } & { [K_163 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_164 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -14995,7 +15782,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_162 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_165 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -15004,8 +15791,8 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_163 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_164 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_165 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
+                        } & { [K_166 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_167 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_168 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -15017,7 +15804,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_166 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_167 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"], keyof {
+                } & { [K_169 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_170 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"], keyof {
                     id?: number | undefined;
                     name?: string | undefined;
                     bindings?: {
@@ -15045,7 +15832,7 @@ export declare const RequestResponse: {
                 }[]>]: never; }) | undefined;
                 availableLayers?: number | undefined;
                 maxLayerNameLength?: number | undefined;
-            } & { [K_168 in Exclude<keyof I_1["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+            } & { [K_171 in Exclude<keyof I_1["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
             setLayerBinding?: import("./keymap").SetLayerBindingResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -15054,7 +15841,7 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./keymap").SaveChangesErrorCode | undefined;
-            } & { [K_169 in Exclude<keyof I_1["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_172 in Exclude<keyof I_1["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
             getPhysicalLayouts?: ({
                 activeLayoutIndex?: number | undefined;
@@ -15120,7 +15907,7 @@ export declare const RequestResponse: {
                         r?: number | undefined;
                         rx?: number | undefined;
                         ry?: number | undefined;
-                    } & { [K_170 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_171 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                    } & { [K_173 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_174 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                         width?: number | undefined;
                         height?: number | undefined;
                         x?: number | undefined;
@@ -15129,7 +15916,7 @@ export declare const RequestResponse: {
                         rx?: number | undefined;
                         ry?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_172 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_173 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
+                } & { [K_175 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_176 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
                     name?: string | undefined;
                     keys?: {
                         width?: number | undefined;
@@ -15141,7 +15928,7 @@ export declare const RequestResponse: {
                         ry?: number | undefined;
                     }[] | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_174 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
+            } & { [K_177 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
             setActivePhysicalLayout?: ({
                 ok?: {
                     layers?: {
@@ -15270,7 +16057,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_175 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_176 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                        } & { [K_178 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_179 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -15287,7 +16074,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_177 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_178 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                        } & { [K_180 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_181 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -15323,7 +16110,7 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_179 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_182 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -15332,8 +16119,8 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_180 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_181 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_182 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                            } & { [K_183 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_184 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_185 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -15345,7 +16132,7 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_183 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_184 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                    } & { [K_186 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_187 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -15373,9 +16160,9 @@ export declare const RequestResponse: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_185 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_188 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 err?: import("./keymap").SetActivePhysicalLayoutErrorCode | undefined;
-            } & { [K_186 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+            } & { [K_189 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
             moveLayer?: ({
                 ok?: {
                     layers?: {
@@ -15504,7 +16291,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_187 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_188 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                        } & { [K_190 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_191 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -15521,7 +16308,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_189 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_190 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                        } & { [K_192 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_193 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -15557,7 +16344,7 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_191 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_194 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -15566,8 +16353,8 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_192 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_193 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_194 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                            } & { [K_195 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_196 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_197 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -15579,7 +16366,7 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_195 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_196 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"], keyof {
+                    } & { [K_198 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_199 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -15607,9 +16394,9 @@ export declare const RequestResponse: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_197 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_200 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 err?: import("./keymap").MoveLayerErrorCode | undefined;
-            } & { [K_198 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
+            } & { [K_201 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
             addLayer?: ({
                 ok?: {
                     index?: number | undefined;
@@ -15712,7 +16499,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_199 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_200 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                        } & { [K_202 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_203 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -15729,7 +16516,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_201 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_202 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
+                        } & { [K_204 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_205 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -15765,7 +16552,7 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_203 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_206 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -15774,8 +16561,8 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_204 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_205 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_206 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
+                            } & { [K_207 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_208 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_209 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -15787,17 +16574,17 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_207 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
-                } & { [K_208 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
+                    } & { [K_210 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                } & { [K_211 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
                 err?: import("./keymap").AddLayerErrorCode | undefined;
-            } & { [K_209 in Exclude<keyof I_1["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
+            } & { [K_212 in Exclude<keyof I_1["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
             removeLayer?: ({
                 ok?: {} | undefined;
                 err?: import("./keymap").RemoveLayerErrorCode | undefined;
             } & {
-                ok?: ({} & {} & { [K_210 in Exclude<keyof I_1["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
+                ok?: ({} & {} & { [K_213 in Exclude<keyof I_1["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
                 err?: import("./keymap").RemoveLayerErrorCode | undefined;
-            } & { [K_211 in Exclude<keyof I_1["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
+            } & { [K_214 in Exclude<keyof I_1["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
             restoreLayer?: ({
                 ok?: {
                     id?: number | undefined;
@@ -15867,7 +16654,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_212 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_213 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
+                    } & { [K_215 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_216 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -15884,7 +16671,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_214 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_215 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
+                    } & { [K_217 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_218 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -15920,7 +16707,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_216 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_219 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -15929,8 +16716,8 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_217 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_218 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_219 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
+                        } & { [K_220 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_221 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_222 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -15942,13 +16729,13 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_220 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                } & { [K_223 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
                 err?: import("./keymap").RestoreLayerErrorCode | undefined;
-            } & { [K_221 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
+            } & { [K_224 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
             setLayerProps?: import("./keymap").SetLayerPropsResponse | undefined;
             setLayerSensorBinding?: import("./keymap").SetLayerSensorBindingResponse | undefined;
             setLayerSensorBindingParam?: import("./keymap").SetLayerSensorBindingResponse | undefined;
-        } & { [K_222 in Exclude<keyof I_1["keymap"], keyof Response9>]: never; }) | undefined;
+        } & { [K_225 in Exclude<keyof I_1["keymap"], keyof Response9>]: never; }) | undefined;
         meteorite?: ({
             getConfigState?: {
                 schemaVersion?: number | undefined;
@@ -16008,6 +16795,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -16048,6 +16841,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -16088,6 +16887,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -16159,6 +16964,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -16199,6 +17010,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -16239,6 +17056,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -16303,13 +17126,13 @@ export declare const RequestResponse: {
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
-                    } & { [K_223 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_224 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
+                    } & { [K_226 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_227 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
                         value?: number | undefined;
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_225 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_226 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"], keyof {
+                } & { [K_228 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_229 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"], keyof {
                     id?: string | undefined;
                     label?: string | undefined;
                     kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -16364,6 +17187,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -16385,7 +17214,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_227 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_230 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -16399,12 +17228,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_228 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_229 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_231 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_232 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_230 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_233 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -16433,7 +17262,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_231 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_234 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -16442,14 +17271,31 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_232 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_233 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_235 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_236 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_234 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_235 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_237 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_238 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_239 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -16488,6 +17334,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -16509,7 +17361,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_236 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_240 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -16523,12 +17375,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_237 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_238 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_241 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_242 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_239 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_243 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -16557,7 +17409,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_240 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_244 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -16566,14 +17418,31 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_241 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_242 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_245 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_246 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_243 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_244 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_247 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_248 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_249 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -16612,6 +17481,12 @@ export declare const RequestResponse: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -16633,7 +17508,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_245 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_250 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -16647,12 +17522,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_246 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_247 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_251 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_252 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_248 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_253 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -16681,7 +17556,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_249 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_254 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -16690,17 +17565,34 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_250 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_251 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_255 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_256 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_252 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_253 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_257 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_258 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_259 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
                 firmwareBuildVersion?: string | undefined;
-            } & { [K_254 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+            } & { [K_260 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -16709,9 +17601,9 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./meteorite").SaveChangesErrorCode | undefined;
-            } & { [K_255 in Exclude<keyof I_1["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_261 in Exclude<keyof I_1["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_256 in Exclude<keyof I_1["meteorite"], keyof Response10>]: never; }) | undefined;
+        } & { [K_262 in Exclude<keyof I_1["meteorite"], keyof Response10>]: never; }) | undefined;
         combos?: ({
             getComboState?: {
                 schemaVersion?: number | undefined;
@@ -16837,14 +17729,14 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_257 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_258 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_259 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_263 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_264 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_265 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_260 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_261 in Exclude<keyof I_1["combos"]["getComboState"]["combos"], keyof {
+                } & { [K_266 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_267 in Exclude<keyof I_1["combos"]["getComboState"]["combos"], keyof {
                     comboId?: string | undefined;
                     slotIndex?: number | undefined;
                     source?: import("./combos").ComboSource | undefined;
@@ -16862,7 +17754,7 @@ export declare const RequestResponse: {
                     dirty?: boolean | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_262 in Exclude<keyof I_1["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
+            } & { [K_268 in Exclude<keyof I_1["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
             setCombo?: ({
                 ok?: {
                     combo?: {
@@ -16935,18 +17827,18 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_263 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_264 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_265 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_269 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_270 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_271 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_266 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+                    } & { [K_272 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_267 in Exclude<keyof I_1["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
+                } & { [K_273 in Exclude<keyof I_1["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
                 err?: import("./combos").SetComboErrorCode | undefined;
-            } & { [K_268 in Exclude<keyof I_1["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
+            } & { [K_274 in Exclude<keyof I_1["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
                 ok?: boolean | undefined;
@@ -16954,10 +17846,10 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./combos").SaveChangesErrorCode | undefined;
-            } & { [K_269 in Exclude<keyof I_1["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_275 in Exclude<keyof I_1["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_270 in Exclude<keyof I_1["combos"], keyof Response11>]: never; }) | undefined;
-    } & { [K_271 in Exclude<keyof I_1, keyof RequestResponse>]: never; }>(object: I_1): RequestResponse;
+        } & { [K_276 in Exclude<keyof I_1["combos"], keyof Response11>]: never; }) | undefined;
+    } & { [K_277 in Exclude<keyof I_1, keyof RequestResponse>]: never; }>(object: I_1): RequestResponse;
 };
 export declare const Notification: {
     encode(message: Notification, writer?: _m0.Writer): _m0.Writer;
@@ -17030,6 +17922,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -17070,6 +17968,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -17110,6 +18014,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -17213,6 +18123,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -17253,6 +18169,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -17293,6 +18215,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -17358,6 +18286,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -17398,6 +18332,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -17438,6 +18378,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -17563,6 +18509,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -17645,10 +18597,27 @@ export declare const Notification: {
                     } & { [K_12 in Exclude<keyof I["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_13 in Exclude<keyof I["meteorite"]["configStateChanged"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_14 in Exclude<keyof I["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_13 in Exclude<keyof I["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_14 in Exclude<keyof I["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_15 in Exclude<keyof I["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -17687,6 +18656,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -17708,7 +18683,7 @@ export declare const Notification: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_15 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_16 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -17722,12 +18697,12 @@ export declare const Notification: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_16 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_17 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_17 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_18 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_18 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_19 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -17756,7 +18731,7 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_19 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_20 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -17765,14 +18740,31 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_20 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_21 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_21 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_22 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_22 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_23 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_23 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_24 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_25 in Exclude<keyof I["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -17811,6 +18803,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -17832,7 +18830,7 @@ export declare const Notification: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_24 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_26 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -17846,12 +18844,12 @@ export declare const Notification: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_25 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_26 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_27 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_28 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_27 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_29 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -17880,7 +18878,7 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_28 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_30 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -17889,19 +18887,36 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_29 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_30 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_31 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_32 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_31 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_32 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_33 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_34 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_35 in Exclude<keyof I["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
                 firmwareBuildVersion?: string | undefined;
-            } & { [K_33 in Exclude<keyof I["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+            } & { [K_36 in Exclude<keyof I["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_34 in Exclude<keyof I["meteorite"], keyof Notification14>]: never; }) | undefined;
+        } & { [K_37 in Exclude<keyof I["meteorite"], keyof Notification14>]: never; }) | undefined;
         combos?: ({
             comboStateChanged?: {
                 schemaVersion?: number | undefined;
@@ -17999,14 +19014,14 @@ export declare const Notification: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_35 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_36 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_37 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_38 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_39 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_40 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_38 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_39 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"], keyof {
+                } & { [K_41 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_42 in Exclude<keyof I["combos"]["comboStateChanged"]["combos"], keyof {
                     comboId?: string | undefined;
                     slotIndex?: number | undefined;
                     source?: import("./combos").ComboSource | undefined;
@@ -18024,10 +19039,10 @@ export declare const Notification: {
                     dirty?: boolean | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_40 in Exclude<keyof I["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
+            } & { [K_43 in Exclude<keyof I["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_41 in Exclude<keyof I["combos"], keyof Notification15>]: never; }) | undefined;
-    } & { [K_42 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
+        } & { [K_44 in Exclude<keyof I["combos"], keyof Notification15>]: never; }) | undefined;
+    } & { [K_45 in Exclude<keyof I, keyof Notification>]: never; }>(base?: I | undefined): Notification;
     fromPartial<I_1 extends {
         core?: {
             lockStateChanged?: import("./core").LockState | undefined;
@@ -18094,6 +19109,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -18134,6 +19155,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -18174,6 +19201,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -18212,12 +19245,12 @@ export declare const Notification: {
             lockStateChanged?: import("./core").LockState | undefined;
         } & {
             lockStateChanged?: import("./core").LockState | undefined;
-        } & { [K_43 in Exclude<keyof I_1["core"], "lockStateChanged">]: never; }) | undefined;
+        } & { [K_46 in Exclude<keyof I_1["core"], "lockStateChanged">]: never; }) | undefined;
         keymap?: ({
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_44 in Exclude<keyof I_1["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+        } & { [K_47 in Exclude<keyof I_1["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
         meteorite?: ({
             configStateChanged?: {
                 schemaVersion?: number | undefined;
@@ -18277,6 +19310,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -18317,6 +19356,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -18357,6 +19402,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -18422,6 +19473,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 saved?: {
@@ -18462,6 +19519,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 defaults?: {
@@ -18502,6 +19565,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } | undefined;
                 dirty?: boolean | undefined;
@@ -18566,13 +19635,13 @@ export declare const Notification: {
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
-                    } & { [K_45 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_46 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                    } & { [K_48 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_49 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                         value?: number | undefined;
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_47 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_48 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"], keyof {
+                } & { [K_50 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_51 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["fields"], keyof {
                     id?: string | undefined;
                     label?: string | undefined;
                     kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -18627,6 +19696,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -18648,7 +19723,7 @@ export declare const Notification: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_49 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_52 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -18662,12 +19737,12 @@ export declare const Notification: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_50 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_51 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_53 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_54 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_52 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_55 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -18696,7 +19771,7 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_53 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_56 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -18705,14 +19780,31 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_54 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_55 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_57 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_58 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_56 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_57 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_59 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_60 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_61 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -18751,6 +19843,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -18772,7 +19870,7 @@ export declare const Notification: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_58 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_62 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -18786,12 +19884,12 @@ export declare const Notification: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_59 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_60 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_63 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_64 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_61 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_65 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -18820,7 +19918,7 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_62 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_66 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -18829,14 +19927,31 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_63 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_64 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_67 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_68 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_65 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_66 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_69 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_70 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_71 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -18875,6 +19990,12 @@ export declare const Notification: {
                     } | undefined;
                     pointerConfig?: {
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } | undefined;
                 } & {
                     cpiIdx?: number | undefined;
@@ -18896,7 +20017,7 @@ export declare const Notification: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_67 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_72 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -18910,12 +20031,12 @@ export declare const Notification: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_68 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_69 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_73 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_74 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_70 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_75 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -18944,7 +20065,7 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_71 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_76 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -18953,19 +20074,36 @@ export declare const Notification: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_72 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_73 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_77 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_78 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
+                        customCurve?: {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } | undefined;
                     } & {
                         profile?: import("./meteorite").PointerProfile | undefined;
-                    } & { [K_74 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], "profile">]: never; }) | undefined;
-                } & { [K_75 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        customCurve?: ({
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & {
+                            startGainPercent?: number | undefined;
+                            precisionGainPercent?: number | undefined;
+                            fastGainPercent?: number | undefined;
+                            flickGainPercent?: number | undefined;
+                        } & { [K_79 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_80 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_81 in Exclude<keyof I_1["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
                 firmwareBuildVersion?: string | undefined;
-            } & { [K_76 in Exclude<keyof I_1["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+            } & { [K_82 in Exclude<keyof I_1["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_77 in Exclude<keyof I_1["meteorite"], keyof Notification14>]: never; }) | undefined;
+        } & { [K_83 in Exclude<keyof I_1["meteorite"], keyof Notification14>]: never; }) | undefined;
         combos?: ({
             comboStateChanged?: {
                 schemaVersion?: number | undefined;
@@ -19063,14 +20201,14 @@ export declare const Notification: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_78 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_79 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_80 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_84 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_85 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_86 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_81 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_82 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"], keyof {
+                } & { [K_87 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_88 in Exclude<keyof I_1["combos"]["comboStateChanged"]["combos"], keyof {
                     comboId?: string | undefined;
                     slotIndex?: number | undefined;
                     source?: import("./combos").ComboSource | undefined;
@@ -19088,10 +20226,10 @@ export declare const Notification: {
                     dirty?: boolean | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_83 in Exclude<keyof I_1["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
+            } & { [K_89 in Exclude<keyof I_1["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
-        } & { [K_84 in Exclude<keyof I_1["combos"], keyof Notification15>]: never; }) | undefined;
-    } & { [K_85 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
+        } & { [K_90 in Exclude<keyof I_1["combos"], keyof Notification15>]: never; }) | undefined;
+    } & { [K_91 in Exclude<keyof I_1, keyof Notification>]: never; }>(object: I_1): Notification;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {
