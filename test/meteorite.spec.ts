@@ -71,6 +71,12 @@ describe('meteorite pointer profile protobuf compatibility', () => {
       scalingMode: 1,
       pointerConfig: {
         profile: PointerProfile.POINTER_PROFILE_RESPONSIVE,
+        customCurve: {
+          startGainPercent: 40,
+          precisionGainPercent: 100,
+          fastGainPercent: 240,
+          flickGainPercent: 340,
+        },
       },
     });
 
@@ -79,7 +85,24 @@ describe('meteorite pointer profile protobuf compatibility', () => {
     expect(decoded).toEqual(message);
     expect(decoded.pointerConfig).toEqual({
       profile: PointerProfile.POINTER_PROFILE_RESPONSIVE,
+      customCurve: {
+        startGainPercent: 40,
+        precisionGainPercent: 100,
+        fastGainPercent: 240,
+        flickGainPercent: 340,
+      },
     });
+  });
+
+  it('keeps the custom curve absent for a profile-only legacy message', () => {
+    const profileOnly = PointerConfig.create({
+      profile: PointerProfile.POINTER_PROFILE_CUSTOM,
+    });
+
+    const decoded = PointerConfig.decode(PointerConfig.encode(profileOnly).finish());
+
+    expect(decoded).toEqual(profileOnly);
+    expect(decoded.customCurve).toBeUndefined();
   });
 
   it('keeps pointer profile absent when decoding an older config message', () => {
