@@ -210,13 +210,26 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } | undefined;
             } | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+            } | undefined;
+            resetMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
         } | undefined;
     } & {
         requestId?: number | undefined;
@@ -753,13 +766,26 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } | undefined;
             } | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+            } | undefined;
+            resetMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
         } & {
             getMacroState?: boolean | undefined;
             setMacro?: ({
@@ -776,8 +802,12 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } | undefined;
             } & {
                 macro?: ({
@@ -793,8 +823,12 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -808,6 +842,8 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] & ({
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -816,6 +852,8 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: ({
@@ -828,6 +866,8 @@ export declare const Request: {
                             param2?: number | undefined;
                         } & { [K_33 in Exclude<keyof I["macros"]["setMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & { [K_34 in Exclude<keyof I["macros"]["setMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_35 in Exclude<keyof I["macros"]["setMacro"]["macro"]["steps"], keyof {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -836,15 +876,34 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & { [K_36 in Exclude<keyof I["macros"]["setMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
             } & { [K_37 in Exclude<keyof I["macros"]["setMacro"], "macro">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_38 in Exclude<keyof I["macros"], keyof Request6>]: never; }) | undefined;
-    } & { [K_39 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
+            getMacro?: ({
+                slotIndex?: number | undefined;
+            } & {
+                slotIndex?: number | undefined;
+            } & { [K_38 in Exclude<keyof I["macros"]["getMacro"], "slotIndex">]: never; }) | undefined;
+            setTapMs?: ({
+                tapMs?: number | undefined;
+            } & {
+                tapMs?: number | undefined;
+            } & { [K_39 in Exclude<keyof I["macros"]["setTapMs"], "tapMs">]: never; }) | undefined;
+            resetMacro?: ({
+                slotIndex?: number | undefined;
+            } & {
+                slotIndex?: number | undefined;
+            } & { [K_40 in Exclude<keyof I["macros"]["resetMacro"], "slotIndex">]: never; }) | undefined;
+        } & { [K_41 in Exclude<keyof I["macros"], keyof Request6>]: never; }) | undefined;
+    } & { [K_42 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
     fromPartial<I_1 extends {
         requestId?: number | undefined;
         core?: {
@@ -1006,13 +1065,26 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } | undefined;
             } | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+            } | undefined;
+            resetMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
         } | undefined;
     } & {
         requestId?: number | undefined;
@@ -1026,7 +1098,7 @@ export declare const Request: {
             getLockState?: boolean | undefined;
             lock?: boolean | undefined;
             resetSettings?: boolean | undefined;
-        } & { [K_40 in Exclude<keyof I_1["core"], keyof Request1>]: never; }) | undefined;
+        } & { [K_43 in Exclude<keyof I_1["core"], keyof Request1>]: never; }) | undefined;
         behaviors?: ({
             listAllBehaviors?: boolean | undefined;
             getBehaviorDetails?: {
@@ -1038,8 +1110,8 @@ export declare const Request: {
                 behaviorId?: number | undefined;
             } & {
                 behaviorId?: number | undefined;
-            } & { [K_41 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], "behaviorId">]: never; }) | undefined;
-        } & { [K_42 in Exclude<keyof I_1["behaviors"], keyof Request2>]: never; }) | undefined;
+            } & { [K_44 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], "behaviorId">]: never; }) | undefined;
+        } & { [K_45 in Exclude<keyof I_1["behaviors"], keyof Request2>]: never; }) | undefined;
         keymap?: ({
             getKeymap?: boolean | undefined;
             setLayerBinding?: {
@@ -1112,8 +1184,8 @@ export declare const Request: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_43 in Exclude<keyof I_1["keymap"]["setLayerBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-            } & { [K_44 in Exclude<keyof I_1["keymap"]["setLayerBinding"], keyof import("./keymap").SetLayerBindingRequest>]: never; }) | undefined;
+                } & { [K_46 in Exclude<keyof I_1["keymap"]["setLayerBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+            } & { [K_47 in Exclude<keyof I_1["keymap"]["setLayerBinding"], keyof import("./keymap").SetLayerBindingRequest>]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
@@ -1125,27 +1197,27 @@ export declare const Request: {
             } & {
                 startIndex?: number | undefined;
                 destIndex?: number | undefined;
-            } & { [K_45 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerRequest>]: never; }) | undefined;
-            addLayer?: ({} & {} & { [K_46 in Exclude<keyof I_1["keymap"]["addLayer"], never>]: never; }) | undefined;
+            } & { [K_48 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerRequest>]: never; }) | undefined;
+            addLayer?: ({} & {} & { [K_49 in Exclude<keyof I_1["keymap"]["addLayer"], never>]: never; }) | undefined;
             removeLayer?: ({
                 layerIndex?: number | undefined;
             } & {
                 layerIndex?: number | undefined;
-            } & { [K_47 in Exclude<keyof I_1["keymap"]["removeLayer"], "layerIndex">]: never; }) | undefined;
+            } & { [K_50 in Exclude<keyof I_1["keymap"]["removeLayer"], "layerIndex">]: never; }) | undefined;
             restoreLayer?: ({
                 layerId?: number | undefined;
                 atIndex?: number | undefined;
             } & {
                 layerId?: number | undefined;
                 atIndex?: number | undefined;
-            } & { [K_48 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerRequest>]: never; }) | undefined;
+            } & { [K_51 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerRequest>]: never; }) | undefined;
             setLayerProps?: ({
                 layerId?: number | undefined;
                 name?: string | undefined;
             } & {
                 layerId?: number | undefined;
                 name?: string | undefined;
-            } & { [K_49 in Exclude<keyof I_1["keymap"]["setLayerProps"], keyof import("./keymap").SetLayerPropsRequest>]: never; }) | undefined;
+            } & { [K_52 in Exclude<keyof I_1["keymap"]["setLayerProps"], keyof import("./keymap").SetLayerPropsRequest>]: never; }) | undefined;
             setLayerSensorBinding?: ({
                 layerId?: number | undefined;
                 sensorIndex?: number | undefined;
@@ -1165,8 +1237,8 @@ export declare const Request: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_50 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-            } & { [K_51 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"], keyof import("./keymap").SetLayerSensorBindingRequest>]: never; }) | undefined;
+                } & { [K_53 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+            } & { [K_54 in Exclude<keyof I_1["keymap"]["setLayerSensorBinding"], keyof import("./keymap").SetLayerSensorBindingRequest>]: never; }) | undefined;
             setLayerSensorBindingParam?: ({
                 layerId?: number | undefined;
                 sensorIndex?: number | undefined;
@@ -1188,9 +1260,9 @@ export declare const Request: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_52 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-            } & { [K_53 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"], keyof import("./keymap").SetLayerSensorBindingParamRequest>]: never; }) | undefined;
-        } & { [K_54 in Exclude<keyof I_1["keymap"], keyof Request3>]: never; }) | undefined;
+                } & { [K_55 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+            } & { [K_56 in Exclude<keyof I_1["keymap"]["setLayerSensorBindingParam"], keyof import("./keymap").SetLayerSensorBindingParamRequest>]: never; }) | undefined;
+        } & { [K_57 in Exclude<keyof I_1["keymap"], keyof Request3>]: never; }) | undefined;
         meteorite?: ({
             getConfigState?: boolean | undefined;
             setConfig?: {
@@ -1359,7 +1431,7 @@ export declare const Request: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_55 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_58 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -1373,12 +1445,12 @@ export declare const Request: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_56 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_57 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_59 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_60 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_58 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_61 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -1407,7 +1479,7 @@ export declare const Request: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_59 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_62 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -1416,8 +1488,8 @@ export declare const Request: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_60 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_61 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_63 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_64 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
                         customCurve?: {
@@ -1438,14 +1510,14 @@ export declare const Request: {
                             precisionGainPercent?: number | undefined;
                             fastGainPercent?: number | undefined;
                             flickGainPercent?: number | undefined;
-                        } & { [K_62 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                    } & { [K_63 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                } & { [K_64 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
-            } & { [K_65 in Exclude<keyof I_1["meteorite"]["setConfig"], "config">]: never; }) | undefined;
+                        } & { [K_65 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_66 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_67 in Exclude<keyof I_1["meteorite"]["setConfig"]["config"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+            } & { [K_68 in Exclude<keyof I_1["meteorite"]["setConfig"], "config">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_66 in Exclude<keyof I_1["meteorite"], keyof Request4>]: never; }) | undefined;
+        } & { [K_69 in Exclude<keyof I_1["meteorite"], keyof Request4>]: never; }) | undefined;
         combos?: ({
             getComboState?: boolean | undefined;
             setCombo?: {
@@ -1520,19 +1592,19 @@ export declare const Request: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_67 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_68 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_69 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_70 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_71 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_72 in Exclude<keyof I_1["combos"]["setCombo"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_70 in Exclude<keyof I_1["combos"]["setCombo"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
-            } & { [K_71 in Exclude<keyof I_1["combos"]["setCombo"], "combo">]: never; }) | undefined;
+                } & { [K_73 in Exclude<keyof I_1["combos"]["setCombo"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+            } & { [K_74 in Exclude<keyof I_1["combos"]["setCombo"], "combo">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_72 in Exclude<keyof I_1["combos"], keyof Request5>]: never; }) | undefined;
+        } & { [K_75 in Exclude<keyof I_1["combos"], keyof Request5>]: never; }) | undefined;
         macros?: ({
             getMacroState?: boolean | undefined;
             setMacro?: {
@@ -1549,13 +1621,26 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } | undefined;
             } | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+            } | undefined;
+            resetMacro?: {
+                slotIndex?: number | undefined;
+            } | undefined;
         } & {
             getMacroState?: boolean | undefined;
             setMacro?: ({
@@ -1572,8 +1657,12 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } | undefined;
             } & {
                 macro?: ({
@@ -1589,8 +1678,12 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -1604,6 +1697,8 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] & ({
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -1612,6 +1707,8 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: ({
@@ -1622,9 +1719,11 @@ export declare const Request: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_73 in Exclude<keyof I_1["macros"]["setMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_76 in Exclude<keyof I_1["macros"]["setMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         waitMs?: number | undefined;
-                    } & { [K_74 in Exclude<keyof I_1["macros"]["setMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_75 in Exclude<keyof I_1["macros"]["setMacro"]["macro"]["steps"], keyof {
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    } & { [K_77 in Exclude<keyof I_1["macros"]["setMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_78 in Exclude<keyof I_1["macros"]["setMacro"]["macro"]["steps"], keyof {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
                             behaviorId?: number | undefined;
@@ -1632,15 +1731,34 @@ export declare const Request: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_76 in Exclude<keyof I_1["macros"]["setMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
-            } & { [K_77 in Exclude<keyof I_1["macros"]["setMacro"], "macro">]: never; }) | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } & { [K_79 in Exclude<keyof I_1["macros"]["setMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+            } & { [K_80 in Exclude<keyof I_1["macros"]["setMacro"], "macro">]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: boolean | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_78 in Exclude<keyof I_1["macros"], keyof Request6>]: never; }) | undefined;
-    } & { [K_79 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
+            getMacro?: ({
+                slotIndex?: number | undefined;
+            } & {
+                slotIndex?: number | undefined;
+            } & { [K_81 in Exclude<keyof I_1["macros"]["getMacro"], "slotIndex">]: never; }) | undefined;
+            setTapMs?: ({
+                tapMs?: number | undefined;
+            } & {
+                tapMs?: number | undefined;
+            } & { [K_82 in Exclude<keyof I_1["macros"]["setTapMs"], "tapMs">]: never; }) | undefined;
+            resetMacro?: ({
+                slotIndex?: number | undefined;
+            } & {
+                slotIndex?: number | undefined;
+            } & { [K_83 in Exclude<keyof I_1["macros"]["resetMacro"], "slotIndex">]: never; }) | undefined;
+        } & { [K_84 in Exclude<keyof I_1["macros"], keyof Request6>]: never; }) | undefined;
+    } & { [K_85 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
 };
 export declare const Response: {
     encode(message: Response, writer?: _m0.Writer): _m0.Writer;
@@ -2132,10 +2250,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 setMacro?: {
                     ok?: {
@@ -2152,8 +2278,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -2165,6 +2295,58 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } | undefined;
                 discardChanges?: boolean | undefined;
+                getMacro?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } | undefined;
+                setTapMs?: {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                resetMacro?: {
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } | undefined;
             } | undefined;
         } | undefined;
         notification?: {
@@ -2382,10 +2564,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -2875,10 +3065,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 setMacro?: {
                     ok?: {
@@ -2895,8 +3093,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -2908,6 +3110,58 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } | undefined;
                 discardChanges?: boolean | undefined;
+                getMacro?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } | undefined;
+                setTapMs?: {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                resetMacro?: {
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } | undefined;
             } | undefined;
         } & {
             requestId?: number | undefined;
@@ -5649,10 +5903,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 setMacro?: {
                     ok?: {
@@ -5669,8 +5931,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -5682,6 +5948,58 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } | undefined;
                 discardChanges?: boolean | undefined;
+                getMacro?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } | undefined;
+                setTapMs?: {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                resetMacro?: {
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } | undefined;
             } & {
                 getMacroState?: ({
                     schemaVersion?: number | undefined;
@@ -5700,10 +6018,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     maxMacros?: number | undefined;
@@ -5721,8 +6047,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] & ({
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -5736,8 +6066,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -5751,6 +6085,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] & ({
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -5759,6 +6095,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: ({
@@ -5771,6 +6109,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } & { [K_138 in Exclude<keyof I["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & { [K_139 in Exclude<keyof I["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_140 in Exclude<keyof I["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"], keyof {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -5779,8 +6119,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[]>]: never; }) | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & { [K_141 in Exclude<keyof I["requestResponse"]["macros"]["getMacroState"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_142 in Exclude<keyof I["requestResponse"]["macros"]["getMacroState"]["macros"], keyof {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -5794,10 +6138,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } & { [K_143 in Exclude<keyof I["requestResponse"]["macros"]["getMacroState"], keyof import("./macros").MacroState>]: never; }) | undefined;
                 setMacro?: ({
                     ok?: {
@@ -5814,8 +6166,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -5835,8 +6191,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } & {
@@ -5853,8 +6213,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } & {
                             slotIndex?: number | undefined;
                             behaviorId?: number | undefined;
@@ -5868,6 +6232,8 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] & ({
                                 action?: import("./macros").MacroStepAction | undefined;
                                 binding?: {
@@ -5876,6 +6242,8 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             } & {
                                 action?: import("./macros").MacroStepAction | undefined;
                                 binding?: ({
@@ -5888,6 +6256,8 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } & { [K_144 in Exclude<keyof I["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             } & { [K_145 in Exclude<keyof I["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_146 in Exclude<keyof I["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"], keyof {
                                 action?: import("./macros").MacroStepAction | undefined;
                                 binding?: {
@@ -5896,8 +6266,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[]>]: never; }) | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } & { [K_147 in Exclude<keyof I["requestResponse"]["macros"]["setMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
                         dirty?: boolean | undefined;
                     } & { [K_148 in Exclude<keyof I["requestResponse"]["macros"]["setMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
@@ -5912,8 +6286,237 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } & { [K_150 in Exclude<keyof I["requestResponse"]["macros"]["saveChanges"], keyof import("./macros").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_151 in Exclude<keyof I["requestResponse"]["macros"], keyof Response13>]: never; }) | undefined;
-        } & { [K_152 in Exclude<keyof I["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
+                getMacro?: ({
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } & {
+                    macro?: ({
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] & ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: ({
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & { [K_151 in Exclude<keyof I["requestResponse"]["macros"]["getMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_152 in Exclude<keyof I["requestResponse"]["macros"]["getMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_153 in Exclude<keyof I["requestResponse"]["macros"]["getMacro"]["macro"]["steps"], keyof {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[]>]: never; }) | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_154 in Exclude<keyof I["requestResponse"]["macros"]["getMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                } & { [K_155 in Exclude<keyof I["requestResponse"]["macros"]["getMacro"], "macro">]: never; }) | undefined;
+                setTapMs?: ({
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } & {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } & { [K_156 in Exclude<keyof I["requestResponse"]["macros"]["setTapMs"], keyof import("./macros").SetTapMsResponse>]: never; }) | undefined;
+                resetMacro?: ({
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } & {
+                    ok?: ({
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } & {
+                        macro?: ({
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } & {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: ({
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] & ({
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            } & {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: ({
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } & {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } & { [K_157 in Exclude<keyof I["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            } & { [K_158 in Exclude<keyof I["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_159 in Exclude<keyof I["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"]["steps"], keyof {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[]>]: never; }) | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } & { [K_160 in Exclude<keyof I["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                        dirty?: boolean | undefined;
+                    } & { [K_161 in Exclude<keyof I["requestResponse"]["macros"]["resetMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } & { [K_162 in Exclude<keyof I["requestResponse"]["macros"]["resetMacro"], keyof import("./macros").ResetMacroResponse>]: never; }) | undefined;
+            } & { [K_163 in Exclude<keyof I["requestResponse"]["macros"], keyof Response13>]: never; }) | undefined;
+        } & { [K_164 in Exclude<keyof I["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
         notification?: ({
             core?: {
                 lockStateChanged?: import("./core").LockState | undefined;
@@ -6129,10 +6732,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -6141,12 +6752,12 @@ export declare const Response: {
                 lockStateChanged?: import("./core").LockState | undefined;
             } & {
                 lockStateChanged?: import("./core").LockState | undefined;
-            } & { [K_153 in Exclude<keyof I["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
+            } & { [K_165 in Exclude<keyof I["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
             keymap?: ({
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_154 in Exclude<keyof I["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+            } & { [K_166 in Exclude<keyof I["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
             meteorite?: ({
                 configStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -6531,13 +7142,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_155 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_156 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                        } & { [K_167 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_168 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_157 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_158 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
+                    } & { [K_169 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_170 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -6619,7 +7230,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_159 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_171 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -6633,12 +7244,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_160 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_161 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_172 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_173 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_162 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_174 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -6667,7 +7278,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_163 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_175 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -6676,8 +7287,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_164 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_165 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_176 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_177 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -6698,9 +7309,9 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_166 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_167 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_168 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_178 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_179 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_180 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -6766,7 +7377,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_169 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_181 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -6780,12 +7391,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_170 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_171 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_182 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_183 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_172 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_184 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -6814,7 +7425,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_173 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_185 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -6823,8 +7434,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_174 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_175 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_186 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_187 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -6845,9 +7456,9 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_176 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_177 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_178 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_188 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_189 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_190 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -6913,7 +7524,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_179 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_191 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -6927,12 +7538,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_180 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_181 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_192 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_193 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_182 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_194 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -6961,7 +7572,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_183 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_195 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -6970,8 +7581,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_184 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_185 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_196 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_197 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -6992,14 +7603,14 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_186 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_187 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_188 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_198 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_199 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_200 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_189 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_201 in Exclude<keyof I["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_190 in Exclude<keyof I["notification"]["meteorite"], keyof Notification16>]: never; }) | undefined;
+            } & { [K_202 in Exclude<keyof I["notification"]["meteorite"], keyof Notification16>]: never; }) | undefined;
             combos?: ({
                 comboStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -7097,14 +7708,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_191 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_192 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_193 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_203 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_204 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_205 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_194 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_195 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
+                    } & { [K_206 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_207 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -7122,9 +7733,9 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_196 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_208 in Exclude<keyof I["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_197 in Exclude<keyof I["notification"]["combos"], keyof Notification17>]: never; }) | undefined;
+            } & { [K_209 in Exclude<keyof I["notification"]["combos"], keyof Notification17>]: never; }) | undefined;
             macros?: ({
                 macroStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -7143,10 +7754,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
@@ -7167,10 +7786,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     maxMacros?: number | undefined;
@@ -7188,8 +7815,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] & ({
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -7203,8 +7834,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -7218,6 +7853,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] & ({
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -7226,6 +7863,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: ({
@@ -7236,9 +7875,11 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_198 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_210 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             waitMs?: number | undefined;
-                        } & { [K_199 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_200 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"], keyof {
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_211 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_212 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"], keyof {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
                                 behaviorId?: number | undefined;
@@ -7246,9 +7887,13 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[]>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_201 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_202 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"], keyof {
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_213 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_214 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"]["macros"], keyof {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
                         name?: string | undefined;
@@ -7261,15 +7906,23 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_203 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"], keyof import("./macros").MacroState>]: never; }) | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
+                } & { [K_215 in Exclude<keyof I["notification"]["macros"]["macroStateChanged"], keyof import("./macros").MacroState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_204 in Exclude<keyof I["notification"]["macros"], keyof Notification18>]: never; }) | undefined;
-        } & { [K_205 in Exclude<keyof I["notification"], keyof Notification>]: never; }) | undefined;
-    } & { [K_206 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+            } & { [K_216 in Exclude<keyof I["notification"]["macros"], keyof Notification18>]: never; }) | undefined;
+        } & { [K_217 in Exclude<keyof I["notification"], keyof Notification>]: never; }) | undefined;
+    } & { [K_218 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         requestResponse?: {
             requestId?: number | undefined;
@@ -7755,10 +8408,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 setMacro?: {
                     ok?: {
@@ -7775,8 +8436,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -7788,6 +8453,58 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } | undefined;
                 discardChanges?: boolean | undefined;
+                getMacro?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } | undefined;
+                setTapMs?: {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                resetMacro?: {
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } | undefined;
             } | undefined;
         } | undefined;
         notification?: {
@@ -8005,10 +8722,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -8498,10 +9223,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 setMacro?: {
                     ok?: {
@@ -8518,8 +9251,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -8531,6 +9268,58 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } | undefined;
                 discardChanges?: boolean | undefined;
+                getMacro?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } | undefined;
+                setTapMs?: {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                resetMacro?: {
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } | undefined;
             } | undefined;
         } & {
             requestId?: number | undefined;
@@ -8540,7 +9329,7 @@ export declare const Response: {
             } & {
                 noResponse?: boolean | undefined;
                 simpleError?: import("./meta").ErrorConditions | undefined;
-            } & { [K_207 in Exclude<keyof I_1["requestResponse"]["meta"], keyof Response7>]: never; }) | undefined;
+            } & { [K_219 in Exclude<keyof I_1["requestResponse"]["meta"], keyof Response7>]: never; }) | undefined;
             core?: ({
                 getDeviceInfo?: {
                     name?: string | undefined;
@@ -8557,11 +9346,11 @@ export declare const Response: {
                 } & {
                     name?: string | undefined;
                     serialNumber?: Uint8Array | undefined;
-                    capabilities?: (string[] & string[] & { [K_208 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
-                } & { [K_209 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
+                    capabilities?: (string[] & string[] & { [K_220 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
+                } & { [K_221 in Exclude<keyof I_1["requestResponse"]["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
                 getLockState?: import("./core").LockState | undefined;
                 resetSettings?: boolean | undefined;
-            } & { [K_210 in Exclude<keyof I_1["requestResponse"]["core"], keyof Response8>]: never; }) | undefined;
+            } & { [K_222 in Exclude<keyof I_1["requestResponse"]["core"], keyof Response8>]: never; }) | undefined;
             behaviors?: ({
                 listAllBehaviors?: {
                     behaviors?: number[] | undefined;
@@ -8604,8 +9393,8 @@ export declare const Response: {
                 listAllBehaviors?: ({
                     behaviors?: number[] | undefined;
                 } & {
-                    behaviors?: (number[] & number[] & { [K_211 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-                } & { [K_212 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+                    behaviors?: (number[] & number[] & { [K_223 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+                } & { [K_224 in Exclude<keyof I_1["requestResponse"]["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
                 getBehaviorDetails?: ({
                     id?: number | undefined;
                     displayName?: string | undefined;
@@ -8729,7 +9518,7 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         } & {
                             name?: string | undefined;
-                            nil?: ({} & {} & { [K_213 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                            nil?: ({} & {} & { [K_225 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                             constant?: number | undefined;
                             range?: ({
                                 min?: number | undefined;
@@ -8737,16 +9526,16 @@ export declare const Response: {
                             } & {
                                 min?: number | undefined;
                                 max?: number | undefined;
-                            } & { [K_214 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                            } & { [K_226 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                             hidUsage?: ({
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
                             } & {
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
-                            } & { [K_215 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                            layerId?: ({} & {} & { [K_216 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                        } & { [K_217 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_218 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                            } & { [K_227 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                            layerId?: ({} & {} & { [K_228 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                        } & { [K_229 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_230 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                             name?: string | undefined;
                             nil?: {} | undefined;
                             constant?: number | undefined;
@@ -8788,7 +9577,7 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         } & {
                             name?: string | undefined;
-                            nil?: ({} & {} & { [K_219 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                            nil?: ({} & {} & { [K_231 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                             constant?: number | undefined;
                             range?: ({
                                 min?: number | undefined;
@@ -8796,16 +9585,16 @@ export declare const Response: {
                             } & {
                                 min?: number | undefined;
                                 max?: number | undefined;
-                            } & { [K_220 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                            } & { [K_232 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                             hidUsage?: ({
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
                             } & {
                                 keyboardMax?: number | undefined;
                                 consumerMax?: number | undefined;
-                            } & { [K_221 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                            layerId?: ({} & {} & { [K_222 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                        } & { [K_223 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_224 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                            } & { [K_233 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                            layerId?: ({} & {} & { [K_234 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                        } & { [K_235 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_236 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                             name?: string | undefined;
                             nil?: {} | undefined;
                             constant?: number | undefined;
@@ -8819,7 +9608,7 @@ export declare const Response: {
                             } | undefined;
                             layerId?: {} | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_225 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_226 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
+                    } & { [K_237 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_238 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
                         param1?: {
                             name?: string | undefined;
                             nil?: {} | undefined;
@@ -8849,8 +9638,8 @@ export declare const Response: {
                             layerId?: {} | undefined;
                         }[] | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_227 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
-            } & { [K_228 in Exclude<keyof I_1["requestResponse"]["behaviors"], keyof Response9>]: never; }) | undefined;
+                } & { [K_239 in Exclude<keyof I_1["requestResponse"]["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
+            } & { [K_240 in Exclude<keyof I_1["requestResponse"]["behaviors"], keyof Response9>]: never; }) | undefined;
             keymap?: ({
                 getKeymap?: {
                     layers?: {
@@ -9134,7 +9923,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_229 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_230 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
+                        } & { [K_241 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_242 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -9151,7 +9940,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_231 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_232 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
+                        } & { [K_243 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_244 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -9187,7 +9976,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_233 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_245 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -9196,8 +9985,8 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_234 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_235 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_236 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
+                            } & { [K_246 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_247 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_248 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -9209,7 +9998,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_237 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_238 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"], keyof {
+                    } & { [K_249 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_250 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -9237,7 +10026,7 @@ export declare const Response: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_239 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_251 in Exclude<keyof I_1["requestResponse"]["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 setLayerBinding?: import("./keymap").SetLayerBindingResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -9246,7 +10035,7 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./keymap").SaveChangesErrorCode | undefined;
-                } & { [K_240 in Exclude<keyof I_1["requestResponse"]["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_252 in Exclude<keyof I_1["requestResponse"]["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
                 getPhysicalLayouts?: ({
                     activeLayoutIndex?: number | undefined;
@@ -9312,7 +10101,7 @@ export declare const Response: {
                             r?: number | undefined;
                             rx?: number | undefined;
                             ry?: number | undefined;
-                        } & { [K_241 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_242 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                        } & { [K_253 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_254 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                             width?: number | undefined;
                             height?: number | undefined;
                             x?: number | undefined;
@@ -9321,7 +10110,7 @@ export declare const Response: {
                             rx?: number | undefined;
                             ry?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_243 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_244 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
+                    } & { [K_255 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_256 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
                         name?: string | undefined;
                         keys?: {
                             width?: number | undefined;
@@ -9333,7 +10122,7 @@ export declare const Response: {
                             ry?: number | undefined;
                         }[] | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_245 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
+                } & { [K_257 in Exclude<keyof I_1["requestResponse"]["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
                 setActivePhysicalLayout?: ({
                     ok?: {
                         layers?: {
@@ -9462,7 +10251,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_246 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_247 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                            } & { [K_258 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_259 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -9479,7 +10268,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_248 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_249 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                            } & { [K_260 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_261 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -9515,7 +10304,7 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_250 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_262 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 param2Binding?: ({
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -9524,8 +10313,8 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_251 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            } & { [K_252 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_253 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                                } & { [K_263 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_264 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_265 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                                 param1Binding?: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -9537,7 +10326,7 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_254 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_255 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                        } & { [K_266 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_267 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                             id?: number | undefined;
                             name?: string | undefined;
                             bindings?: {
@@ -9565,9 +10354,9 @@ export declare const Response: {
                         }[]>]: never; }) | undefined;
                         availableLayers?: number | undefined;
                         maxLayerNameLength?: number | undefined;
-                    } & { [K_256 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                    } & { [K_268 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                     err?: import("./keymap").SetActivePhysicalLayoutErrorCode | undefined;
-                } & { [K_257 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+                } & { [K_269 in Exclude<keyof I_1["requestResponse"]["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
                 moveLayer?: ({
                     ok?: {
                         layers?: {
@@ -9696,7 +10485,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_258 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_259 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                            } & { [K_270 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_271 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -9713,7 +10502,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_260 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_261 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                            } & { [K_272 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_273 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -9749,7 +10538,7 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_262 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_274 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 param2Binding?: ({
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -9758,8 +10547,8 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_263 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            } & { [K_264 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_265 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                                } & { [K_275 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_276 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_277 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                                 param1Binding?: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -9771,7 +10560,7 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_266 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_267 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"], keyof {
+                        } & { [K_278 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_279 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"]["layers"], keyof {
                             id?: number | undefined;
                             name?: string | undefined;
                             bindings?: {
@@ -9799,9 +10588,9 @@ export declare const Response: {
                         }[]>]: never; }) | undefined;
                         availableLayers?: number | undefined;
                         maxLayerNameLength?: number | undefined;
-                    } & { [K_268 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                    } & { [K_280 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                     err?: import("./keymap").MoveLayerErrorCode | undefined;
-                } & { [K_269 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
+                } & { [K_281 in Exclude<keyof I_1["requestResponse"]["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
                 addLayer?: ({
                     ok?: {
                         index?: number | undefined;
@@ -9904,7 +10693,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_270 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_271 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                            } & { [K_282 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_283 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -9921,7 +10710,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_272 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_273 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
+                            } & { [K_284 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_285 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
@@ -9957,7 +10746,7 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_274 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_286 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 param2Binding?: ({
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -9966,8 +10755,8 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_275 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            } & { [K_276 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_277 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
+                                } & { [K_287 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_288 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_289 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
                                 param1Binding?: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
@@ -9979,17 +10768,17 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_278 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
-                    } & { [K_279 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
+                        } & { [K_290 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                    } & { [K_291 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
                     err?: import("./keymap").AddLayerErrorCode | undefined;
-                } & { [K_280 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
+                } & { [K_292 in Exclude<keyof I_1["requestResponse"]["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
                 removeLayer?: ({
                     ok?: {} | undefined;
                     err?: import("./keymap").RemoveLayerErrorCode | undefined;
                 } & {
-                    ok?: ({} & {} & { [K_281 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
+                    ok?: ({} & {} & { [K_293 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
                     err?: import("./keymap").RemoveLayerErrorCode | undefined;
-                } & { [K_282 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
+                } & { [K_294 in Exclude<keyof I_1["requestResponse"]["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
                 restoreLayer?: ({
                     ok?: {
                         id?: number | undefined;
@@ -10059,7 +10848,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_283 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_284 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
+                        } & { [K_295 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_296 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -10076,7 +10865,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_285 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_286 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
+                        } & { [K_297 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_298 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -10112,7 +10901,7 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_287 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_299 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -10121,8 +10910,8 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_288 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_289 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_290 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
+                            } & { [K_300 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_301 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_302 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -10134,13 +10923,13 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_291 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                    } & { [K_303 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
                     err?: import("./keymap").RestoreLayerErrorCode | undefined;
-                } & { [K_292 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
+                } & { [K_304 in Exclude<keyof I_1["requestResponse"]["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
                 setLayerProps?: import("./keymap").SetLayerPropsResponse | undefined;
                 setLayerSensorBinding?: import("./keymap").SetLayerSensorBindingResponse | undefined;
                 setLayerSensorBindingParam?: import("./keymap").SetLayerSensorBindingResponse | undefined;
-            } & { [K_293 in Exclude<keyof I_1["requestResponse"]["keymap"], keyof Response10>]: never; }) | undefined;
+            } & { [K_305 in Exclude<keyof I_1["requestResponse"]["keymap"], keyof Response10>]: never; }) | undefined;
             meteorite?: ({
                 getConfigState?: {
                     schemaVersion?: number | undefined;
@@ -10531,13 +11320,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_294 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_295 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
+                        } & { [K_306 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_307 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_296 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_297 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"], keyof {
+                    } & { [K_308 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_309 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -10619,7 +11408,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_298 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_310 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -10633,12 +11422,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_299 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_300 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_311 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_312 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_301 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_313 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -10667,7 +11456,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_302 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_314 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -10676,8 +11465,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_303 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_304 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_315 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_316 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -10698,9 +11487,9 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_305 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_306 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_307 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_317 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_318 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_319 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -10766,7 +11555,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_308 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_320 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -10780,12 +11569,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_309 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_310 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_321 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_322 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_311 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_323 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -10814,7 +11603,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_312 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_324 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -10823,8 +11612,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_313 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_314 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_325 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_326 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -10845,9 +11634,9 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_315 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_316 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_317 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_327 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_328 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_329 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -10913,7 +11702,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_318 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_330 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -10927,12 +11716,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_319 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_320 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_331 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_332 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_321 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_333 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -10961,7 +11750,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_322 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_334 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -10970,8 +11759,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_323 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_324 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_335 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_336 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -10992,12 +11781,12 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_325 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_326 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_327 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_337 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_338 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_339 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_328 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_340 in Exclude<keyof I_1["requestResponse"]["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 setConfig?: import("./meteorite").SetConfigResponse | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
@@ -11006,9 +11795,9 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./meteorite").SaveChangesErrorCode | undefined;
-                } & { [K_329 in Exclude<keyof I_1["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_341 in Exclude<keyof I_1["requestResponse"]["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_330 in Exclude<keyof I_1["requestResponse"]["meteorite"], keyof Response11>]: never; }) | undefined;
+            } & { [K_342 in Exclude<keyof I_1["requestResponse"]["meteorite"], keyof Response11>]: never; }) | undefined;
             combos?: ({
                 getComboState?: {
                     schemaVersion?: number | undefined;
@@ -11134,14 +11923,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_331 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_332 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_333 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_343 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_344 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_345 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_334 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_335 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"], keyof {
+                    } & { [K_346 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_347 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -11159,7 +11948,7 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_336 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_348 in Exclude<keyof I_1["requestResponse"]["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 setCombo?: ({
                     ok?: {
                         combo?: {
@@ -11232,18 +12021,18 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_337 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                            keyPositions?: (number[] & number[] & { [K_338 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                            layers?: (number[] & number[] & { [K_339 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                            } & { [K_349 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            keyPositions?: (number[] & number[] & { [K_350 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                            layers?: (number[] & number[] & { [K_351 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                             timeoutMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
                             slowRelease?: boolean | undefined;
                             dirty?: boolean | undefined;
-                        } & { [K_340 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+                        } & { [K_352 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_341 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
+                    } & { [K_353 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
                     err?: import("./combos").SetComboErrorCode | undefined;
-                } & { [K_342 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
+                } & { [K_354 in Exclude<keyof I_1["requestResponse"]["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
                     ok?: boolean | undefined;
@@ -11251,9 +12040,9 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./combos").SaveChangesErrorCode | undefined;
-                } & { [K_343 in Exclude<keyof I_1["requestResponse"]["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_355 in Exclude<keyof I_1["requestResponse"]["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_344 in Exclude<keyof I_1["requestResponse"]["combos"], keyof Response12>]: never; }) | undefined;
+            } & { [K_356 in Exclude<keyof I_1["requestResponse"]["combos"], keyof Response12>]: never; }) | undefined;
             macros?: ({
                 getMacroState?: {
                     schemaVersion?: number | undefined;
@@ -11272,10 +12061,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 setMacro?: {
                     ok?: {
@@ -11292,8 +12089,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -11305,6 +12106,58 @@ export declare const Response: {
                     err?: import("./macros").SaveChangesErrorCode | undefined;
                 } | undefined;
                 discardChanges?: boolean | undefined;
+                getMacro?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } | undefined;
+                setTapMs?: {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                resetMacro?: {
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } | undefined;
             } & {
                 getMacroState?: ({
                     schemaVersion?: number | undefined;
@@ -11323,10 +12176,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     maxMacros?: number | undefined;
@@ -11344,8 +12205,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] & ({
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -11359,8 +12224,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -11374,6 +12243,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] & ({
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -11382,6 +12253,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: ({
@@ -11392,9 +12265,11 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_345 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_357 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             waitMs?: number | undefined;
-                        } & { [K_346 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_347 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"], keyof {
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_358 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_359 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number]["steps"], keyof {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
                                 behaviorId?: number | undefined;
@@ -11402,9 +12277,13 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[]>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_348 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_349 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"], keyof {
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_360 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_361 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"]["macros"], keyof {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
                         name?: string | undefined;
@@ -11417,11 +12296,19 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_350 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"], keyof import("./macros").MacroState>]: never; }) | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
+                } & { [K_362 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacroState"], keyof import("./macros").MacroState>]: never; }) | undefined;
                 setMacro?: ({
                     ok?: {
                         macro?: {
@@ -11437,8 +12324,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } | undefined;
@@ -11458,8 +12349,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } | undefined;
                         dirty?: boolean | undefined;
                     } & {
@@ -11476,8 +12371,12 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] | undefined;
                             dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
                         } & {
                             slotIndex?: number | undefined;
                             behaviorId?: number | undefined;
@@ -11491,6 +12390,8 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[] & ({
                                 action?: import("./macros").MacroStepAction | undefined;
                                 binding?: {
@@ -11499,6 +12400,8 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             } & {
                                 action?: import("./macros").MacroStepAction | undefined;
                                 binding?: ({
@@ -11509,9 +12412,11 @@ export declare const Response: {
                                     behaviorId?: number | undefined;
                                     param1?: number | undefined;
                                     param2?: number | undefined;
-                                } & { [K_351 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                } & { [K_363 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                                 waitMs?: number | undefined;
-                            } & { [K_352 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_353 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"], keyof {
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            } & { [K_364 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_365 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"]["steps"], keyof {
                                 action?: import("./macros").MacroStepAction | undefined;
                                 binding?: {
                                     behaviorId?: number | undefined;
@@ -11519,13 +12424,17 @@ export declare const Response: {
                                     param2?: number | undefined;
                                 } | undefined;
                                 waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
                             }[]>]: never; }) | undefined;
                             dirty?: boolean | undefined;
-                        } & { [K_354 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } & { [K_366 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_355 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
+                    } & { [K_367 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
                     err?: import("./macros").SetMacroErrorCode | undefined;
-                } & { [K_356 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"], keyof import("./macros").SetMacroResponse>]: never; }) | undefined;
+                } & { [K_368 in Exclude<keyof I_1["requestResponse"]["macros"]["setMacro"], keyof import("./macros").SetMacroResponse>]: never; }) | undefined;
                 checkUnsavedChanges?: boolean | undefined;
                 saveChanges?: ({
                     ok?: boolean | undefined;
@@ -11533,10 +12442,239 @@ export declare const Response: {
                 } & {
                     ok?: boolean | undefined;
                     err?: import("./macros").SaveChangesErrorCode | undefined;
-                } & { [K_357 in Exclude<keyof I_1["requestResponse"]["macros"]["saveChanges"], keyof import("./macros").SaveChangesResponse>]: never; }) | undefined;
+                } & { [K_369 in Exclude<keyof I_1["requestResponse"]["macros"]["saveChanges"], keyof import("./macros").SaveChangesResponse>]: never; }) | undefined;
                 discardChanges?: boolean | undefined;
-            } & { [K_358 in Exclude<keyof I_1["requestResponse"]["macros"], keyof Response13>]: never; }) | undefined;
-        } & { [K_359 in Exclude<keyof I_1["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
+                getMacro?: ({
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                } & {
+                    macro?: ({
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] & ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: ({
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & { [K_370 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_371 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_372 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacro"]["macro"]["steps"], keyof {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[]>]: never; }) | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_373 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                } & { [K_374 in Exclude<keyof I_1["requestResponse"]["macros"]["getMacro"], "macro">]: never; }) | undefined;
+                setTapMs?: ({
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } & {
+                    tapMs?: number | undefined;
+                    dirty?: boolean | undefined;
+                } & { [K_375 in Exclude<keyof I_1["requestResponse"]["macros"]["setTapMs"], keyof import("./macros").SetTapMsResponse>]: never; }) | undefined;
+                resetMacro?: ({
+                    ok?: {
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } & {
+                    ok?: ({
+                        macro?: {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } | undefined;
+                        dirty?: boolean | undefined;
+                    } & {
+                        macro?: ({
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } & {
+                            slotIndex?: number | undefined;
+                            behaviorId?: number | undefined;
+                            name?: string | undefined;
+                            enabled?: boolean | undefined;
+                            steps?: ({
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[] & ({
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            } & {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: ({
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } & {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } & { [K_376 in Exclude<keyof I_1["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            } & { [K_377 in Exclude<keyof I_1["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_378 in Exclude<keyof I_1["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"]["steps"], keyof {
+                                action?: import("./macros").MacroStepAction | undefined;
+                                binding?: {
+                                    behaviorId?: number | undefined;
+                                    param1?: number | undefined;
+                                    param2?: number | undefined;
+                                } | undefined;
+                                waitMs?: number | undefined;
+                                packedKeysOffset?: number | undefined;
+                                packedKeysLength?: number | undefined;
+                            }[]>]: never; }) | undefined;
+                            dirty?: boolean | undefined;
+                            packedKeys?: Uint8Array | undefined;
+                            encodedSize?: number | undefined;
+                        } & { [K_379 in Exclude<keyof I_1["requestResponse"]["macros"]["resetMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                        dirty?: boolean | undefined;
+                    } & { [K_380 in Exclude<keyof I_1["requestResponse"]["macros"]["resetMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
+                    err?: import("./macros").SetMacroErrorCode | undefined;
+                } & { [K_381 in Exclude<keyof I_1["requestResponse"]["macros"]["resetMacro"], keyof import("./macros").ResetMacroResponse>]: never; }) | undefined;
+            } & { [K_382 in Exclude<keyof I_1["requestResponse"]["macros"], keyof Response13>]: never; }) | undefined;
+        } & { [K_383 in Exclude<keyof I_1["requestResponse"], keyof RequestResponse>]: never; }) | undefined;
         notification?: ({
             core?: {
                 lockStateChanged?: import("./core").LockState | undefined;
@@ -11752,10 +12890,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } | undefined;
@@ -11764,12 +12910,12 @@ export declare const Response: {
                 lockStateChanged?: import("./core").LockState | undefined;
             } & {
                 lockStateChanged?: import("./core").LockState | undefined;
-            } & { [K_360 in Exclude<keyof I_1["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
+            } & { [K_384 in Exclude<keyof I_1["notification"]["core"], "lockStateChanged">]: never; }) | undefined;
             keymap?: ({
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_361 in Exclude<keyof I_1["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
+            } & { [K_385 in Exclude<keyof I_1["notification"]["keymap"], "unsavedChangesStatusChanged">]: never; }) | undefined;
             meteorite?: ({
                 configStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -12154,13 +13300,13 @@ export declare const Response: {
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
-                        } & { [K_362 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_363 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
+                        } & { [K_386 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_387 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number]["options"], keyof {
                             value?: number | undefined;
                             label?: string | undefined;
                             displayValue?: number | undefined;
                             displayLabel?: string | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_364 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_365 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
+                    } & { [K_388 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_389 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["fields"], keyof {
                         id?: string | undefined;
                         label?: string | undefined;
                         kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -12242,7 +13388,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_366 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_390 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -12256,12 +13402,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_367 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_368 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_391 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_392 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_369 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_393 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -12290,7 +13436,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_370 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_394 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -12299,8 +13445,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_371 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_372 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_395 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_396 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -12321,9 +13467,9 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_373 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_374 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_375 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_397 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_398 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_399 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     saved?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -12389,7 +13535,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_376 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_400 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -12403,12 +13549,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_377 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_378 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_401 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_402 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_379 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_403 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -12437,7 +13583,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_380 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_404 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -12446,8 +13592,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_381 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_382 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_405 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_406 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -12468,9 +13614,9 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_383 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_384 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_385 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_407 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_408 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_409 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     defaults?: ({
                         cpiIdx?: number | undefined;
                         scrollDiv?: number | undefined;
@@ -12536,7 +13682,7 @@ export declare const Response: {
                                 param2?: number | undefined;
                             }[] | undefined;
                         } & {
-                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_386 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                            layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_410 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                             sensitivity?: import("./meteorite").BallSensitivity | undefined;
                             user1Bindings?: ({
                                 behaviorId?: number | undefined;
@@ -12550,12 +13696,12 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_387 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_388 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                            } & { [K_411 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_412 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
                             }[]>]: never; }) | undefined;
-                        } & { [K_389 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                        } & { [K_413 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                         timingConfig?: ({
                             modTapTappingTermMs?: number | undefined;
                             layerTapTappingTermMs?: number | undefined;
@@ -12584,7 +13730,7 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_390 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                            } & { [K_414 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                             layerTap?: ({
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
@@ -12593,8 +13739,8 @@ export declare const Response: {
                                 flavor?: import("./meteorite").HoldTapFlavor | undefined;
                                 quickTapMs?: number | undefined;
                                 requirePriorIdleMs?: number | undefined;
-                            } & { [K_391 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                        } & { [K_392 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                            } & { [K_415 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_416 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                         pointerConfig?: ({
                             profile?: import("./meteorite").PointerProfile | undefined;
                             customCurve?: {
@@ -12615,14 +13761,14 @@ export declare const Response: {
                                 precisionGainPercent?: number | undefined;
                                 fastGainPercent?: number | undefined;
                                 flickGainPercent?: number | undefined;
-                            } & { [K_393 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                        } & { [K_394 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                    } & { [K_395 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                            } & { [K_417 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                        } & { [K_418 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                    } & { [K_419 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                     firmwareBuildVersion?: string | undefined;
-                } & { [K_396 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+                } & { [K_420 in Exclude<keyof I_1["notification"]["meteorite"]["configStateChanged"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_397 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification16>]: never; }) | undefined;
+            } & { [K_421 in Exclude<keyof I_1["notification"]["meteorite"], keyof Notification16>]: never; }) | undefined;
             combos?: ({
                 comboStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -12720,14 +13866,14 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_398 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_399 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_400 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_422 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_423 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_424 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_401 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_402 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
+                    } & { [K_425 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_426 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"]["combos"], keyof {
                         comboId?: string | undefined;
                         slotIndex?: number | undefined;
                         source?: import("./combos").ComboSource | undefined;
@@ -12745,9 +13891,9 @@ export declare const Response: {
                         dirty?: boolean | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_403 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
+                } & { [K_427 in Exclude<keyof I_1["notification"]["combos"]["comboStateChanged"], keyof import("./combos").ComboState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_404 in Exclude<keyof I_1["notification"]["combos"], keyof Notification17>]: never; }) | undefined;
+            } & { [K_428 in Exclude<keyof I_1["notification"]["combos"], keyof Notification17>]: never; }) | undefined;
             macros?: ({
                 macroStateChanged?: {
                     schemaVersion?: number | undefined;
@@ -12766,10 +13912,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
             } & {
@@ -12790,10 +13944,18 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
                 } & {
                     schemaVersion?: number | undefined;
                     maxMacros?: number | undefined;
@@ -12811,8 +13973,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[] & ({
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -12826,8 +13992,12 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -12841,6 +14011,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] & ({
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -12849,6 +14021,8 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: ({
@@ -12859,9 +14033,11 @@ export declare const Response: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_405 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_429 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             waitMs?: number | undefined;
-                        } & { [K_406 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_407 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"], keyof {
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_430 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_431 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number]["steps"], keyof {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
                                 behaviorId?: number | undefined;
@@ -12869,9 +14045,13 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[]>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_408 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_409 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"], keyof {
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_432 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_433 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"]["macros"], keyof {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
                         name?: string | undefined;
@@ -12884,15 +14064,23 @@ export declare const Response: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_410 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"], keyof import("./macros").MacroState>]: never; }) | undefined;
+                    tapMs?: number | undefined;
+                    poolBytesTotal?: number | undefined;
+                    poolBytesUsed?: number | undefined;
+                    maxMacroBytes?: number | undefined;
+                } & { [K_434 in Exclude<keyof I_1["notification"]["macros"]["macroStateChanged"], keyof import("./macros").MacroState>]: never; }) | undefined;
                 unsavedChangesStatusChanged?: boolean | undefined;
-            } & { [K_411 in Exclude<keyof I_1["notification"]["macros"], keyof Notification18>]: never; }) | undefined;
-        } & { [K_412 in Exclude<keyof I_1["notification"], keyof Notification>]: never; }) | undefined;
-    } & { [K_413 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+            } & { [K_435 in Exclude<keyof I_1["notification"]["macros"], keyof Notification18>]: never; }) | undefined;
+        } & { [K_436 in Exclude<keyof I_1["notification"], keyof Notification>]: never; }) | undefined;
+    } & { [K_437 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const RequestResponse: {
     encode(message: RequestResponse, writer?: _m0.Writer): _m0.Writer;
@@ -13383,10 +14571,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             setMacro?: {
                 ok?: {
@@ -13403,8 +14599,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } | undefined;
@@ -13416,6 +14616,58 @@ export declare const RequestResponse: {
                 err?: import("./macros").SaveChangesErrorCode | undefined;
             } | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                macro?: {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } | undefined;
+            resetMacro?: {
+                ok?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } | undefined;
         } | undefined;
     } & {
         requestId?: number | undefined;
@@ -16157,10 +17409,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             setMacro?: {
                 ok?: {
@@ -16177,8 +17437,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } | undefined;
@@ -16190,6 +17454,58 @@ export declare const RequestResponse: {
                 err?: import("./macros").SaveChangesErrorCode | undefined;
             } | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                macro?: {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } | undefined;
+            resetMacro?: {
+                ok?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } | undefined;
         } & {
             getMacroState?: ({
                 schemaVersion?: number | undefined;
@@ -16208,10 +17524,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 maxMacros?: number | undefined;
@@ -16229,8 +17553,12 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] & ({
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -16244,8 +17572,12 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -16259,6 +17591,8 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] & ({
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -16267,6 +17601,8 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: ({
@@ -16279,6 +17615,8 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } & { [K_138 in Exclude<keyof I["macros"]["getMacroState"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & { [K_139 in Exclude<keyof I["macros"]["getMacroState"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_140 in Exclude<keyof I["macros"]["getMacroState"]["macros"][number]["steps"], keyof {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -16287,8 +17625,12 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & { [K_141 in Exclude<keyof I["macros"]["getMacroState"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_142 in Exclude<keyof I["macros"]["getMacroState"]["macros"], keyof {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -16302,10 +17644,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & { [K_143 in Exclude<keyof I["macros"]["getMacroState"], keyof import("./macros").MacroState>]: never; }) | undefined;
             setMacro?: ({
                 ok?: {
@@ -16322,8 +17672,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } | undefined;
@@ -16343,8 +17697,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } & {
@@ -16361,8 +17719,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -16376,6 +17738,8 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] & ({
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -16384,6 +17748,8 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: ({
@@ -16396,6 +17762,8 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } & { [K_144 in Exclude<keyof I["macros"]["setMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & { [K_145 in Exclude<keyof I["macros"]["setMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_146 in Exclude<keyof I["macros"]["setMacro"]["ok"]["macro"]["steps"], keyof {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -16404,8 +17772,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[]>]: never; }) | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & { [K_147 in Exclude<keyof I["macros"]["setMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
                     dirty?: boolean | undefined;
                 } & { [K_148 in Exclude<keyof I["macros"]["setMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
@@ -16420,8 +17792,237 @@ export declare const RequestResponse: {
                 err?: import("./macros").SaveChangesErrorCode | undefined;
             } & { [K_150 in Exclude<keyof I["macros"]["saveChanges"], keyof import("./macros").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_151 in Exclude<keyof I["macros"], keyof Response13>]: never; }) | undefined;
-    } & { [K_152 in Exclude<keyof I, keyof RequestResponse>]: never; }>(base?: I | undefined): RequestResponse;
+            getMacro?: ({
+                macro?: {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } | undefined;
+            } & {
+                macro?: ({
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } & {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: ({
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] & ({
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    } & {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: ({
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } & {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } & { [K_151 in Exclude<keyof I["macros"]["getMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    } & { [K_152 in Exclude<keyof I["macros"]["getMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_153 in Exclude<keyof I["macros"]["getMacro"]["macro"]["steps"], keyof {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } & { [K_154 in Exclude<keyof I["macros"]["getMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+            } & { [K_155 in Exclude<keyof I["macros"]["getMacro"], "macro">]: never; }) | undefined;
+            setTapMs?: ({
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } & {
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } & { [K_156 in Exclude<keyof I["macros"]["setTapMs"], keyof import("./macros").SetTapMsResponse>]: never; }) | undefined;
+            resetMacro?: ({
+                ok?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } & {
+                ok?: ({
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } & {
+                    macro?: ({
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] & ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: ({
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & { [K_157 in Exclude<keyof I["macros"]["resetMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_158 in Exclude<keyof I["macros"]["resetMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_159 in Exclude<keyof I["macros"]["resetMacro"]["ok"]["macro"]["steps"], keyof {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[]>]: never; }) | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_160 in Exclude<keyof I["macros"]["resetMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                    dirty?: boolean | undefined;
+                } & { [K_161 in Exclude<keyof I["macros"]["resetMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } & { [K_162 in Exclude<keyof I["macros"]["resetMacro"], keyof import("./macros").ResetMacroResponse>]: never; }) | undefined;
+        } & { [K_163 in Exclude<keyof I["macros"], keyof Response13>]: never; }) | undefined;
+    } & { [K_164 in Exclude<keyof I, keyof RequestResponse>]: never; }>(base?: I | undefined): RequestResponse;
     fromPartial<I_1 extends {
         requestId?: number | undefined;
         meta?: {
@@ -16906,10 +18507,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             setMacro?: {
                 ok?: {
@@ -16926,8 +18535,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } | undefined;
@@ -16939,6 +18552,58 @@ export declare const RequestResponse: {
                 err?: import("./macros").SaveChangesErrorCode | undefined;
             } | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                macro?: {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } | undefined;
+            resetMacro?: {
+                ok?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } | undefined;
         } | undefined;
     } & {
         requestId?: number | undefined;
@@ -16948,7 +18613,7 @@ export declare const RequestResponse: {
         } & {
             noResponse?: boolean | undefined;
             simpleError?: import("./meta").ErrorConditions | undefined;
-        } & { [K_153 in Exclude<keyof I_1["meta"], keyof Response7>]: never; }) | undefined;
+        } & { [K_165 in Exclude<keyof I_1["meta"], keyof Response7>]: never; }) | undefined;
         core?: ({
             getDeviceInfo?: {
                 name?: string | undefined;
@@ -16965,11 +18630,11 @@ export declare const RequestResponse: {
             } & {
                 name?: string | undefined;
                 serialNumber?: Uint8Array | undefined;
-                capabilities?: (string[] & string[] & { [K_154 in Exclude<keyof I_1["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
-            } & { [K_155 in Exclude<keyof I_1["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
+                capabilities?: (string[] & string[] & { [K_166 in Exclude<keyof I_1["core"]["getDeviceInfo"]["capabilities"], keyof string[]>]: never; }) | undefined;
+            } & { [K_167 in Exclude<keyof I_1["core"]["getDeviceInfo"], keyof import("./core").GetDeviceInfoResponse>]: never; }) | undefined;
             getLockState?: import("./core").LockState | undefined;
             resetSettings?: boolean | undefined;
-        } & { [K_156 in Exclude<keyof I_1["core"], keyof Response8>]: never; }) | undefined;
+        } & { [K_168 in Exclude<keyof I_1["core"], keyof Response8>]: never; }) | undefined;
         behaviors?: ({
             listAllBehaviors?: {
                 behaviors?: number[] | undefined;
@@ -17012,8 +18677,8 @@ export declare const RequestResponse: {
             listAllBehaviors?: ({
                 behaviors?: number[] | undefined;
             } & {
-                behaviors?: (number[] & number[] & { [K_157 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-            } & { [K_158 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+                behaviors?: (number[] & number[] & { [K_169 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+            } & { [K_170 in Exclude<keyof I_1["behaviors"]["listAllBehaviors"], "behaviors">]: never; }) | undefined;
             getBehaviorDetails?: ({
                 id?: number | undefined;
                 displayName?: string | undefined;
@@ -17137,7 +18802,7 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     } & {
                         name?: string | undefined;
-                        nil?: ({} & {} & { [K_159 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                        nil?: ({} & {} & { [K_171 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                         constant?: number | undefined;
                         range?: ({
                             min?: number | undefined;
@@ -17145,16 +18810,16 @@ export declare const RequestResponse: {
                         } & {
                             min?: number | undefined;
                             max?: number | undefined;
-                        } & { [K_160 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        } & { [K_172 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                         hidUsage?: ({
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
                         } & {
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
-                        } & { [K_161 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                        layerId?: ({} & {} & { [K_162 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                    } & { [K_163 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_164 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                        } & { [K_173 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_174 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_175 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_176 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                         name?: string | undefined;
                         nil?: {} | undefined;
                         constant?: number | undefined;
@@ -17196,7 +18861,7 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     } & {
                         name?: string | undefined;
-                        nil?: ({} & {} & { [K_165 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                        nil?: ({} & {} & { [K_177 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                         constant?: number | undefined;
                         range?: ({
                             min?: number | undefined;
@@ -17204,16 +18869,16 @@ export declare const RequestResponse: {
                         } & {
                             min?: number | undefined;
                             max?: number | undefined;
-                        } & { [K_166 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        } & { [K_178 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof import("./behaviors").BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                         hidUsage?: ({
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
                         } & {
                             keyboardMax?: number | undefined;
                             consumerMax?: number | undefined;
-                        } & { [K_167 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
-                        layerId?: ({} & {} & { [K_168 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                    } & { [K_169 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_170 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                        } & { [K_179 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof import("./behaviors").BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_180 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_181 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof import("./behaviors").BehaviorParameterValueDescription>]: never; })[] & { [K_182 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                         name?: string | undefined;
                         nil?: {} | undefined;
                         constant?: number | undefined;
@@ -17227,7 +18892,7 @@ export declare const RequestResponse: {
                         } | undefined;
                         layerId?: {} | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_171 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_172 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
+                } & { [K_183 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"][number], keyof import("./behaviors").BehaviorBindingParametersSet>]: never; })[] & { [K_184 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"]["metadata"], keyof {
                     param1?: {
                         name?: string | undefined;
                         nil?: {} | undefined;
@@ -17257,8 +18922,8 @@ export declare const RequestResponse: {
                         layerId?: {} | undefined;
                     }[] | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_173 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
-        } & { [K_174 in Exclude<keyof I_1["behaviors"], keyof Response9>]: never; }) | undefined;
+            } & { [K_185 in Exclude<keyof I_1["behaviors"]["getBehaviorDetails"], keyof import("./behaviors").GetBehaviorDetailsResponse>]: never; }) | undefined;
+        } & { [K_186 in Exclude<keyof I_1["behaviors"], keyof Response9>]: never; }) | undefined;
         keymap?: ({
             getKeymap?: {
                 layers?: {
@@ -17542,7 +19207,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_175 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_176 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
+                    } & { [K_187 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_188 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -17559,7 +19224,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_177 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_178 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
+                    } & { [K_189 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_190 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -17595,7 +19260,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_179 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_191 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -17604,8 +19269,8 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_180 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_181 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_182 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
+                        } & { [K_192 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_193 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_194 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -17617,7 +19282,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_183 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_184 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"], keyof {
+                } & { [K_195 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_196 in Exclude<keyof I_1["keymap"]["getKeymap"]["layers"], keyof {
                     id?: number | undefined;
                     name?: string | undefined;
                     bindings?: {
@@ -17645,7 +19310,7 @@ export declare const RequestResponse: {
                 }[]>]: never; }) | undefined;
                 availableLayers?: number | undefined;
                 maxLayerNameLength?: number | undefined;
-            } & { [K_185 in Exclude<keyof I_1["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+            } & { [K_197 in Exclude<keyof I_1["keymap"]["getKeymap"], keyof import("./keymap").Keymap>]: never; }) | undefined;
             setLayerBinding?: import("./keymap").SetLayerBindingResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -17654,7 +19319,7 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./keymap").SaveChangesErrorCode | undefined;
-            } & { [K_186 in Exclude<keyof I_1["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_198 in Exclude<keyof I_1["keymap"]["saveChanges"], keyof import("./keymap").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
             getPhysicalLayouts?: ({
                 activeLayoutIndex?: number | undefined;
@@ -17720,7 +19385,7 @@ export declare const RequestResponse: {
                         r?: number | undefined;
                         rx?: number | undefined;
                         ry?: number | undefined;
-                    } & { [K_187 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_188 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                    } & { [K_199 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof import("./keymap").KeyPhysicalAttrs>]: never; })[] & { [K_200 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                         width?: number | undefined;
                         height?: number | undefined;
                         x?: number | undefined;
@@ -17729,7 +19394,7 @@ export declare const RequestResponse: {
                         rx?: number | undefined;
                         ry?: number | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_189 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_190 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
+                } & { [K_201 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"][number], keyof import("./keymap").PhysicalLayout>]: never; })[] & { [K_202 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"]["layouts"], keyof {
                     name?: string | undefined;
                     keys?: {
                         width?: number | undefined;
@@ -17741,7 +19406,7 @@ export declare const RequestResponse: {
                         ry?: number | undefined;
                     }[] | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_191 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
+            } & { [K_203 in Exclude<keyof I_1["keymap"]["getPhysicalLayouts"], keyof import("./keymap").PhysicalLayouts>]: never; }) | undefined;
             setActivePhysicalLayout?: ({
                 ok?: {
                     layers?: {
@@ -17870,7 +19535,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_192 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_193 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                        } & { [K_204 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_205 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -17887,7 +19552,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_194 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_195 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                        } & { [K_206 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_207 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -17923,7 +19588,7 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_196 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_208 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -17932,8 +19597,8 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_197 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_198 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_199 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                            } & { [K_209 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_210 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_211 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -17945,7 +19610,7 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_200 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_201 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                    } & { [K_212 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_213 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -17973,9 +19638,9 @@ export declare const RequestResponse: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_202 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_214 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 err?: import("./keymap").SetActivePhysicalLayoutErrorCode | undefined;
-            } & { [K_203 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+            } & { [K_215 in Exclude<keyof I_1["keymap"]["setActivePhysicalLayout"], keyof import("./keymap").SetActivePhysicalLayoutResponse>]: never; }) | undefined;
             moveLayer?: ({
                 ok?: {
                     layers?: {
@@ -18104,7 +19769,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_204 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_205 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                        } & { [K_216 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_217 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -18121,7 +19786,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_206 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_207 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                        } & { [K_218 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_219 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -18157,7 +19822,7 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_208 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_220 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -18166,8 +19831,8 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_209 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_210 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_211 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                            } & { [K_221 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_222 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_223 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -18179,7 +19844,7 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_212 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_213 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"], keyof {
+                    } & { [K_224 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"][number], keyof import("./keymap").Layer>]: never; })[] & { [K_225 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"]["layers"], keyof {
                         id?: number | undefined;
                         name?: string | undefined;
                         bindings?: {
@@ -18207,9 +19872,9 @@ export declare const RequestResponse: {
                     }[]>]: never; }) | undefined;
                     availableLayers?: number | undefined;
                     maxLayerNameLength?: number | undefined;
-                } & { [K_214 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
+                } & { [K_226 in Exclude<keyof I_1["keymap"]["moveLayer"]["ok"], keyof import("./keymap").Keymap>]: never; }) | undefined;
                 err?: import("./keymap").MoveLayerErrorCode | undefined;
-            } & { [K_215 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
+            } & { [K_227 in Exclude<keyof I_1["keymap"]["moveLayer"], keyof import("./keymap").MoveLayerResponse>]: never; }) | undefined;
             addLayer?: ({
                 ok?: {
                     index?: number | undefined;
@@ -18312,7 +19977,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_216 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_217 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                        } & { [K_228 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_229 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -18329,7 +19994,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_218 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_219 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
+                        } & { [K_230 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_231 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
@@ -18365,7 +20030,7 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_220 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_232 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             param2Binding?: ({
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -18374,8 +20039,8 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_221 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        } & { [K_222 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_223 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
+                            } & { [K_233 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_234 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_235 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
                             param1Binding?: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
@@ -18387,17 +20052,17 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_224 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
-                } & { [K_225 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
+                    } & { [K_236 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"]["layer"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                } & { [K_237 in Exclude<keyof I_1["keymap"]["addLayer"]["ok"], keyof import("./keymap").AddLayerResponseDetails>]: never; }) | undefined;
                 err?: import("./keymap").AddLayerErrorCode | undefined;
-            } & { [K_226 in Exclude<keyof I_1["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
+            } & { [K_238 in Exclude<keyof I_1["keymap"]["addLayer"], keyof import("./keymap").AddLayerResponse>]: never; }) | undefined;
             removeLayer?: ({
                 ok?: {} | undefined;
                 err?: import("./keymap").RemoveLayerErrorCode | undefined;
             } & {
-                ok?: ({} & {} & { [K_227 in Exclude<keyof I_1["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
+                ok?: ({} & {} & { [K_239 in Exclude<keyof I_1["keymap"]["removeLayer"]["ok"], never>]: never; }) | undefined;
                 err?: import("./keymap").RemoveLayerErrorCode | undefined;
-            } & { [K_228 in Exclude<keyof I_1["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
+            } & { [K_240 in Exclude<keyof I_1["keymap"]["removeLayer"], keyof import("./keymap").RemoveLayerResponse>]: never; }) | undefined;
             restoreLayer?: ({
                 ok?: {
                     id?: number | undefined;
@@ -18467,7 +20132,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_229 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_230 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
+                    } & { [K_241 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_242 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -18484,7 +20149,7 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_231 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_232 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
+                    } & { [K_243 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_244 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -18520,7 +20185,7 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_233 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_245 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -18529,8 +20194,8 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_234 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_235 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_236 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
+                        } & { [K_246 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_247 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof import("./keymap").SensorDirectionBindings>]: never; })[] & { [K_248 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -18542,13 +20207,13 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_237 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
+                } & { [K_249 in Exclude<keyof I_1["keymap"]["restoreLayer"]["ok"], keyof import("./keymap").Layer>]: never; }) | undefined;
                 err?: import("./keymap").RestoreLayerErrorCode | undefined;
-            } & { [K_238 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
+            } & { [K_250 in Exclude<keyof I_1["keymap"]["restoreLayer"], keyof import("./keymap").RestoreLayerResponse>]: never; }) | undefined;
             setLayerProps?: import("./keymap").SetLayerPropsResponse | undefined;
             setLayerSensorBinding?: import("./keymap").SetLayerSensorBindingResponse | undefined;
             setLayerSensorBindingParam?: import("./keymap").SetLayerSensorBindingResponse | undefined;
-        } & { [K_239 in Exclude<keyof I_1["keymap"], keyof Response10>]: never; }) | undefined;
+        } & { [K_251 in Exclude<keyof I_1["keymap"], keyof Response10>]: never; }) | undefined;
         meteorite?: ({
             getConfigState?: {
                 schemaVersion?: number | undefined;
@@ -18939,13 +20604,13 @@ export declare const RequestResponse: {
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
-                    } & { [K_240 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_241 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
+                    } & { [K_252 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"][number], keyof import("./meteorite").ConfigFieldOption>]: never; })[] & { [K_253 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number]["options"], keyof {
                         value?: number | undefined;
                         label?: string | undefined;
                         displayValue?: number | undefined;
                         displayLabel?: string | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_242 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_243 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"], keyof {
+                } & { [K_254 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"][number], keyof import("./meteorite").ConfigField>]: never; })[] & { [K_255 in Exclude<keyof I_1["meteorite"]["getConfigState"]["fields"], keyof {
                     id?: string | undefined;
                     label?: string | undefined;
                     kind?: import("./meteorite").ConfigFieldKind | undefined;
@@ -19027,7 +20692,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_244 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_256 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -19041,12 +20706,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_245 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_246 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_257 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_258 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_247 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_259 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -19075,7 +20740,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_248 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_260 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -19084,8 +20749,8 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_249 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_250 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_261 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_262 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
                         customCurve?: {
@@ -19106,9 +20771,9 @@ export declare const RequestResponse: {
                             precisionGainPercent?: number | undefined;
                             fastGainPercent?: number | undefined;
                             flickGainPercent?: number | undefined;
-                        } & { [K_251 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                    } & { [K_252 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                } & { [K_253 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        } & { [K_263 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_264 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_265 in Exclude<keyof I_1["meteorite"]["getConfigState"]["current"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 saved?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -19174,7 +20839,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_254 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_266 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -19188,12 +20853,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_255 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_256 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_267 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_268 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_257 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_269 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -19222,7 +20887,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_258 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_270 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -19231,8 +20896,8 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_259 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_260 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_271 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_272 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
                         customCurve?: {
@@ -19253,9 +20918,9 @@ export declare const RequestResponse: {
                             precisionGainPercent?: number | undefined;
                             fastGainPercent?: number | undefined;
                             flickGainPercent?: number | undefined;
-                        } & { [K_261 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                    } & { [K_262 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                } & { [K_263 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        } & { [K_273 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_274 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_275 in Exclude<keyof I_1["meteorite"]["getConfigState"]["saved"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 defaults?: ({
                     cpiIdx?: number | undefined;
                     scrollDiv?: number | undefined;
@@ -19321,7 +20986,7 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         }[] | undefined;
                     } & {
-                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_264 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
+                        layerProfiles?: (import("./meteorite").BallProfile[] & import("./meteorite").BallProfile[] & { [K_276 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["layerProfiles"], keyof import("./meteorite").BallProfile[]>]: never; }) | undefined;
                         sensitivity?: import("./meteorite").BallSensitivity | undefined;
                         user1Bindings?: ({
                             behaviorId?: number | undefined;
@@ -19335,12 +21000,12 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_265 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_266 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
+                        } & { [K_277 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"][number], keyof import("./keymap").BehaviorBinding>]: never; })[] & { [K_278 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"]["user1Bindings"], keyof {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
                         }[]>]: never; }) | undefined;
-                    } & { [K_267 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
+                    } & { [K_279 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["ballConfig"], keyof import("./meteorite").BallConfig>]: never; }) | undefined;
                     timingConfig?: ({
                         modTapTappingTermMs?: number | undefined;
                         layerTapTappingTermMs?: number | undefined;
@@ -19369,7 +21034,7 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_268 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                        } & { [K_280 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["modTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
                         layerTap?: ({
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
@@ -19378,8 +21043,8 @@ export declare const RequestResponse: {
                             flavor?: import("./meteorite").HoldTapFlavor | undefined;
                             quickTapMs?: number | undefined;
                             requirePriorIdleMs?: number | undefined;
-                        } & { [K_269 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
-                    } & { [K_270 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
+                        } & { [K_281 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"]["layerTap"], keyof import("./meteorite").HoldTapConfig>]: never; }) | undefined;
+                    } & { [K_282 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["timingConfig"], keyof import("./meteorite").TimingConfig>]: never; }) | undefined;
                     pointerConfig?: ({
                         profile?: import("./meteorite").PointerProfile | undefined;
                         customCurve?: {
@@ -19400,12 +21065,12 @@ export declare const RequestResponse: {
                             precisionGainPercent?: number | undefined;
                             fastGainPercent?: number | undefined;
                             flickGainPercent?: number | undefined;
-                        } & { [K_271 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
-                    } & { [K_272 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
-                } & { [K_273 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
+                        } & { [K_283 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"]["customCurve"], keyof import("./meteorite").PointerCurveConfig>]: never; }) | undefined;
+                    } & { [K_284 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"]["pointerConfig"], keyof import("./meteorite").PointerConfig>]: never; }) | undefined;
+                } & { [K_285 in Exclude<keyof I_1["meteorite"]["getConfigState"]["defaults"], keyof import("./meteorite").ConfigValues>]: never; }) | undefined;
                 dirty?: boolean | undefined;
                 firmwareBuildVersion?: string | undefined;
-            } & { [K_274 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
+            } & { [K_286 in Exclude<keyof I_1["meteorite"]["getConfigState"], keyof import("./meteorite").ConfigState>]: never; }) | undefined;
             setConfig?: import("./meteorite").SetConfigResponse | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
@@ -19414,9 +21079,9 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./meteorite").SaveChangesErrorCode | undefined;
-            } & { [K_275 in Exclude<keyof I_1["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_287 in Exclude<keyof I_1["meteorite"]["saveChanges"], keyof import("./meteorite").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_276 in Exclude<keyof I_1["meteorite"], keyof Response11>]: never; }) | undefined;
+        } & { [K_288 in Exclude<keyof I_1["meteorite"], keyof Response11>]: never; }) | undefined;
         combos?: ({
             getComboState?: {
                 schemaVersion?: number | undefined;
@@ -19542,14 +21207,14 @@ export declare const RequestResponse: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_277 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                    keyPositions?: (number[] & number[] & { [K_278 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                    layers?: (number[] & number[] & { [K_279 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
+                    } & { [K_289 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                    keyPositions?: (number[] & number[] & { [K_290 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                    layers?: (number[] & number[] & { [K_291 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number]["layers"], keyof number[]>]: never; }) | undefined;
                     timeoutMs?: number | undefined;
                     requirePriorIdleMs?: number | undefined;
                     slowRelease?: boolean | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_280 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_281 in Exclude<keyof I_1["combos"]["getComboState"]["combos"], keyof {
+                } & { [K_292 in Exclude<keyof I_1["combos"]["getComboState"]["combos"][number], keyof import("./combos").Combo>]: never; })[] & { [K_293 in Exclude<keyof I_1["combos"]["getComboState"]["combos"], keyof {
                     comboId?: string | undefined;
                     slotIndex?: number | undefined;
                     source?: import("./combos").ComboSource | undefined;
@@ -19567,7 +21232,7 @@ export declare const RequestResponse: {
                     dirty?: boolean | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_282 in Exclude<keyof I_1["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
+            } & { [K_294 in Exclude<keyof I_1["combos"]["getComboState"], keyof import("./combos").ComboState>]: never; }) | undefined;
             setCombo?: ({
                 ok?: {
                     combo?: {
@@ -19640,18 +21305,18 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_283 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
-                        keyPositions?: (number[] & number[] & { [K_284 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
-                        layers?: (number[] & number[] & { [K_285 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
+                        } & { [K_295 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        keyPositions?: (number[] & number[] & { [K_296 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["keyPositions"], keyof number[]>]: never; }) | undefined;
+                        layers?: (number[] & number[] & { [K_297 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"]["layers"], keyof number[]>]: never; }) | undefined;
                         timeoutMs?: number | undefined;
                         requirePriorIdleMs?: number | undefined;
                         slowRelease?: boolean | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_286 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
+                    } & { [K_298 in Exclude<keyof I_1["combos"]["setCombo"]["ok"]["combo"], keyof import("./combos").Combo>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_287 in Exclude<keyof I_1["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
+                } & { [K_299 in Exclude<keyof I_1["combos"]["setCombo"]["ok"], keyof import("./combos").SetComboOk>]: never; }) | undefined;
                 err?: import("./combos").SetComboErrorCode | undefined;
-            } & { [K_288 in Exclude<keyof I_1["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
+            } & { [K_300 in Exclude<keyof I_1["combos"]["setCombo"], keyof import("./combos").SetComboResponse>]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
                 ok?: boolean | undefined;
@@ -19659,9 +21324,9 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./combos").SaveChangesErrorCode | undefined;
-            } & { [K_289 in Exclude<keyof I_1["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_301 in Exclude<keyof I_1["combos"]["saveChanges"], keyof import("./combos").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_290 in Exclude<keyof I_1["combos"], keyof Response12>]: never; }) | undefined;
+        } & { [K_302 in Exclude<keyof I_1["combos"], keyof Response12>]: never; }) | undefined;
         macros?: ({
             getMacroState?: {
                 schemaVersion?: number | undefined;
@@ -19680,10 +21345,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             setMacro?: {
                 ok?: {
@@ -19700,8 +21373,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } | undefined;
@@ -19713,6 +21390,58 @@ export declare const RequestResponse: {
                 err?: import("./macros").SaveChangesErrorCode | undefined;
             } | undefined;
             discardChanges?: boolean | undefined;
+            getMacro?: {
+                macro?: {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } | undefined;
+            } | undefined;
+            setTapMs?: {
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } | undefined;
+            resetMacro?: {
+                ok?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } | undefined;
         } & {
             getMacroState?: ({
                 schemaVersion?: number | undefined;
@@ -19731,10 +21460,18 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 maxMacros?: number | undefined;
@@ -19752,8 +21489,12 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] & ({
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -19767,8 +21508,12 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -19782,6 +21527,8 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] & ({
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -19790,6 +21537,8 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: ({
@@ -19800,9 +21549,11 @@ export declare const RequestResponse: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_291 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_303 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         waitMs?: number | undefined;
-                    } & { [K_292 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_293 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number]["steps"], keyof {
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    } & { [K_304 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_305 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number]["steps"], keyof {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
                             behaviorId?: number | undefined;
@@ -19810,9 +21561,13 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_294 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_295 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"], keyof {
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } & { [K_306 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_307 in Exclude<keyof I_1["macros"]["getMacroState"]["macros"], keyof {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
                     name?: string | undefined;
@@ -19825,11 +21580,19 @@ export declare const RequestResponse: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
-            } & { [K_296 in Exclude<keyof I_1["macros"]["getMacroState"], keyof import("./macros").MacroState>]: never; }) | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
+            } & { [K_308 in Exclude<keyof I_1["macros"]["getMacroState"], keyof import("./macros").MacroState>]: never; }) | undefined;
             setMacro?: ({
                 ok?: {
                     macro?: {
@@ -19845,8 +21608,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } | undefined;
@@ -19866,8 +21633,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } | undefined;
                     dirty?: boolean | undefined;
                 } & {
@@ -19884,8 +21655,12 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] | undefined;
                         dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
                     } & {
                         slotIndex?: number | undefined;
                         behaviorId?: number | undefined;
@@ -19899,6 +21674,8 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[] & ({
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
@@ -19907,6 +21684,8 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         } & {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: ({
@@ -19917,9 +21696,11 @@ export declare const RequestResponse: {
                                 behaviorId?: number | undefined;
                                 param1?: number | undefined;
                                 param2?: number | undefined;
-                            } & { [K_297 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            } & { [K_309 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                             waitMs?: number | undefined;
-                        } & { [K_298 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_299 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"]["steps"], keyof {
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_310 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_311 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"]["steps"], keyof {
                             action?: import("./macros").MacroStepAction | undefined;
                             binding?: {
                                 behaviorId?: number | undefined;
@@ -19927,13 +21708,17 @@ export declare const RequestResponse: {
                                 param2?: number | undefined;
                             } | undefined;
                             waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
                         }[]>]: never; }) | undefined;
                         dirty?: boolean | undefined;
-                    } & { [K_300 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_312 in Exclude<keyof I_1["macros"]["setMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
                     dirty?: boolean | undefined;
-                } & { [K_301 in Exclude<keyof I_1["macros"]["setMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
+                } & { [K_313 in Exclude<keyof I_1["macros"]["setMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
                 err?: import("./macros").SetMacroErrorCode | undefined;
-            } & { [K_302 in Exclude<keyof I_1["macros"]["setMacro"], keyof import("./macros").SetMacroResponse>]: never; }) | undefined;
+            } & { [K_314 in Exclude<keyof I_1["macros"]["setMacro"], keyof import("./macros").SetMacroResponse>]: never; }) | undefined;
             checkUnsavedChanges?: boolean | undefined;
             saveChanges?: ({
                 ok?: boolean | undefined;
@@ -19941,10 +21726,239 @@ export declare const RequestResponse: {
             } & {
                 ok?: boolean | undefined;
                 err?: import("./macros").SaveChangesErrorCode | undefined;
-            } & { [K_303 in Exclude<keyof I_1["macros"]["saveChanges"], keyof import("./macros").SaveChangesResponse>]: never; }) | undefined;
+            } & { [K_315 in Exclude<keyof I_1["macros"]["saveChanges"], keyof import("./macros").SaveChangesResponse>]: never; }) | undefined;
             discardChanges?: boolean | undefined;
-        } & { [K_304 in Exclude<keyof I_1["macros"], keyof Response13>]: never; }) | undefined;
-    } & { [K_305 in Exclude<keyof I_1, keyof RequestResponse>]: never; }>(object: I_1): RequestResponse;
+            getMacro?: ({
+                macro?: {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } | undefined;
+            } & {
+                macro?: ({
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } & {
+                    slotIndex?: number | undefined;
+                    behaviorId?: number | undefined;
+                    name?: string | undefined;
+                    enabled?: boolean | undefined;
+                    steps?: ({
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[] & ({
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    } & {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: ({
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } & {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } & { [K_316 in Exclude<keyof I_1["macros"]["getMacro"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    } & { [K_317 in Exclude<keyof I_1["macros"]["getMacro"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_318 in Exclude<keyof I_1["macros"]["getMacro"]["macro"]["steps"], keyof {
+                        action?: import("./macros").MacroStepAction | undefined;
+                        binding?: {
+                            behaviorId?: number | undefined;
+                            param1?: number | undefined;
+                            param2?: number | undefined;
+                        } | undefined;
+                        waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
+                    }[]>]: never; }) | undefined;
+                    dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
+                } & { [K_319 in Exclude<keyof I_1["macros"]["getMacro"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+            } & { [K_320 in Exclude<keyof I_1["macros"]["getMacro"], "macro">]: never; }) | undefined;
+            setTapMs?: ({
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } & {
+                tapMs?: number | undefined;
+                dirty?: boolean | undefined;
+            } & { [K_321 in Exclude<keyof I_1["macros"]["setTapMs"], keyof import("./macros").SetTapMsResponse>]: never; }) | undefined;
+            resetMacro?: ({
+                ok?: {
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } & {
+                ok?: ({
+                    macro?: {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } | undefined;
+                    dirty?: boolean | undefined;
+                } & {
+                    macro?: ({
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & {
+                        slotIndex?: number | undefined;
+                        behaviorId?: number | undefined;
+                        name?: string | undefined;
+                        enabled?: boolean | undefined;
+                        steps?: ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[] & ({
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: ({
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } & { [K_322 in Exclude<keyof I_1["macros"]["resetMacro"]["ok"]["macro"]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        } & { [K_323 in Exclude<keyof I_1["macros"]["resetMacro"]["ok"]["macro"]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_324 in Exclude<keyof I_1["macros"]["resetMacro"]["ok"]["macro"]["steps"], keyof {
+                            action?: import("./macros").MacroStepAction | undefined;
+                            binding?: {
+                                behaviorId?: number | undefined;
+                                param1?: number | undefined;
+                                param2?: number | undefined;
+                            } | undefined;
+                            waitMs?: number | undefined;
+                            packedKeysOffset?: number | undefined;
+                            packedKeysLength?: number | undefined;
+                        }[]>]: never; }) | undefined;
+                        dirty?: boolean | undefined;
+                        packedKeys?: Uint8Array | undefined;
+                        encodedSize?: number | undefined;
+                    } & { [K_325 in Exclude<keyof I_1["macros"]["resetMacro"]["ok"]["macro"], keyof import("./macros").Macro>]: never; }) | undefined;
+                    dirty?: boolean | undefined;
+                } & { [K_326 in Exclude<keyof I_1["macros"]["resetMacro"]["ok"], keyof import("./macros").SetMacroOk>]: never; }) | undefined;
+                err?: import("./macros").SetMacroErrorCode | undefined;
+            } & { [K_327 in Exclude<keyof I_1["macros"]["resetMacro"], keyof import("./macros").ResetMacroResponse>]: never; }) | undefined;
+        } & { [K_328 in Exclude<keyof I_1["macros"], keyof Response13>]: never; }) | undefined;
+    } & { [K_329 in Exclude<keyof I_1, keyof RequestResponse>]: never; }>(object: I_1): RequestResponse;
 };
 export declare const Notification: {
     encode(message: Notification, writer?: _m0.Writer): _m0.Writer;
@@ -20166,10 +22180,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } | undefined;
@@ -21180,10 +23202,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
@@ -21204,10 +23234,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 maxMacros?: number | undefined;
@@ -21225,8 +23263,12 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] & ({
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -21240,8 +23282,12 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -21255,6 +23301,8 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] & ({
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -21263,6 +23311,8 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: ({
@@ -21275,6 +23325,8 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } & { [K_45 in Exclude<keyof I["macros"]["macroStateChanged"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & { [K_46 in Exclude<keyof I["macros"]["macroStateChanged"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_47 in Exclude<keyof I["macros"]["macroStateChanged"]["macros"][number]["steps"], keyof {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -21283,8 +23335,12 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & { [K_48 in Exclude<keyof I["macros"]["macroStateChanged"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_49 in Exclude<keyof I["macros"]["macroStateChanged"]["macros"], keyof {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -21298,10 +23354,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & { [K_50 in Exclude<keyof I["macros"]["macroStateChanged"], keyof import("./macros").MacroState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & { [K_51 in Exclude<keyof I["macros"], keyof Notification18>]: never; }) | undefined;
@@ -21521,10 +23585,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } | undefined;
@@ -22535,10 +24607,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & {
@@ -22559,10 +24639,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & {
                 schemaVersion?: number | undefined;
                 maxMacros?: number | undefined;
@@ -22580,8 +24668,12 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[] & ({
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -22595,8 +24687,12 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -22610,6 +24706,8 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] & ({
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -22618,6 +24716,8 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: ({
@@ -22630,6 +24730,8 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } & { [K_98 in Exclude<keyof I_1["macros"]["macroStateChanged"]["macros"][number]["steps"][number]["binding"], keyof import("./keymap").BehaviorBinding>]: never; }) | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     } & { [K_99 in Exclude<keyof I_1["macros"]["macroStateChanged"]["macros"][number]["steps"][number], keyof import("./macros").MacroStep>]: never; })[] & { [K_100 in Exclude<keyof I_1["macros"]["macroStateChanged"]["macros"][number]["steps"], keyof {
                         action?: import("./macros").MacroStepAction | undefined;
                         binding?: {
@@ -22638,8 +24740,12 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[]>]: never; }) | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 } & { [K_101 in Exclude<keyof I_1["macros"]["macroStateChanged"]["macros"][number], keyof import("./macros").Macro>]: never; })[] & { [K_102 in Exclude<keyof I_1["macros"]["macroStateChanged"]["macros"], keyof {
                     slotIndex?: number | undefined;
                     behaviorId?: number | undefined;
@@ -22653,10 +24759,18 @@ export declare const Notification: {
                             param2?: number | undefined;
                         } | undefined;
                         waitMs?: number | undefined;
+                        packedKeysOffset?: number | undefined;
+                        packedKeysLength?: number | undefined;
                     }[] | undefined;
                     dirty?: boolean | undefined;
+                    packedKeys?: Uint8Array | undefined;
+                    encodedSize?: number | undefined;
                 }[]>]: never; }) | undefined;
                 dirty?: boolean | undefined;
+                tapMs?: number | undefined;
+                poolBytesTotal?: number | undefined;
+                poolBytesUsed?: number | undefined;
+                maxMacroBytes?: number | undefined;
             } & { [K_103 in Exclude<keyof I_1["macros"]["macroStateChanged"], keyof import("./macros").MacroState>]: never; }) | undefined;
             unsavedChangesStatusChanged?: boolean | undefined;
         } & { [K_104 in Exclude<keyof I_1["macros"], keyof Notification18>]: never; }) | undefined;
