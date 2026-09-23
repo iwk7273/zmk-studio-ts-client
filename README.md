@@ -15,6 +15,9 @@ subsystem, so older firmware remains connectable.
 four-point `PointerCurveConfig`; omitted curve data retains its protobuf presence semantics.
 The generated Meteorite types include `ConfigState.encoderSlots`, which lets the editor use
 firmware-provided rotary encoder key positions instead of local layout heuristics when supported.
+The generated client also includes the capability-gated `combos` and `macros` subsystems. Macro
+messages expose sixteen fixed behavior slots, packed ASCII text steps, tap timing, and a shared
+byte-pool budget. `getMacroState` returns summaries; `getMacro` loads one slot body.
 
 The upstream package assumes a system `protoc` is available when installing from git. This fork adds
 the npm `protoc` dev dependency so `npm run generate` and git dependency postinstall can run in the
