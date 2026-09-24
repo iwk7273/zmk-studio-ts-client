@@ -1,7 +1,9 @@
 behaviors.ts
+ble_profiles.ts
 combos.ts
 core.ts
 keymap.ts
+macros.ts
 meteorite.ts
 meta.ts
 studio.ts
