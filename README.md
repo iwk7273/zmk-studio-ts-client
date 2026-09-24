@@ -18,8 +18,10 @@ firmware-provided rotary encoder key positions instead of local layout heuristic
 The generated client also includes the capability-gated `combos` and `macros` subsystems. Macro
 messages expose sixteen fixed behavior slots, packed ASCII text steps, tap timing, and a shared
 byte-pool budget. `getMacroState` returns summaries; `getMacro` loads one slot body.
-The `ble_profiles` subsystem exposes profile state, per-slot advertising names, unpair/select
-operations, and preferred versus selected HID transport for the connections view.
+The `ble_profiles` subsystem exposes profile state, per-slot advertising names and independent
+user-supplied host labels, unpair/select operations, and preferred versus selected HID transport
+for the connections view. Host labels are not advertised over Bluetooth and may be assigned before
+pairing.
 
 The upstream package assumes a system `protoc` is available when installing from git. This fork adds
 the npm `protoc` dev dependency so `npm run generate` and git dependency postinstall can run in the

@@ -15,6 +15,7 @@ export declare enum MutationError {
     MUTATION_INVALID_TRANSPORT = 3,
     MUTATION_SAVE_FAILED = 4,
     MUTATION_APPLY_FAILED = 5,
+    MUTATION_INVALID_HOST_LABEL = 6,
     UNRECOGNIZED = -1
 }
 export declare function mutationErrorFromJSON(object: any): MutationError;
@@ -25,6 +26,7 @@ export interface Request {
     selectProfile?: SelectProfileRequest | undefined;
     unpairProfile?: UnpairProfileRequest | undefined;
     setPreferredTransport?: SetPreferredTransportRequest | undefined;
+    setHostLabel?: SetHostLabelRequest | undefined;
 }
 export interface Response {
     getProfiles?: GetProfilesResponse | undefined;
@@ -32,6 +34,7 @@ export interface Response {
     selectProfile?: MutationResponse | undefined;
     unpairProfile?: MutationResponse | undefined;
     setPreferredTransport?: MutationResponse | undefined;
+    setHostLabel?: MutationResponse | undefined;
 }
 export interface Profile {
     index: number;
@@ -41,6 +44,8 @@ export interface Profile {
     open: boolean;
     connected: boolean;
     active: boolean;
+    /** User-supplied host label. This is not the advertised keyboard name. */
+    hostLabel: string;
 }
 export interface GetProfilesResponse {
     slotCount: number;
@@ -53,6 +58,11 @@ export interface SetNameRequest {
     index: number;
     /** Bytes retain the exact input length, including any embedded NUL. */
     nameUtf8: Uint8Array;
+}
+export interface SetHostLabelRequest {
+    index: number;
+    /** Empty clears the label; bytes retain the exact input length for validation. */
+    hostLabelUtf8: Uint8Array;
 }
 export interface SelectProfileRequest {
     index: number;
@@ -86,6 +96,10 @@ export declare const Request: {
         setPreferredTransport?: {
             transport?: Transport | undefined;
         } | undefined;
+        setHostLabel?: {
+            index?: number | undefined;
+            hostLabelUtf8?: Uint8Array | undefined;
+        } | undefined;
     } & {
         getProfiles?: boolean | undefined;
         setName?: ({
@@ -110,7 +124,14 @@ export declare const Request: {
         } & {
             transport?: Transport | undefined;
         } & { [K_3 in Exclude<keyof I["setPreferredTransport"], "transport">]: never; }) | undefined;
-    } & { [K_4 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
+        setHostLabel?: ({
+            index?: number | undefined;
+            hostLabelUtf8?: Uint8Array | undefined;
+        } & {
+            index?: number | undefined;
+            hostLabelUtf8?: Uint8Array | undefined;
+        } & { [K_4 in Exclude<keyof I["setHostLabel"], keyof SetHostLabelRequest>]: never; }) | undefined;
+    } & { [K_5 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
     fromPartial<I_1 extends {
         getProfiles?: boolean | undefined;
         setName?: {
@@ -126,6 +147,10 @@ export declare const Request: {
         setPreferredTransport?: {
             transport?: Transport | undefined;
         } | undefined;
+        setHostLabel?: {
+            index?: number | undefined;
+            hostLabelUtf8?: Uint8Array | undefined;
+        } | undefined;
     } & {
         getProfiles?: boolean | undefined;
         setName?: ({
@@ -134,23 +159,30 @@ export declare const Request: {
         } & {
             index?: number | undefined;
             nameUtf8?: Uint8Array | undefined;
-        } & { [K_5 in Exclude<keyof I_1["setName"], keyof SetNameRequest>]: never; }) | undefined;
+        } & { [K_6 in Exclude<keyof I_1["setName"], keyof SetNameRequest>]: never; }) | undefined;
         selectProfile?: ({
             index?: number | undefined;
         } & {
             index?: number | undefined;
-        } & { [K_6 in Exclude<keyof I_1["selectProfile"], "index">]: never; }) | undefined;
+        } & { [K_7 in Exclude<keyof I_1["selectProfile"], "index">]: never; }) | undefined;
         unpairProfile?: ({
             index?: number | undefined;
         } & {
             index?: number | undefined;
-        } & { [K_7 in Exclude<keyof I_1["unpairProfile"], "index">]: never; }) | undefined;
+        } & { [K_8 in Exclude<keyof I_1["unpairProfile"], "index">]: never; }) | undefined;
         setPreferredTransport?: ({
             transport?: Transport | undefined;
         } & {
             transport?: Transport | undefined;
-        } & { [K_8 in Exclude<keyof I_1["setPreferredTransport"], "transport">]: never; }) | undefined;
-    } & { [K_9 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
+        } & { [K_9 in Exclude<keyof I_1["setPreferredTransport"], "transport">]: never; }) | undefined;
+        setHostLabel?: ({
+            index?: number | undefined;
+            hostLabelUtf8?: Uint8Array | undefined;
+        } & {
+            index?: number | undefined;
+            hostLabelUtf8?: Uint8Array | undefined;
+        } & { [K_10 in Exclude<keyof I_1["setHostLabel"], keyof SetHostLabelRequest>]: never; }) | undefined;
+    } & { [K_11 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
 };
 export declare const Response: {
     encode(message: Response, writer?: _m0.Writer): _m0.Writer;
@@ -167,6 +199,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[] | undefined;
             activeIndex?: number | undefined;
             preferredTransport?: Transport | undefined;
@@ -184,6 +217,9 @@ export declare const Response: {
         setPreferredTransport?: {
             error?: MutationError | undefined;
         } | undefined;
+        setHostLabel?: {
+            error?: MutationError | undefined;
+        } | undefined;
     } & {
         getProfiles?: ({
             slotCount?: number | undefined;
@@ -194,6 +230,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[] | undefined;
             activeIndex?: number | undefined;
             preferredTransport?: Transport | undefined;
@@ -207,6 +244,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[] & ({
                 index?: number | undefined;
                 name?: string | undefined;
@@ -214,6 +252,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             } & {
                 index?: number | undefined;
                 name?: string | undefined;
@@ -221,6 +260,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             } & { [K in Exclude<keyof I["getProfiles"]["profiles"][number], keyof Profile>]: never; })[] & { [K_1 in Exclude<keyof I["getProfiles"]["profiles"], keyof {
                 index?: number | undefined;
                 name?: string | undefined;
@@ -228,6 +268,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[]>]: never; }) | undefined;
             activeIndex?: number | undefined;
             preferredTransport?: Transport | undefined;
@@ -253,7 +294,12 @@ export declare const Response: {
         } & {
             error?: MutationError | undefined;
         } & { [K_6 in Exclude<keyof I["setPreferredTransport"], "error">]: never; }) | undefined;
-    } & { [K_7 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+        setHostLabel?: ({
+            error?: MutationError | undefined;
+        } & {
+            error?: MutationError | undefined;
+        } & { [K_7 in Exclude<keyof I["setHostLabel"], "error">]: never; }) | undefined;
+    } & { [K_8 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         getProfiles?: {
             slotCount?: number | undefined;
@@ -264,6 +310,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[] | undefined;
             activeIndex?: number | undefined;
             preferredTransport?: Transport | undefined;
@@ -281,6 +328,9 @@ export declare const Response: {
         setPreferredTransport?: {
             error?: MutationError | undefined;
         } | undefined;
+        setHostLabel?: {
+            error?: MutationError | undefined;
+        } | undefined;
     } & {
         getProfiles?: ({
             slotCount?: number | undefined;
@@ -291,6 +341,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[] | undefined;
             activeIndex?: number | undefined;
             preferredTransport?: Transport | undefined;
@@ -304,6 +355,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[] & ({
                 index?: number | undefined;
                 name?: string | undefined;
@@ -311,6 +363,7 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             } & {
                 index?: number | undefined;
                 name?: string | undefined;
@@ -318,39 +371,46 @@ export declare const Response: {
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
-            } & { [K_8 in Exclude<keyof I_1["getProfiles"]["profiles"][number], keyof Profile>]: never; })[] & { [K_9 in Exclude<keyof I_1["getProfiles"]["profiles"], keyof {
+                hostLabel?: string | undefined;
+            } & { [K_9 in Exclude<keyof I_1["getProfiles"]["profiles"][number], keyof Profile>]: never; })[] & { [K_10 in Exclude<keyof I_1["getProfiles"]["profiles"], keyof {
                 index?: number | undefined;
                 name?: string | undefined;
                 address?: string | undefined;
                 open?: boolean | undefined;
                 connected?: boolean | undefined;
                 active?: boolean | undefined;
+                hostLabel?: string | undefined;
             }[]>]: never; }) | undefined;
             activeIndex?: number | undefined;
             preferredTransport?: Transport | undefined;
             selectedTransport?: Transport | undefined;
-        } & { [K_10 in Exclude<keyof I_1["getProfiles"], keyof GetProfilesResponse>]: never; }) | undefined;
+        } & { [K_11 in Exclude<keyof I_1["getProfiles"], keyof GetProfilesResponse>]: never; }) | undefined;
         setName?: ({
             error?: MutationError | undefined;
         } & {
             error?: MutationError | undefined;
-        } & { [K_11 in Exclude<keyof I_1["setName"], "error">]: never; }) | undefined;
+        } & { [K_12 in Exclude<keyof I_1["setName"], "error">]: never; }) | undefined;
         selectProfile?: ({
             error?: MutationError | undefined;
         } & {
             error?: MutationError | undefined;
-        } & { [K_12 in Exclude<keyof I_1["selectProfile"], "error">]: never; }) | undefined;
+        } & { [K_13 in Exclude<keyof I_1["selectProfile"], "error">]: never; }) | undefined;
         unpairProfile?: ({
             error?: MutationError | undefined;
         } & {
             error?: MutationError | undefined;
-        } & { [K_13 in Exclude<keyof I_1["unpairProfile"], "error">]: never; }) | undefined;
+        } & { [K_14 in Exclude<keyof I_1["unpairProfile"], "error">]: never; }) | undefined;
         setPreferredTransport?: ({
             error?: MutationError | undefined;
         } & {
             error?: MutationError | undefined;
-        } & { [K_14 in Exclude<keyof I_1["setPreferredTransport"], "error">]: never; }) | undefined;
-    } & { [K_15 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+        } & { [K_15 in Exclude<keyof I_1["setPreferredTransport"], "error">]: never; }) | undefined;
+        setHostLabel?: ({
+            error?: MutationError | undefined;
+        } & {
+            error?: MutationError | undefined;
+        } & { [K_16 in Exclude<keyof I_1["setHostLabel"], "error">]: never; }) | undefined;
+    } & { [K_17 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const Profile: {
     encode(message: Profile, writer?: _m0.Writer): _m0.Writer;
@@ -364,6 +424,7 @@ export declare const Profile: {
         open?: boolean | undefined;
         connected?: boolean | undefined;
         active?: boolean | undefined;
+        hostLabel?: string | undefined;
     } & {
         index?: number | undefined;
         name?: string | undefined;
@@ -371,6 +432,7 @@ export declare const Profile: {
         open?: boolean | undefined;
         connected?: boolean | undefined;
         active?: boolean | undefined;
+        hostLabel?: string | undefined;
     } & { [K in Exclude<keyof I, keyof Profile>]: never; }>(base?: I | undefined): Profile;
     fromPartial<I_1 extends {
         index?: number | undefined;
@@ -379,6 +441,7 @@ export declare const Profile: {
         open?: boolean | undefined;
         connected?: boolean | undefined;
         active?: boolean | undefined;
+        hostLabel?: string | undefined;
     } & {
         index?: number | undefined;
         name?: string | undefined;
@@ -386,6 +449,7 @@ export declare const Profile: {
         open?: boolean | undefined;
         connected?: boolean | undefined;
         active?: boolean | undefined;
+        hostLabel?: string | undefined;
     } & { [K_1 in Exclude<keyof I_1, keyof Profile>]: never; }>(object: I_1): Profile;
 };
 export declare const GetProfilesResponse: {
@@ -402,6 +466,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         }[] | undefined;
         activeIndex?: number | undefined;
         preferredTransport?: Transport | undefined;
@@ -415,6 +480,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         }[] & ({
             index?: number | undefined;
             name?: string | undefined;
@@ -422,6 +488,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         } & {
             index?: number | undefined;
             name?: string | undefined;
@@ -429,6 +496,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         } & { [K in Exclude<keyof I["profiles"][number], keyof Profile>]: never; })[] & { [K_1 in Exclude<keyof I["profiles"], keyof {
             index?: number | undefined;
             name?: string | undefined;
@@ -436,6 +504,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         }[]>]: never; }) | undefined;
         activeIndex?: number | undefined;
         preferredTransport?: Transport | undefined;
@@ -450,6 +519,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         }[] | undefined;
         activeIndex?: number | undefined;
         preferredTransport?: Transport | undefined;
@@ -463,6 +533,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         }[] & ({
             index?: number | undefined;
             name?: string | undefined;
@@ -470,6 +541,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         } & {
             index?: number | undefined;
             name?: string | undefined;
@@ -477,6 +549,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         } & { [K_3 in Exclude<keyof I_1["profiles"][number], keyof Profile>]: never; })[] & { [K_4 in Exclude<keyof I_1["profiles"], keyof {
             index?: number | undefined;
             name?: string | undefined;
@@ -484,6 +557,7 @@ export declare const GetProfilesResponse: {
             open?: boolean | undefined;
             connected?: boolean | undefined;
             active?: boolean | undefined;
+            hostLabel?: string | undefined;
         }[]>]: never; }) | undefined;
         activeIndex?: number | undefined;
         preferredTransport?: Transport | undefined;
@@ -509,6 +583,26 @@ export declare const SetNameRequest: {
         index?: number | undefined;
         nameUtf8?: Uint8Array | undefined;
     } & { [K_1 in Exclude<keyof I_1, keyof SetNameRequest>]: never; }>(object: I_1): SetNameRequest;
+};
+export declare const SetHostLabelRequest: {
+    encode(message: SetHostLabelRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): SetHostLabelRequest;
+    fromJSON(object: any): SetHostLabelRequest;
+    toJSON(message: SetHostLabelRequest): unknown;
+    create<I extends {
+        index?: number | undefined;
+        hostLabelUtf8?: Uint8Array | undefined;
+    } & {
+        index?: number | undefined;
+        hostLabelUtf8?: Uint8Array | undefined;
+    } & { [K in Exclude<keyof I, keyof SetHostLabelRequest>]: never; }>(base?: I | undefined): SetHostLabelRequest;
+    fromPartial<I_1 extends {
+        index?: number | undefined;
+        hostLabelUtf8?: Uint8Array | undefined;
+    } & {
+        index?: number | undefined;
+        hostLabelUtf8?: Uint8Array | undefined;
+    } & { [K_1 in Exclude<keyof I_1, keyof SetHostLabelRequest>]: never; }>(object: I_1): SetHostLabelRequest;
 };
 export declare const SelectProfileRequest: {
     encode(message: SelectProfileRequest, writer?: _m0.Writer): _m0.Writer;
