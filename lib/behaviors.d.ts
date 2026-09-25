@@ -3,6 +3,7 @@ export declare const protobufPackage = "zmk.behaviors";
 export interface Request {
     listAllBehaviors?: boolean | undefined;
     getBehaviorDetails?: GetBehaviorDetailsRequest | undefined;
+    getAllBehaviorDetails?: boolean | undefined;
 }
 export interface GetBehaviorDetailsRequest {
     behaviorId: number;
@@ -10,9 +11,13 @@ export interface GetBehaviorDetailsRequest {
 export interface Response {
     listAllBehaviors?: ListAllBehaviorsResponse | undefined;
     getBehaviorDetails?: GetBehaviorDetailsResponse | undefined;
+    getAllBehaviorDetails?: AllBehaviorDetails | undefined;
 }
 export interface ListAllBehaviorsResponse {
     behaviors: number[];
+}
+export interface AllBehaviorDetails {
+    behaviors: GetBehaviorDetailsResponse[];
 }
 export interface GetBehaviorDetailsResponse {
     id: number;
@@ -53,6 +58,7 @@ export declare const Request: {
         getBehaviorDetails?: {
             behaviorId?: number | undefined;
         } | undefined;
+        getAllBehaviorDetails?: boolean | undefined;
     } & {
         listAllBehaviors?: boolean | undefined;
         getBehaviorDetails?: ({
@@ -60,12 +66,14 @@ export declare const Request: {
         } & {
             behaviorId?: number | undefined;
         } & { [K in Exclude<keyof I["getBehaviorDetails"], "behaviorId">]: never; }) | undefined;
+        getAllBehaviorDetails?: boolean | undefined;
     } & { [K_1 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
     fromPartial<I_1 extends {
         listAllBehaviors?: boolean | undefined;
         getBehaviorDetails?: {
             behaviorId?: number | undefined;
         } | undefined;
+        getAllBehaviorDetails?: boolean | undefined;
     } & {
         listAllBehaviors?: boolean | undefined;
         getBehaviorDetails?: ({
@@ -73,6 +81,7 @@ export declare const Request: {
         } & {
             behaviorId?: number | undefined;
         } & { [K_2 in Exclude<keyof I_1["getBehaviorDetails"], "behaviorId">]: never; }) | undefined;
+        getAllBehaviorDetails?: boolean | undefined;
     } & { [K_3 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
 };
 export declare const GetBehaviorDetailsRequest: {
@@ -131,6 +140,42 @@ export declare const Response: {
                         consumerMax?: number | undefined;
                     } | undefined;
                     layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } | undefined;
+        getAllBehaviorDetails?: {
+            behaviors?: {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
                 }[] | undefined;
             }[] | undefined;
         } | undefined;
@@ -384,7 +429,354 @@ export declare const Response: {
                 }[] | undefined;
             }[]>]: never; }) | undefined;
         } & { [K_16 in Exclude<keyof I["getBehaviorDetails"], keyof GetBehaviorDetailsResponse>]: never; }) | undefined;
-    } & { [K_17 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+        getAllBehaviorDetails?: ({
+            behaviors?: {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } & {
+            behaviors?: ({
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[] & ({
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            } & {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: ({
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] & ({
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                } & {
+                    param1?: ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] & ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    } & {
+                        name?: string | undefined;
+                        nil?: ({} & {} & { [K_17 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                        constant?: number | undefined;
+                        range?: ({
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & { [K_18 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        hidUsage?: ({
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & { [K_19 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_20 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_21 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_22 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"], keyof {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[]>]: never; }) | undefined;
+                    param2?: ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] & ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    } & {
+                        name?: string | undefined;
+                        nil?: ({} & {} & { [K_23 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                        constant?: number | undefined;
+                        range?: ({
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & { [K_24 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        hidUsage?: ({
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & { [K_25 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_26 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_27 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_28 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"], keyof {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_29 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number], keyof BehaviorBindingParametersSet>]: never; })[] & { [K_30 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number]["metadata"], keyof {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_31 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"][number], keyof GetBehaviorDetailsResponse>]: never; })[] & { [K_32 in Exclude<keyof I["getAllBehaviorDetails"]["behaviors"], keyof {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_33 in Exclude<keyof I["getAllBehaviorDetails"], "behaviors">]: never; }) | undefined;
+    } & { [K_34 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         listAllBehaviors?: {
             behaviors?: number[] | undefined;
@@ -423,12 +815,48 @@ export declare const Response: {
                 }[] | undefined;
             }[] | undefined;
         } | undefined;
+        getAllBehaviorDetails?: {
+            behaviors?: {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } | undefined;
     } & {
         listAllBehaviors?: ({
             behaviors?: number[] | undefined;
         } & {
-            behaviors?: (number[] & number[] & { [K_18 in Exclude<keyof I_1["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
-        } & { [K_19 in Exclude<keyof I_1["listAllBehaviors"], "behaviors">]: never; }) | undefined;
+            behaviors?: (number[] & number[] & { [K_35 in Exclude<keyof I_1["listAllBehaviors"]["behaviors"], keyof number[]>]: never; }) | undefined;
+        } & { [K_36 in Exclude<keyof I_1["listAllBehaviors"], "behaviors">]: never; }) | undefined;
         getBehaviorDetails?: ({
             id?: number | undefined;
             displayName?: string | undefined;
@@ -552,7 +980,7 @@ export declare const Response: {
                     layerId?: {} | undefined;
                 } & {
                     name?: string | undefined;
-                    nil?: ({} & {} & { [K_20 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                    nil?: ({} & {} & { [K_37 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
                     constant?: number | undefined;
                     range?: ({
                         min?: number | undefined;
@@ -560,16 +988,16 @@ export declare const Response: {
                     } & {
                         min?: number | undefined;
                         max?: number | undefined;
-                    } & { [K_21 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                    } & { [K_38 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                     hidUsage?: ({
                         keyboardMax?: number | undefined;
                         consumerMax?: number | undefined;
                     } & {
                         keyboardMax?: number | undefined;
                         consumerMax?: number | undefined;
-                    } & { [K_22 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
-                    layerId?: ({} & {} & { [K_23 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
-                } & { [K_24 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_25 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
+                    } & { [K_39 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                    layerId?: ({} & {} & { [K_40 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                } & { [K_41 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_42 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param1"], keyof {
                     name?: string | undefined;
                     nil?: {} | undefined;
                     constant?: number | undefined;
@@ -611,7 +1039,7 @@ export declare const Response: {
                     layerId?: {} | undefined;
                 } & {
                     name?: string | undefined;
-                    nil?: ({} & {} & { [K_26 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                    nil?: ({} & {} & { [K_43 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
                     constant?: number | undefined;
                     range?: ({
                         min?: number | undefined;
@@ -619,16 +1047,16 @@ export declare const Response: {
                     } & {
                         min?: number | undefined;
                         max?: number | undefined;
-                    } & { [K_27 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                    } & { [K_44 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
                     hidUsage?: ({
                         keyboardMax?: number | undefined;
                         consumerMax?: number | undefined;
                     } & {
                         keyboardMax?: number | undefined;
                         consumerMax?: number | undefined;
-                    } & { [K_28 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
-                    layerId?: ({} & {} & { [K_29 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
-                } & { [K_30 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_31 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
+                    } & { [K_45 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                    layerId?: ({} & {} & { [K_46 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                } & { [K_47 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_48 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number]["param2"], keyof {
                     name?: string | undefined;
                     nil?: {} | undefined;
                     constant?: number | undefined;
@@ -642,7 +1070,7 @@ export declare const Response: {
                     } | undefined;
                     layerId?: {} | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_32 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number], keyof BehaviorBindingParametersSet>]: never; })[] & { [K_33 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"], keyof {
+            } & { [K_49 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"][number], keyof BehaviorBindingParametersSet>]: never; })[] & { [K_50 in Exclude<keyof I_1["getBehaviorDetails"]["metadata"], keyof {
                 param1?: {
                     name?: string | undefined;
                     nil?: {} | undefined;
@@ -672,8 +1100,355 @@ export declare const Response: {
                     layerId?: {} | undefined;
                 }[] | undefined;
             }[]>]: never; }) | undefined;
-        } & { [K_34 in Exclude<keyof I_1["getBehaviorDetails"], keyof GetBehaviorDetailsResponse>]: never; }) | undefined;
-    } & { [K_35 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+        } & { [K_51 in Exclude<keyof I_1["getBehaviorDetails"], keyof GetBehaviorDetailsResponse>]: never; }) | undefined;
+        getAllBehaviorDetails?: ({
+            behaviors?: {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } & {
+            behaviors?: ({
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[] & ({
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            } & {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: ({
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] & ({
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                } & {
+                    param1?: ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] & ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    } & {
+                        name?: string | undefined;
+                        nil?: ({} & {} & { [K_52 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                        constant?: number | undefined;
+                        range?: ({
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & { [K_53 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        hidUsage?: ({
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & { [K_54 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_55 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_56 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_57 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param1"], keyof {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[]>]: never; }) | undefined;
+                    param2?: ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] & ({
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    } & {
+                        name?: string | undefined;
+                        nil?: ({} & {} & { [K_58 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                        constant?: number | undefined;
+                        range?: ({
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } & { [K_59 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                        hidUsage?: ({
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } & { [K_60 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                        layerId?: ({} & {} & { [K_61 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                    } & { [K_62 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_63 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number]["param2"], keyof {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[]>]: never; }) | undefined;
+                } & { [K_64 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"][number], keyof BehaviorBindingParametersSet>]: never; })[] & { [K_65 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number]["metadata"], keyof {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_66 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"][number], keyof GetBehaviorDetailsResponse>]: never; })[] & { [K_67 in Exclude<keyof I_1["getAllBehaviorDetails"]["behaviors"], keyof {
+                id?: number | undefined;
+                displayName?: string | undefined;
+                metadata?: {
+                    param1?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                    param2?: {
+                        name?: string | undefined;
+                        nil?: {} | undefined;
+                        constant?: number | undefined;
+                        range?: {
+                            min?: number | undefined;
+                            max?: number | undefined;
+                        } | undefined;
+                        hidUsage?: {
+                            keyboardMax?: number | undefined;
+                            consumerMax?: number | undefined;
+                        } | undefined;
+                        layerId?: {} | undefined;
+                    }[] | undefined;
+                }[] | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_68 in Exclude<keyof I_1["getAllBehaviorDetails"], "behaviors">]: never; }) | undefined;
+    } & { [K_69 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const ListAllBehaviorsResponse: {
     encode(message: ListAllBehaviorsResponse, writer?: _m0.Writer): _m0.Writer;
@@ -690,6 +1465,706 @@ export declare const ListAllBehaviorsResponse: {
     } & {
         behaviors?: (number[] & number[] & { [K_2 in Exclude<keyof I_1["behaviors"], keyof number[]>]: never; }) | undefined;
     } & { [K_3 in Exclude<keyof I_1, "behaviors">]: never; }>(object: I_1): ListAllBehaviorsResponse;
+};
+export declare const AllBehaviorDetails: {
+    encode(message: AllBehaviorDetails, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): AllBehaviorDetails;
+    fromJSON(object: any): AllBehaviorDetails;
+    toJSON(message: AllBehaviorDetails): unknown;
+    create<I extends {
+        behaviors?: {
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        }[] | undefined;
+    } & {
+        behaviors?: ({
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        }[] & ({
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } & {
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: ({
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] & ({
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            } & {
+                param1?: ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] & ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                } & {
+                    name?: string | undefined;
+                    nil?: ({} & {} & { [K in Exclude<keyof I["behaviors"][number]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                    constant?: number | undefined;
+                    range?: ({
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & { [K_1 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param1"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                    hidUsage?: ({
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & { [K_2 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param1"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                    layerId?: ({} & {} & { [K_3 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                } & { [K_4 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param1"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_5 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param1"], keyof {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[]>]: never; }) | undefined;
+                param2?: ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] & ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                } & {
+                    name?: string | undefined;
+                    nil?: ({} & {} & { [K_6 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                    constant?: number | undefined;
+                    range?: ({
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & { [K_7 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param2"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                    hidUsage?: ({
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & { [K_8 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param2"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                    layerId?: ({} & {} & { [K_9 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                } & { [K_10 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param2"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_11 in Exclude<keyof I["behaviors"][number]["metadata"][number]["param2"], keyof {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_12 in Exclude<keyof I["behaviors"][number]["metadata"][number], keyof BehaviorBindingParametersSet>]: never; })[] & { [K_13 in Exclude<keyof I["behaviors"][number]["metadata"], keyof {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_14 in Exclude<keyof I["behaviors"][number], keyof GetBehaviorDetailsResponse>]: never; })[] & { [K_15 in Exclude<keyof I["behaviors"], keyof {
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_16 in Exclude<keyof I, "behaviors">]: never; }>(base?: I | undefined): AllBehaviorDetails;
+    fromPartial<I_1 extends {
+        behaviors?: {
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        }[] | undefined;
+    } & {
+        behaviors?: ({
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        }[] & ({
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } & {
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: ({
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] & ({
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            } & {
+                param1?: ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] & ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                } & {
+                    name?: string | undefined;
+                    nil?: ({} & {} & { [K_17 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param1"][number]["nil"], never>]: never; }) | undefined;
+                    constant?: number | undefined;
+                    range?: ({
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & { [K_18 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param1"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                    hidUsage?: ({
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & { [K_19 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param1"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                    layerId?: ({} & {} & { [K_20 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param1"][number]["layerId"], never>]: never; }) | undefined;
+                } & { [K_21 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param1"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_22 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param1"], keyof {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[]>]: never; }) | undefined;
+                param2?: ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] & ({
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                } & {
+                    name?: string | undefined;
+                    nil?: ({} & {} & { [K_23 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param2"][number]["nil"], never>]: never; }) | undefined;
+                    constant?: number | undefined;
+                    range?: ({
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } & { [K_24 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param2"][number]["range"], keyof BehaviorParameterValueDescriptionRange>]: never; }) | undefined;
+                    hidUsage?: ({
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } & { [K_25 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param2"][number]["hidUsage"], keyof BehaviorParameterHidUsage>]: never; }) | undefined;
+                    layerId?: ({} & {} & { [K_26 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param2"][number]["layerId"], never>]: never; }) | undefined;
+                } & { [K_27 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param2"][number], keyof BehaviorParameterValueDescription>]: never; })[] & { [K_28 in Exclude<keyof I_1["behaviors"][number]["metadata"][number]["param2"], keyof {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_29 in Exclude<keyof I_1["behaviors"][number]["metadata"][number], keyof BehaviorBindingParametersSet>]: never; })[] & { [K_30 in Exclude<keyof I_1["behaviors"][number]["metadata"], keyof {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_31 in Exclude<keyof I_1["behaviors"][number], keyof GetBehaviorDetailsResponse>]: never; })[] & { [K_32 in Exclude<keyof I_1["behaviors"], keyof {
+            id?: number | undefined;
+            displayName?: string | undefined;
+            metadata?: {
+                param1?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+                param2?: {
+                    name?: string | undefined;
+                    nil?: {} | undefined;
+                    constant?: number | undefined;
+                    range?: {
+                        min?: number | undefined;
+                        max?: number | undefined;
+                    } | undefined;
+                    hidUsage?: {
+                        keyboardMax?: number | undefined;
+                        consumerMax?: number | undefined;
+                    } | undefined;
+                    layerId?: {} | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_33 in Exclude<keyof I_1, "behaviors">]: never; }>(object: I_1): AllBehaviorDetails;
 };
 export declare const GetBehaviorDetailsResponse: {
     encode(message: GetBehaviorDetailsResponse, writer?: _m0.Writer): _m0.Writer;

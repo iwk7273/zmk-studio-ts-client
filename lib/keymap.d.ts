@@ -100,6 +100,8 @@ export interface Request {
     setLayerProps?: SetLayerPropsRequest | undefined;
     setLayerSensorBinding?: SetLayerSensorBindingRequest | undefined;
     setLayerSensorBindingParam?: SetLayerSensorBindingParamRequest | undefined;
+    getFastSnapshot?: boolean | undefined;
+    getFastLayers?: GetFastLayersRequest | undefined;
 }
 export interface Response {
     getKeymap?: Keymap | undefined;
@@ -116,6 +118,8 @@ export interface Response {
     setLayerProps?: SetLayerPropsResponse | undefined;
     setLayerSensorBinding?: SetLayerSensorBindingResponse | undefined;
     setLayerSensorBindingParam?: SetLayerSensorBindingResponse | undefined;
+    getFastSnapshot?: FastSnapshot | undefined;
+    getFastLayers?: FastLayers | undefined;
 }
 export interface Notification {
     unsavedChangesStatusChanged?: boolean | undefined;
@@ -187,6 +191,31 @@ export interface Keymap {
     layers: Layer[];
     availableLayers: number;
     maxLayerNameLength: number;
+}
+/** Read-only, optional fast path. Existing edit/save RPCs remain authoritative. */
+export interface FastSnapshot {
+    protocolVersion: number;
+    availableLayers: number;
+    maxLayerNameLength: number;
+    activeLayoutIndex: number;
+    unsavedChanges: boolean;
+    layoutsHashLow: number;
+    layoutsHashHigh: number;
+    behaviorsHashLow: number;
+    behaviorsHashHigh: number;
+    layers: LayerFingerprint[];
+}
+export interface LayerFingerprint {
+    id: number;
+    hashLow: number;
+    hashHigh: number;
+}
+export interface GetFastLayersRequest {
+    startIndex: number;
+    count: number;
+}
+export interface FastLayers {
+    layers: Layer[];
 }
 export interface Layer {
     id: number;
@@ -276,6 +305,11 @@ export declare const Request: {
                 param1?: number | undefined;
                 param2?: number | undefined;
             } | undefined;
+        } | undefined;
+        getFastSnapshot?: boolean | undefined;
+        getFastLayers?: {
+            startIndex?: number | undefined;
+            count?: number | undefined;
         } | undefined;
     } & {
         getKeymap?: boolean | undefined;
@@ -376,7 +410,15 @@ export declare const Request: {
                 param2?: number | undefined;
             } & { [K_9 in Exclude<keyof I["setLayerSensorBindingParam"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
         } & { [K_10 in Exclude<keyof I["setLayerSensorBindingParam"], keyof SetLayerSensorBindingParamRequest>]: never; }) | undefined;
-    } & { [K_11 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
+        getFastSnapshot?: boolean | undefined;
+        getFastLayers?: ({
+            startIndex?: number | undefined;
+            count?: number | undefined;
+        } & {
+            startIndex?: number | undefined;
+            count?: number | undefined;
+        } & { [K_11 in Exclude<keyof I["getFastLayers"], keyof GetFastLayersRequest>]: never; }) | undefined;
+    } & { [K_12 in Exclude<keyof I, keyof Request>]: never; }>(base?: I | undefined): Request;
     fromPartial<I_1 extends {
         getKeymap?: boolean | undefined;
         setLayerBinding?: {
@@ -428,6 +470,11 @@ export declare const Request: {
                 param2?: number | undefined;
             } | undefined;
         } | undefined;
+        getFastSnapshot?: boolean | undefined;
+        getFastLayers?: {
+            startIndex?: number | undefined;
+            count?: number | undefined;
+        } | undefined;
     } & {
         getKeymap?: boolean | undefined;
         setLayerBinding?: ({
@@ -449,8 +496,8 @@ export declare const Request: {
                 behaviorId?: number | undefined;
                 param1?: number | undefined;
                 param2?: number | undefined;
-            } & { [K_12 in Exclude<keyof I_1["setLayerBinding"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
-        } & { [K_13 in Exclude<keyof I_1["setLayerBinding"], keyof SetLayerBindingRequest>]: never; }) | undefined;
+            } & { [K_13 in Exclude<keyof I_1["setLayerBinding"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
+        } & { [K_14 in Exclude<keyof I_1["setLayerBinding"], keyof SetLayerBindingRequest>]: never; }) | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: boolean | undefined;
         discardChanges?: boolean | undefined;
@@ -462,27 +509,27 @@ export declare const Request: {
         } & {
             startIndex?: number | undefined;
             destIndex?: number | undefined;
-        } & { [K_14 in Exclude<keyof I_1["moveLayer"], keyof MoveLayerRequest>]: never; }) | undefined;
-        addLayer?: ({} & {} & { [K_15 in Exclude<keyof I_1["addLayer"], never>]: never; }) | undefined;
+        } & { [K_15 in Exclude<keyof I_1["moveLayer"], keyof MoveLayerRequest>]: never; }) | undefined;
+        addLayer?: ({} & {} & { [K_16 in Exclude<keyof I_1["addLayer"], never>]: never; }) | undefined;
         removeLayer?: ({
             layerIndex?: number | undefined;
         } & {
             layerIndex?: number | undefined;
-        } & { [K_16 in Exclude<keyof I_1["removeLayer"], "layerIndex">]: never; }) | undefined;
+        } & { [K_17 in Exclude<keyof I_1["removeLayer"], "layerIndex">]: never; }) | undefined;
         restoreLayer?: ({
             layerId?: number | undefined;
             atIndex?: number | undefined;
         } & {
             layerId?: number | undefined;
             atIndex?: number | undefined;
-        } & { [K_17 in Exclude<keyof I_1["restoreLayer"], keyof RestoreLayerRequest>]: never; }) | undefined;
+        } & { [K_18 in Exclude<keyof I_1["restoreLayer"], keyof RestoreLayerRequest>]: never; }) | undefined;
         setLayerProps?: ({
             layerId?: number | undefined;
             name?: string | undefined;
         } & {
             layerId?: number | undefined;
             name?: string | undefined;
-        } & { [K_18 in Exclude<keyof I_1["setLayerProps"], keyof SetLayerPropsRequest>]: never; }) | undefined;
+        } & { [K_19 in Exclude<keyof I_1["setLayerProps"], keyof SetLayerPropsRequest>]: never; }) | undefined;
         setLayerSensorBinding?: ({
             layerId?: number | undefined;
             sensorIndex?: number | undefined;
@@ -502,8 +549,8 @@ export declare const Request: {
                 behaviorId?: number | undefined;
                 param1?: number | undefined;
                 param2?: number | undefined;
-            } & { [K_19 in Exclude<keyof I_1["setLayerSensorBinding"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
-        } & { [K_20 in Exclude<keyof I_1["setLayerSensorBinding"], keyof SetLayerSensorBindingRequest>]: never; }) | undefined;
+            } & { [K_20 in Exclude<keyof I_1["setLayerSensorBinding"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
+        } & { [K_21 in Exclude<keyof I_1["setLayerSensorBinding"], keyof SetLayerSensorBindingRequest>]: never; }) | undefined;
         setLayerSensorBindingParam?: ({
             layerId?: number | undefined;
             sensorIndex?: number | undefined;
@@ -525,9 +572,17 @@ export declare const Request: {
                 behaviorId?: number | undefined;
                 param1?: number | undefined;
                 param2?: number | undefined;
-            } & { [K_21 in Exclude<keyof I_1["setLayerSensorBindingParam"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
-        } & { [K_22 in Exclude<keyof I_1["setLayerSensorBindingParam"], keyof SetLayerSensorBindingParamRequest>]: never; }) | undefined;
-    } & { [K_23 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
+            } & { [K_22 in Exclude<keyof I_1["setLayerSensorBindingParam"]["binding"], keyof BehaviorBinding>]: never; }) | undefined;
+        } & { [K_23 in Exclude<keyof I_1["setLayerSensorBindingParam"], keyof SetLayerSensorBindingParamRequest>]: never; }) | undefined;
+        getFastSnapshot?: boolean | undefined;
+        getFastLayers?: ({
+            startIndex?: number | undefined;
+            count?: number | undefined;
+        } & {
+            startIndex?: number | undefined;
+            count?: number | undefined;
+        } & { [K_24 in Exclude<keyof I_1["getFastLayers"], keyof GetFastLayersRequest>]: never; }) | undefined;
+    } & { [K_25 in Exclude<keyof I_1, keyof Request>]: never; }>(object: I_1): Request;
 };
 export declare const Response: {
     encode(message: Response, writer?: _m0.Writer): _m0.Writer;
@@ -721,6 +776,50 @@ export declare const Response: {
         setLayerProps?: SetLayerPropsResponse | undefined;
         setLayerSensorBinding?: SetLayerSensorBindingResponse | undefined;
         setLayerSensorBindingParam?: SetLayerSensorBindingResponse | undefined;
+        getFastSnapshot?: {
+            protocolVersion?: number | undefined;
+            availableLayers?: number | undefined;
+            maxLayerNameLength?: number | undefined;
+            activeLayoutIndex?: number | undefined;
+            unsavedChanges?: boolean | undefined;
+            layoutsHashLow?: number | undefined;
+            layoutsHashHigh?: number | undefined;
+            behaviorsHashLow?: number | undefined;
+            behaviorsHashHigh?: number | undefined;
+            layers?: {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[] | undefined;
+        } | undefined;
+        getFastLayers?: {
+            layers?: {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } | undefined;
     } & {
         getKeymap?: ({
             layers?: {
@@ -1823,7 +1922,245 @@ export declare const Response: {
         setLayerProps?: SetLayerPropsResponse | undefined;
         setLayerSensorBinding?: SetLayerSensorBindingResponse | undefined;
         setLayerSensorBindingParam?: SetLayerSensorBindingResponse | undefined;
-    } & { [K_64 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
+        getFastSnapshot?: ({
+            protocolVersion?: number | undefined;
+            availableLayers?: number | undefined;
+            maxLayerNameLength?: number | undefined;
+            activeLayoutIndex?: number | undefined;
+            unsavedChanges?: boolean | undefined;
+            layoutsHashLow?: number | undefined;
+            layoutsHashHigh?: number | undefined;
+            behaviorsHashLow?: number | undefined;
+            behaviorsHashHigh?: number | undefined;
+            layers?: {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[] | undefined;
+        } & {
+            protocolVersion?: number | undefined;
+            availableLayers?: number | undefined;
+            maxLayerNameLength?: number | undefined;
+            activeLayoutIndex?: number | undefined;
+            unsavedChanges?: boolean | undefined;
+            layoutsHashLow?: number | undefined;
+            layoutsHashHigh?: number | undefined;
+            behaviorsHashLow?: number | undefined;
+            behaviorsHashHigh?: number | undefined;
+            layers?: ({
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[] & ({
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            } & {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            } & { [K_64 in Exclude<keyof I["getFastSnapshot"]["layers"][number], keyof LayerFingerprint>]: never; })[] & { [K_65 in Exclude<keyof I["getFastSnapshot"]["layers"], keyof {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_66 in Exclude<keyof I["getFastSnapshot"], keyof FastSnapshot>]: never; }) | undefined;
+        getFastLayers?: ({
+            layers?: {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } & {
+            layers?: ({
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[] & ({
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            } & {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] & ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_67 in Exclude<keyof I["getFastLayers"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_68 in Exclude<keyof I["getFastLayers"]["layers"][number]["bindings"], keyof {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[]>]: never; }) | undefined;
+                sensorBindings?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] & ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_69 in Exclude<keyof I["getFastLayers"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_70 in Exclude<keyof I["getFastLayers"]["layers"][number]["sensorBindings"], keyof {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[]>]: never; }) | undefined;
+                sensorDirectionBindings?: ({
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] & ({
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                } & {
+                    param1Binding?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_71 in Exclude<keyof I["getFastLayers"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    param2Binding?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_72 in Exclude<keyof I["getFastLayers"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                } & { [K_73 in Exclude<keyof I["getFastLayers"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_74 in Exclude<keyof I["getFastLayers"]["layers"][number]["sensorDirectionBindings"], keyof {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_75 in Exclude<keyof I["getFastLayers"]["layers"][number], keyof Layer>]: never; })[] & { [K_76 in Exclude<keyof I["getFastLayers"]["layers"], keyof {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_77 in Exclude<keyof I["getFastLayers"], "layers">]: never; }) | undefined;
+    } & { [K_78 in Exclude<keyof I, keyof Response>]: never; }>(base?: I | undefined): Response;
     fromPartial<I_1 extends {
         getKeymap?: {
             layers?: {
@@ -2011,6 +2348,50 @@ export declare const Response: {
         setLayerProps?: SetLayerPropsResponse | undefined;
         setLayerSensorBinding?: SetLayerSensorBindingResponse | undefined;
         setLayerSensorBindingParam?: SetLayerSensorBindingResponse | undefined;
+        getFastSnapshot?: {
+            protocolVersion?: number | undefined;
+            availableLayers?: number | undefined;
+            maxLayerNameLength?: number | undefined;
+            activeLayoutIndex?: number | undefined;
+            unsavedChanges?: boolean | undefined;
+            layoutsHashLow?: number | undefined;
+            layoutsHashHigh?: number | undefined;
+            behaviorsHashLow?: number | undefined;
+            behaviorsHashHigh?: number | undefined;
+            layers?: {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[] | undefined;
+        } | undefined;
+        getFastLayers?: {
+            layers?: {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } | undefined;
     } & {
         getKeymap?: ({
             layers?: {
@@ -2107,7 +2488,7 @@ export declare const Response: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_65 in Exclude<keyof I_1["getKeymap"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_66 in Exclude<keyof I_1["getKeymap"]["layers"][number]["bindings"], keyof {
+                } & { [K_79 in Exclude<keyof I_1["getKeymap"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_80 in Exclude<keyof I_1["getKeymap"]["layers"][number]["bindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
@@ -2124,7 +2505,7 @@ export declare const Response: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_67 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_68 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorBindings"], keyof {
+                } & { [K_81 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_82 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorBindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
@@ -2160,7 +2541,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_69 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_83 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
                     param2Binding?: ({
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
@@ -2169,8 +2550,8 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_70 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
-                } & { [K_71 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_72 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
+                    } & { [K_84 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                } & { [K_85 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_86 in Exclude<keyof I_1["getKeymap"]["layers"][number]["sensorDirectionBindings"], keyof {
                     param1Binding?: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
@@ -2182,7 +2563,7 @@ export declare const Response: {
                         param2?: number | undefined;
                     } | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_73 in Exclude<keyof I_1["getKeymap"]["layers"][number], keyof Layer>]: never; })[] & { [K_74 in Exclude<keyof I_1["getKeymap"]["layers"], keyof {
+            } & { [K_87 in Exclude<keyof I_1["getKeymap"]["layers"][number], keyof Layer>]: never; })[] & { [K_88 in Exclude<keyof I_1["getKeymap"]["layers"], keyof {
                 id?: number | undefined;
                 name?: string | undefined;
                 bindings?: {
@@ -2210,7 +2591,7 @@ export declare const Response: {
             }[]>]: never; }) | undefined;
             availableLayers?: number | undefined;
             maxLayerNameLength?: number | undefined;
-        } & { [K_75 in Exclude<keyof I_1["getKeymap"], keyof Keymap>]: never; }) | undefined;
+        } & { [K_89 in Exclude<keyof I_1["getKeymap"], keyof Keymap>]: never; }) | undefined;
         setLayerBinding?: SetLayerBindingResponse | undefined;
         checkUnsavedChanges?: boolean | undefined;
         saveChanges?: ({
@@ -2219,7 +2600,7 @@ export declare const Response: {
         } & {
             ok?: boolean | undefined;
             err?: SaveChangesErrorCode | undefined;
-        } & { [K_76 in Exclude<keyof I_1["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
+        } & { [K_90 in Exclude<keyof I_1["saveChanges"], keyof SaveChangesResponse>]: never; }) | undefined;
         discardChanges?: boolean | undefined;
         getPhysicalLayouts?: ({
             activeLayoutIndex?: number | undefined;
@@ -2285,7 +2666,7 @@ export declare const Response: {
                     r?: number | undefined;
                     rx?: number | undefined;
                     ry?: number | undefined;
-                } & { [K_77 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof KeyPhysicalAttrs>]: never; })[] & { [K_78 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
+                } & { [K_91 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"][number]["keys"][number], keyof KeyPhysicalAttrs>]: never; })[] & { [K_92 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"][number]["keys"], keyof {
                     width?: number | undefined;
                     height?: number | undefined;
                     x?: number | undefined;
@@ -2294,7 +2675,7 @@ export declare const Response: {
                     rx?: number | undefined;
                     ry?: number | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_79 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"][number], keyof PhysicalLayout>]: never; })[] & { [K_80 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"], keyof {
+            } & { [K_93 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"][number], keyof PhysicalLayout>]: never; })[] & { [K_94 in Exclude<keyof I_1["getPhysicalLayouts"]["layouts"], keyof {
                 name?: string | undefined;
                 keys?: {
                     width?: number | undefined;
@@ -2306,7 +2687,7 @@ export declare const Response: {
                     ry?: number | undefined;
                 }[] | undefined;
             }[]>]: never; }) | undefined;
-        } & { [K_81 in Exclude<keyof I_1["getPhysicalLayouts"], keyof PhysicalLayouts>]: never; }) | undefined;
+        } & { [K_95 in Exclude<keyof I_1["getPhysicalLayouts"], keyof PhysicalLayouts>]: never; }) | undefined;
         setActivePhysicalLayout?: ({
             ok?: {
                 layers?: {
@@ -2435,7 +2816,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_82 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_83 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
+                    } & { [K_96 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_97 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -2452,7 +2833,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_84 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_85 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                    } & { [K_98 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_99 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -2488,7 +2869,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_86 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_100 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -2497,8 +2878,8 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_87 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_88 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_89 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                        } & { [K_101 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_102 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_103 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -2510,7 +2891,7 @@ export declare const Response: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_90 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number], keyof Layer>]: never; })[] & { [K_91 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"], keyof {
+                } & { [K_104 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"][number], keyof Layer>]: never; })[] & { [K_105 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"]["layers"], keyof {
                     id?: number | undefined;
                     name?: string | undefined;
                     bindings?: {
@@ -2538,9 +2919,9 @@ export declare const Response: {
                 }[]>]: never; }) | undefined;
                 availableLayers?: number | undefined;
                 maxLayerNameLength?: number | undefined;
-            } & { [K_92 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"], keyof Keymap>]: never; }) | undefined;
+            } & { [K_106 in Exclude<keyof I_1["setActivePhysicalLayout"]["ok"], keyof Keymap>]: never; }) | undefined;
             err?: SetActivePhysicalLayoutErrorCode | undefined;
-        } & { [K_93 in Exclude<keyof I_1["setActivePhysicalLayout"], keyof SetActivePhysicalLayoutResponse>]: never; }) | undefined;
+        } & { [K_107 in Exclude<keyof I_1["setActivePhysicalLayout"], keyof SetActivePhysicalLayoutResponse>]: never; }) | undefined;
         moveLayer?: ({
             ok?: {
                 layers?: {
@@ -2669,7 +3050,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_94 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_95 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
+                    } & { [K_108 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_109 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -2686,7 +3067,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_96 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_97 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
+                    } & { [K_110 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_111 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -2722,7 +3103,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_98 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_112 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -2731,8 +3112,8 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_99 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_100 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_101 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
+                        } & { [K_113 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_114 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_115 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -2744,7 +3125,7 @@ export declare const Response: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_102 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number], keyof Layer>]: never; })[] & { [K_103 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"], keyof {
+                } & { [K_116 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"][number], keyof Layer>]: never; })[] & { [K_117 in Exclude<keyof I_1["moveLayer"]["ok"]["layers"], keyof {
                     id?: number | undefined;
                     name?: string | undefined;
                     bindings?: {
@@ -2772,9 +3153,9 @@ export declare const Response: {
                 }[]>]: never; }) | undefined;
                 availableLayers?: number | undefined;
                 maxLayerNameLength?: number | undefined;
-            } & { [K_104 in Exclude<keyof I_1["moveLayer"]["ok"], keyof Keymap>]: never; }) | undefined;
+            } & { [K_118 in Exclude<keyof I_1["moveLayer"]["ok"], keyof Keymap>]: never; }) | undefined;
             err?: MoveLayerErrorCode | undefined;
-        } & { [K_105 in Exclude<keyof I_1["moveLayer"], keyof MoveLayerResponse>]: never; }) | undefined;
+        } & { [K_119 in Exclude<keyof I_1["moveLayer"], keyof MoveLayerResponse>]: never; }) | undefined;
         addLayer?: ({
             ok?: {
                 index?: number | undefined;
@@ -2877,7 +3258,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_106 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_107 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["bindings"], keyof {
+                    } & { [K_120 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_121 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["bindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -2894,7 +3275,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_108 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_109 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
+                    } & { [K_122 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_123 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorBindings"], keyof {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
@@ -2930,7 +3311,7 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_110 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                        } & { [K_124 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
                         param2Binding?: ({
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -2939,8 +3320,8 @@ export declare const Response: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
                             param2?: number | undefined;
-                        } & { [K_111 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
-                    } & { [K_112 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_113 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
+                        } & { [K_125 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_126 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_127 in Exclude<keyof I_1["addLayer"]["ok"]["layer"]["sensorDirectionBindings"], keyof {
                         param1Binding?: {
                             behaviorId?: number | undefined;
                             param1?: number | undefined;
@@ -2952,17 +3333,17 @@ export declare const Response: {
                             param2?: number | undefined;
                         } | undefined;
                     }[]>]: never; }) | undefined;
-                } & { [K_114 in Exclude<keyof I_1["addLayer"]["ok"]["layer"], keyof Layer>]: never; }) | undefined;
-            } & { [K_115 in Exclude<keyof I_1["addLayer"]["ok"], keyof AddLayerResponseDetails>]: never; }) | undefined;
+                } & { [K_128 in Exclude<keyof I_1["addLayer"]["ok"]["layer"], keyof Layer>]: never; }) | undefined;
+            } & { [K_129 in Exclude<keyof I_1["addLayer"]["ok"], keyof AddLayerResponseDetails>]: never; }) | undefined;
             err?: AddLayerErrorCode | undefined;
-        } & { [K_116 in Exclude<keyof I_1["addLayer"], keyof AddLayerResponse>]: never; }) | undefined;
+        } & { [K_130 in Exclude<keyof I_1["addLayer"], keyof AddLayerResponse>]: never; }) | undefined;
         removeLayer?: ({
             ok?: {} | undefined;
             err?: RemoveLayerErrorCode | undefined;
         } & {
-            ok?: ({} & {} & { [K_117 in Exclude<keyof I_1["removeLayer"]["ok"], never>]: never; }) | undefined;
+            ok?: ({} & {} & { [K_131 in Exclude<keyof I_1["removeLayer"]["ok"], never>]: never; }) | undefined;
             err?: RemoveLayerErrorCode | undefined;
-        } & { [K_118 in Exclude<keyof I_1["removeLayer"], keyof RemoveLayerResponse>]: never; }) | undefined;
+        } & { [K_132 in Exclude<keyof I_1["removeLayer"], keyof RemoveLayerResponse>]: never; }) | undefined;
         restoreLayer?: ({
             ok?: {
                 id?: number | undefined;
@@ -3032,7 +3413,7 @@ export declare const Response: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_119 in Exclude<keyof I_1["restoreLayer"]["ok"]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_120 in Exclude<keyof I_1["restoreLayer"]["ok"]["bindings"], keyof {
+                } & { [K_133 in Exclude<keyof I_1["restoreLayer"]["ok"]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_134 in Exclude<keyof I_1["restoreLayer"]["ok"]["bindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
@@ -3049,7 +3430,7 @@ export declare const Response: {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
-                } & { [K_121 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_122 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorBindings"], keyof {
+                } & { [K_135 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_136 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorBindings"], keyof {
                     behaviorId?: number | undefined;
                     param1?: number | undefined;
                     param2?: number | undefined;
@@ -3085,7 +3466,7 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_123 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    } & { [K_137 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
                     param2Binding?: ({
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
@@ -3094,8 +3475,8 @@ export declare const Response: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
                         param2?: number | undefined;
-                    } & { [K_124 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
-                } & { [K_125 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_126 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
+                    } & { [K_138 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                } & { [K_139 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_140 in Exclude<keyof I_1["restoreLayer"]["ok"]["sensorDirectionBindings"], keyof {
                     param1Binding?: {
                         behaviorId?: number | undefined;
                         param1?: number | undefined;
@@ -3107,13 +3488,251 @@ export declare const Response: {
                         param2?: number | undefined;
                     } | undefined;
                 }[]>]: never; }) | undefined;
-            } & { [K_127 in Exclude<keyof I_1["restoreLayer"]["ok"], keyof Layer>]: never; }) | undefined;
+            } & { [K_141 in Exclude<keyof I_1["restoreLayer"]["ok"], keyof Layer>]: never; }) | undefined;
             err?: RestoreLayerErrorCode | undefined;
-        } & { [K_128 in Exclude<keyof I_1["restoreLayer"], keyof RestoreLayerResponse>]: never; }) | undefined;
+        } & { [K_142 in Exclude<keyof I_1["restoreLayer"], keyof RestoreLayerResponse>]: never; }) | undefined;
         setLayerProps?: SetLayerPropsResponse | undefined;
         setLayerSensorBinding?: SetLayerSensorBindingResponse | undefined;
         setLayerSensorBindingParam?: SetLayerSensorBindingResponse | undefined;
-    } & { [K_129 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
+        getFastSnapshot?: ({
+            protocolVersion?: number | undefined;
+            availableLayers?: number | undefined;
+            maxLayerNameLength?: number | undefined;
+            activeLayoutIndex?: number | undefined;
+            unsavedChanges?: boolean | undefined;
+            layoutsHashLow?: number | undefined;
+            layoutsHashHigh?: number | undefined;
+            behaviorsHashLow?: number | undefined;
+            behaviorsHashHigh?: number | undefined;
+            layers?: {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[] | undefined;
+        } & {
+            protocolVersion?: number | undefined;
+            availableLayers?: number | undefined;
+            maxLayerNameLength?: number | undefined;
+            activeLayoutIndex?: number | undefined;
+            unsavedChanges?: boolean | undefined;
+            layoutsHashLow?: number | undefined;
+            layoutsHashHigh?: number | undefined;
+            behaviorsHashLow?: number | undefined;
+            behaviorsHashHigh?: number | undefined;
+            layers?: ({
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[] & ({
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            } & {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            } & { [K_143 in Exclude<keyof I_1["getFastSnapshot"]["layers"][number], keyof LayerFingerprint>]: never; })[] & { [K_144 in Exclude<keyof I_1["getFastSnapshot"]["layers"], keyof {
+                id?: number | undefined;
+                hashLow?: number | undefined;
+                hashHigh?: number | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_145 in Exclude<keyof I_1["getFastSnapshot"], keyof FastSnapshot>]: never; }) | undefined;
+        getFastLayers?: ({
+            layers?: {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[] | undefined;
+        } & {
+            layers?: ({
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[] & ({
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            } & {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] & ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_146 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_147 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["bindings"], keyof {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[]>]: never; }) | undefined;
+                sensorBindings?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] & ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_148 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_149 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["sensorBindings"], keyof {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[]>]: never; }) | undefined;
+                sensorDirectionBindings?: ({
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] & ({
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                } & {
+                    param1Binding?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_150 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                    param2Binding?: ({
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } & { [K_151 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                } & { [K_152 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_153 in Exclude<keyof I_1["getFastLayers"]["layers"][number]["sensorDirectionBindings"], keyof {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[]>]: never; }) | undefined;
+            } & { [K_154 in Exclude<keyof I_1["getFastLayers"]["layers"][number], keyof Layer>]: never; })[] & { [K_155 in Exclude<keyof I_1["getFastLayers"]["layers"], keyof {
+                id?: number | undefined;
+                name?: string | undefined;
+                bindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorBindings?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                }[] | undefined;
+                sensorDirectionBindings?: {
+                    param1Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                    param2Binding?: {
+                        behaviorId?: number | undefined;
+                        param1?: number | undefined;
+                        param2?: number | undefined;
+                    } | undefined;
+                }[] | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_156 in Exclude<keyof I_1["getFastLayers"], "layers">]: never; }) | undefined;
+    } & { [K_157 in Exclude<keyof I_1, keyof Response>]: never; }>(object: I_1): Response;
 };
 export declare const Notification: {
     encode(message: Notification, writer?: _m0.Writer): _m0.Writer;
@@ -5730,6 +6349,538 @@ export declare const Keymap: {
         availableLayers?: number | undefined;
         maxLayerNameLength?: number | undefined;
     } & { [K_21 in Exclude<keyof I_1, keyof Keymap>]: never; }>(object: I_1): Keymap;
+};
+export declare const FastSnapshot: {
+    encode(message: FastSnapshot, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): FastSnapshot;
+    fromJSON(object: any): FastSnapshot;
+    toJSON(message: FastSnapshot): unknown;
+    create<I extends {
+        protocolVersion?: number | undefined;
+        availableLayers?: number | undefined;
+        maxLayerNameLength?: number | undefined;
+        activeLayoutIndex?: number | undefined;
+        unsavedChanges?: boolean | undefined;
+        layoutsHashLow?: number | undefined;
+        layoutsHashHigh?: number | undefined;
+        behaviorsHashLow?: number | undefined;
+        behaviorsHashHigh?: number | undefined;
+        layers?: {
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        }[] | undefined;
+    } & {
+        protocolVersion?: number | undefined;
+        availableLayers?: number | undefined;
+        maxLayerNameLength?: number | undefined;
+        activeLayoutIndex?: number | undefined;
+        unsavedChanges?: boolean | undefined;
+        layoutsHashLow?: number | undefined;
+        layoutsHashHigh?: number | undefined;
+        behaviorsHashLow?: number | undefined;
+        behaviorsHashHigh?: number | undefined;
+        layers?: ({
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        }[] & ({
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        } & {
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        } & { [K in Exclude<keyof I["layers"][number], keyof LayerFingerprint>]: never; })[] & { [K_1 in Exclude<keyof I["layers"], keyof {
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_2 in Exclude<keyof I, keyof FastSnapshot>]: never; }>(base?: I | undefined): FastSnapshot;
+    fromPartial<I_1 extends {
+        protocolVersion?: number | undefined;
+        availableLayers?: number | undefined;
+        maxLayerNameLength?: number | undefined;
+        activeLayoutIndex?: number | undefined;
+        unsavedChanges?: boolean | undefined;
+        layoutsHashLow?: number | undefined;
+        layoutsHashHigh?: number | undefined;
+        behaviorsHashLow?: number | undefined;
+        behaviorsHashHigh?: number | undefined;
+        layers?: {
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        }[] | undefined;
+    } & {
+        protocolVersion?: number | undefined;
+        availableLayers?: number | undefined;
+        maxLayerNameLength?: number | undefined;
+        activeLayoutIndex?: number | undefined;
+        unsavedChanges?: boolean | undefined;
+        layoutsHashLow?: number | undefined;
+        layoutsHashHigh?: number | undefined;
+        behaviorsHashLow?: number | undefined;
+        behaviorsHashHigh?: number | undefined;
+        layers?: ({
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        }[] & ({
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        } & {
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        } & { [K_3 in Exclude<keyof I_1["layers"][number], keyof LayerFingerprint>]: never; })[] & { [K_4 in Exclude<keyof I_1["layers"], keyof {
+            id?: number | undefined;
+            hashLow?: number | undefined;
+            hashHigh?: number | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_5 in Exclude<keyof I_1, keyof FastSnapshot>]: never; }>(object: I_1): FastSnapshot;
+};
+export declare const LayerFingerprint: {
+    encode(message: LayerFingerprint, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): LayerFingerprint;
+    fromJSON(object: any): LayerFingerprint;
+    toJSON(message: LayerFingerprint): unknown;
+    create<I extends {
+        id?: number | undefined;
+        hashLow?: number | undefined;
+        hashHigh?: number | undefined;
+    } & {
+        id?: number | undefined;
+        hashLow?: number | undefined;
+        hashHigh?: number | undefined;
+    } & { [K in Exclude<keyof I, keyof LayerFingerprint>]: never; }>(base?: I | undefined): LayerFingerprint;
+    fromPartial<I_1 extends {
+        id?: number | undefined;
+        hashLow?: number | undefined;
+        hashHigh?: number | undefined;
+    } & {
+        id?: number | undefined;
+        hashLow?: number | undefined;
+        hashHigh?: number | undefined;
+    } & { [K_1 in Exclude<keyof I_1, keyof LayerFingerprint>]: never; }>(object: I_1): LayerFingerprint;
+};
+export declare const GetFastLayersRequest: {
+    encode(message: GetFastLayersRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): GetFastLayersRequest;
+    fromJSON(object: any): GetFastLayersRequest;
+    toJSON(message: GetFastLayersRequest): unknown;
+    create<I extends {
+        startIndex?: number | undefined;
+        count?: number | undefined;
+    } & {
+        startIndex?: number | undefined;
+        count?: number | undefined;
+    } & { [K in Exclude<keyof I, keyof GetFastLayersRequest>]: never; }>(base?: I | undefined): GetFastLayersRequest;
+    fromPartial<I_1 extends {
+        startIndex?: number | undefined;
+        count?: number | undefined;
+    } & {
+        startIndex?: number | undefined;
+        count?: number | undefined;
+    } & { [K_1 in Exclude<keyof I_1, keyof GetFastLayersRequest>]: never; }>(object: I_1): GetFastLayersRequest;
+};
+export declare const FastLayers: {
+    encode(message: FastLayers, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): FastLayers;
+    fromJSON(object: any): FastLayers;
+    toJSON(message: FastLayers): unknown;
+    create<I extends {
+        layers?: {
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        }[] | undefined;
+    } & {
+        layers?: ({
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        }[] & ({
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        } & {
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] & ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & { [K in Exclude<keyof I["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_1 in Exclude<keyof I["layers"][number]["bindings"], keyof {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[]>]: never; }) | undefined;
+            sensorBindings?: ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] & ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & { [K_2 in Exclude<keyof I["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_3 in Exclude<keyof I["layers"][number]["sensorBindings"], keyof {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[]>]: never; }) | undefined;
+            sensorDirectionBindings?: ({
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] & ({
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            } & {
+                param1Binding?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_4 in Exclude<keyof I["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                param2Binding?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_5 in Exclude<keyof I["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+            } & { [K_6 in Exclude<keyof I["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_7 in Exclude<keyof I["layers"][number]["sensorDirectionBindings"], keyof {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_8 in Exclude<keyof I["layers"][number], keyof Layer>]: never; })[] & { [K_9 in Exclude<keyof I["layers"], keyof {
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_10 in Exclude<keyof I, "layers">]: never; }>(base?: I | undefined): FastLayers;
+    fromPartial<I_1 extends {
+        layers?: {
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        }[] | undefined;
+    } & {
+        layers?: ({
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        }[] & ({
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        } & {
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] & ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & { [K_11 in Exclude<keyof I_1["layers"][number]["bindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_12 in Exclude<keyof I_1["layers"][number]["bindings"], keyof {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[]>]: never; }) | undefined;
+            sensorBindings?: ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] & ({
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            } & { [K_13 in Exclude<keyof I_1["layers"][number]["sensorBindings"][number], keyof BehaviorBinding>]: never; })[] & { [K_14 in Exclude<keyof I_1["layers"][number]["sensorBindings"], keyof {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[]>]: never; }) | undefined;
+            sensorDirectionBindings?: ({
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] & ({
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            } & {
+                param1Binding?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_15 in Exclude<keyof I_1["layers"][number]["sensorDirectionBindings"][number]["param1Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+                param2Binding?: ({
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } & { [K_16 in Exclude<keyof I_1["layers"][number]["sensorDirectionBindings"][number]["param2Binding"], keyof BehaviorBinding>]: never; }) | undefined;
+            } & { [K_17 in Exclude<keyof I_1["layers"][number]["sensorDirectionBindings"][number], keyof SensorDirectionBindings>]: never; })[] & { [K_18 in Exclude<keyof I_1["layers"][number]["sensorDirectionBindings"], keyof {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[]>]: never; }) | undefined;
+        } & { [K_19 in Exclude<keyof I_1["layers"][number], keyof Layer>]: never; })[] & { [K_20 in Exclude<keyof I_1["layers"], keyof {
+            id?: number | undefined;
+            name?: string | undefined;
+            bindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorBindings?: {
+                behaviorId?: number | undefined;
+                param1?: number | undefined;
+                param2?: number | undefined;
+            }[] | undefined;
+            sensorDirectionBindings?: {
+                param1Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+                param2Binding?: {
+                    behaviorId?: number | undefined;
+                    param1?: number | undefined;
+                    param2?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+        }[]>]: never; }) | undefined;
+    } & { [K_21 in Exclude<keyof I_1, "layers">]: never; }>(object: I_1): FastLayers;
 };
 export declare const Layer: {
     encode(message: Layer, writer?: _m0.Writer): _m0.Writer;

@@ -23,6 +23,10 @@ user-supplied host labels, unpair/select operations, and preferred versus select
 for the connections view. Host labels are not advertised over Bluetooth and may be assigned before
 pairing.
 
+The optional `keymap.fast_snapshot.v1` capability adds a read-only keymap snapshot, batched layer
+reads, and batched behavior details. The editor checks fingerprints before reusing browser-local
+data; existing keymap edit, save, and discard RPCs remain unchanged.
+
 The upstream package assumes a system `protoc` is available when installing from git. This fork adds
 the npm `protoc` dev dependency so `npm run generate` and git dependency postinstall can run in the
 Meteorite editor workspace without a separate system install.
